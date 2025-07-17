@@ -27,7 +27,7 @@
 
     <!-- Chosen Palette: Bakery Bliss -->
     <!-- Application Structure Plan: A single-page, scrollable website with a fixed navigation bar for intuitive access to all key sections: Home (Hero), About, Gallery, Testimonials, and Order. This structure is ideal for a small business, presenting a clear, linear story to the user—from introduction to conversion (ordering). The mobile-first design uses a hamburger menu for clean navigation on small screens. The user flow is designed to build trust and desire through visual appeal (gallery) and social proof (testimonials) before leading to the call-to-action (order form). This is more effective for a local service business than a complex multi-page site. -->
-    <!-- Visualization & Content Choices: Report Info: Cake images -> Goal: Showcase products -> Viz/Presentation: Interactive Image Gallery with Two Sliders -> Interaction: JS-based category filtering, slider navigation (previous/next buttons), and auto-rotation with hover pause -> Justification: Allows users to easily view a large number of cakes relevant to their needs, enhancing user experience and visual appeal. Report Info: Customer feedback -> Goal: Build trust -> Viz/Presentation: Testimonial Cards -> Interaction: Static display -> Justification: Clean, readable format for social proof. Report Info: Order process -> Goal: Generate leads -> Viz/Presentation: Embedded Google Form -> Interaction: Form submission -> Justification: Seamlessly integrates the primary business goal (inquiries) into the site without external navigation. This architecture is built with HTML/Tailwind and vanilla JS. -->
+    <!-- Visualization & Content Choices: Report Info: Cake images -> Goal: Showcase products -> Viz/Presentation: Interactive Image Gallery with Two Sliders and Hero Background Slider -> Interaction: JS-based category filtering, slider navigation (previous/next buttons), and auto-rotation with hover pause for all sliders -> Justification: Allows users to easily view a large number of cakes relevant to their needs, enhancing user experience and visual appeal. The hero slider provides a dynamic and engaging first impression. Report Info: Customer feedback -> Goal: Build trust -> Viz/Presentation: Testimonial Cards -> Interaction: Static display -> Justification: Clean, readable format for social proof. Report Info: Order process -> Goal: Generate leads -> Viz/Presentation: Embedded Google Form -> Interaction: Form submission -> Justification: Seamlessly integrates the primary business goal (inquiries) into the site without external navigation. This architecture is built with HTML/Tailwind and vanilla JS. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <!-- Schema.org Markup for Local Business -->
@@ -84,10 +84,19 @@
         h1, h2, h3, .font-display {
             font-family: 'Playfair Display', serif;
         }
-        .hero-bg {
-            background-image: url('https://placehold.co/1920x1080/EAD8C0/FFFFFF?text=Replace+with+your+best+cake+photo');
+        .hero-slider-item {
             background-size: cover;
             background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-slider-item.active {
+            opacity: 1;
         }
         .gallery-item {
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -171,6 +180,26 @@
         .slider-nav-button-next {
             right: 1rem;
         }
+        .hero-dots-container {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 20;
+        }
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .hero-dot.active {
+            background-color: white;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -209,11 +238,25 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero-bg h-screen flex items-center justify-center text-white">
-            <div class="text-center bg-black/50 p-8 rounded-lg">
+        <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+            <!-- Hero Background Slider -->
+            <div id="hero-slider-background" class="absolute inset-0">
+                <div class="hero-slider-item active" style="background-image: url('https://placehold.co/1920x1080/EAD8C0/FFFFFF?text=Best+Cake+Photo+1');"></div>
+                <div class="hero-slider-item" style="background-image: url('https://placehold.co/1920x1080/D1C4E9/FFFFFF?text=Best+Cake+Photo+2');"></div>
+                <div class="hero-slider-item" style="background-image: url('https://placehold.co/1920x1080/B2DFDB/FFFFFF?text=Best+Cake+Photo+3');"></div>
+            </div>
+
+            <div class="relative z-10 text-center bg-black/50 p-8 rounded-lg">
                 <h1 class="font-display text-5xl md:text-7xl font-bold">Creating Sweet Memories</h1>
                 <p class="text-xl md:text-2xl mt-4 max-w-2xl">Handcrafted custom cakes from Dayton, NJ, for your special moments.</p>
                 <a href="#order" class="mt-8 inline-block bg-sienna-700 hover:bg-sienna-800 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105" style="background-color: #A0522D;">Order Your Cake</a>
+            </div>
+
+            <!-- Hero Slider Navigation Dots -->
+            <div id="hero-dots-container" class="hero-dots-container">
+                <span class="hero-dot active" data-slide-index="0"></span>
+                <span class="hero-dot" data-slide-index="1"></span>
+                <span class="hero-dot" data-slide-index="2"></span>
             </div>
         </section>
 
@@ -414,10 +457,59 @@
                 });
             });
 
+            // Hero Section Slider Logic
+            const heroSlides = document.querySelectorAll('.hero-slider-item');
+            const heroDotsContainer = document.getElementById('hero-dots-container');
+            let currentHeroSlide = 0;
+            let heroSlideInterval;
+            const heroAutoSlideDelay = 5000; // 5 seconds
+
+            function showHeroSlide(index) {
+                heroSlides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    heroDotsContainer.children[i].classList.remove('active');
+                });
+                heroSlides[index].classList.add('active');
+                heroDotsContainer.children[index].classList.add('active');
+                currentHeroSlide = index;
+            }
+
+            function nextHeroSlide() {
+                currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+                showHeroSlide(currentHeroSlide);
+            }
+
+            function startHeroAutoPlay() {
+                stopHeroAutoPlay(); // Clear any existing interval
+                heroSlideInterval = setInterval(nextHeroSlide, heroAutoSlideDelay);
+            }
+
+            function stopHeroAutoPlay() {
+                clearInterval(heroSlideInterval);
+            }
+
+            // Add event listeners for hero dots
+            heroDotsContainer.querySelectorAll('.hero-dot').forEach(dot => {
+                dot.addEventListener('click', (event) => {
+                    const index = parseInt(event.target.getAttribute('data-slide-index'));
+                    showHeroSlide(index);
+                    startHeroAutoPlay(); // Restart auto-play after manual navigation
+                });
+            });
+
+            // Pause/resume hero slider on hover
+            const heroSection = document.getElementById('home');
+            heroSection.addEventListener('mouseenter', stopHeroAutoPlay);
+            heroSection.addEventListener('mouseleave', startHeroAutoPlay);
+
+            // Initial hero slider setup
+            showHeroSlide(0);
+            startHeroAutoPlay();
+
+
             // Gallery Filtering and Slider Logic
             const filterButtons = document.querySelectorAll('.gallery-filter-btn');
             
-            // Collect all gallery items from both sets of initial HTML
             const allGalleryItems1 = document.querySelectorAll('#slider-content-1 .gallery-item');
             const allGalleryItems2 = document.querySelectorAll('#slider-content-2 .gallery-item-large-slider');
 
@@ -433,29 +525,29 @@
 
             let currentSlideIndex1 = 0;
             let currentSlideIndex2 = 0;
-            let visibleGalleryItems1 = Array.from(allGalleryItems1); // Filtered items for slider 1
-            let visibleGalleryItems2 = Array.from(allGalleryItems2); // Filtered items for slider 2
+            let visibleGalleryItems1 = Array.from(allGalleryItems1); 
+            let visibleGalleryItems2 = Array.from(allGalleryItems2); 
 
             let slideInterval1;
             let slideInterval2;
-            const autoSlideDelay = 3000; // 3 seconds
+            const autoSlideDelay = 3000; 
 
-            function getItemsPerView1() { // For the first slider
-                if (window.innerWidth >= 1024) { // lg breakpoint
+            function getItemsPerView1() { 
+                if (window.innerWidth >= 1024) { 
                     return 3;
-                } else if (window.innerWidth >= 768) { // md breakpoint
+                } else if (window.innerWidth >= 768) { 
                     return 2;
                 } else {
                     return 1;
                 }
             }
 
-            function getItemsPerView2() { // For the second slider
-                if (window.innerWidth >= 1280) { // xl breakpoint
+            function getItemsPerView2() { 
+                if (window.innerWidth >= 1280) { 
                     return 6;
-                } else if (window.innerWidth >= 1024) { // lg breakpoint
+                } else if (window.innerWidth >= 1024) { 
                     return 4;
-                } else if (window.innerWidth >= 768) { // md breakpoint
+                } else if (window.innerWidth >= 768) { 
                     return 3;
                 } else {
                     return 2;
@@ -472,7 +564,7 @@
                     currentSlideIndex = currentSlideIndex1;
                     itemsPerViewFunc = getItemsPerView1;
                     visibleItems = visibleGalleryItems1;
-                } else { // sliderNum === 2
+                } else { 
                     sliderContent = sliderContent2;
                     prevBtn = prevSlideBtn2;
                     nextBtn = nextSlideBtn2;
@@ -481,19 +573,16 @@
                     visibleItems = visibleGalleryItems2;
                 }
 
-                // Clear existing items in slider-content
                 sliderContent.innerHTML = '';
                 
-                // Append only the currently visible items to the slider
                 visibleItems.forEach(item => {
-                    sliderContent.appendChild(item.cloneNode(true)); // Clone to avoid moving original elements
+                    sliderContent.appendChild(item.cloneNode(true)); 
                 });
 
                 const itemsPerView = itemsPerViewFunc();
                 const totalItems = visibleItems.length;
                 const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
 
-                // Ensure currentSlideIndex doesn't exceed max allowed index
                 if (currentSlideIndex > maxSlideIndex) {
                     currentSlideIndex = maxSlideIndex;
                 }
@@ -501,11 +590,9 @@
                     currentSlideIndex = 0;
                 }
                 
-                // Calculate the translation based on items per view
                 const translateXValue = -currentSlideIndex * (100 / itemsPerView);
                 sliderContent.style.transform = `translateX(${translateXValue}%)`;
 
-                // Update button states
                 prevBtn.classList.toggle('disabled', currentSlideIndex === 0);
                 nextBtn.classList.toggle('disabled', currentSlideIndex >= maxSlideIndex);
 
@@ -524,8 +611,8 @@
                     return filter === 'all' || item.getAttribute('data-category') === filter;
                 });
 
-                currentSlideIndex1 = 0; // Reset slider to the beginning for new filter
-                currentSlideIndex2 = 0; // Reset slider to the beginning for new filter
+                currentSlideIndex1 = 0; 
+                currentSlideIndex2 = 0; 
                 
                 updateSlider(1);
                 updateSlider(2);
@@ -538,7 +625,7 @@
 
             function startSliderAutoPlay(sliderNum) {
                 if (sliderNum === 1) {
-                    stopSliderAutoPlay(1); // Clear any existing interval
+                    stopSliderAutoPlay(1); 
                     slideInterval1 = setInterval(() => {
                         const itemsPerView = getItemsPerView1();
                         const totalItems = visibleGalleryItems1.length;
@@ -546,12 +633,12 @@
                         if (currentSlideIndex1 < maxSlideIndex) {
                             currentSlideIndex1++;
                         } else {
-                            currentSlideIndex1 = 0; // Loop back to start
+                            currentSlideIndex1 = 0; 
                         }
                         updateSlider(1);
                     }, autoSlideDelay);
                 } else if (sliderNum === 2) {
-                    stopSliderAutoPlay(2); // Clear any existing interval
+                    stopSliderAutoPlay(2); 
                     slideInterval2 = setInterval(() => {
                         const itemsPerView = getItemsPerView2();
                         const totalItems = visibleGalleryItems2.length;
@@ -559,7 +646,7 @@
                         if (currentSlideIndex2 < maxSlideIndex) {
                             currentSlideIndex2++;
                         } else {
-                            currentSlideIndex2 = 0; // Loop back to start
+                            currentSlideIndex2 = 0; 
                         }
                         updateSlider(2);
                     }, autoSlideDelay);
@@ -574,8 +661,6 @@
                 }
             }
 
-
-            // Event listeners for filter buttons
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -585,7 +670,6 @@
                 });
             });
 
-            // Event listeners for slider 1 navigation
             prevSlideBtn1.addEventListener('click', () => {
                 if (currentSlideIndex1 > 0) {
                     currentSlideIndex1--;
@@ -602,7 +686,6 @@
                 }
             });
 
-            // Event listeners for slider 2 navigation
             prevSlideBtn2.addEventListener('click', () => {
                 if (currentSlideIndex2 > 0) {
                     currentSlideIndex2--;
@@ -619,32 +702,26 @@
                 }
             });
 
-            // Auto-play control for slider 1
             sliderContainer1.addEventListener('mouseenter', () => stopSliderAutoPlay(1));
             sliderContainer1.addEventListener('mouseleave', () => startSliderAutoPlay(1));
 
-            // Auto-play control for slider 2
             sliderContainer2.addEventListener('mouseenter', () => stopSliderAutoPlay(2));
             sliderContainer2.addEventListener('mouseleave', () => startSliderAutoPlay(2));
 
-
-            // Update sliders on window resize
             window.addEventListener('resize', () => {
                 updateSlider(1);
                 updateSlider(2);
-                stopSliderAutoPlay(1); // Stop and restart to reset timer
+                stopSliderAutoPlay(1); 
                 stopSliderAutoPlay(2);
                 startSliderAutoPlay(1);
                 startSliderAutoPlay(2);
             });
 
-            // Initial setup and start auto-play
             updateSlider(1);
             updateSlider(2);
             startSliderAutoPlay(1);
             startSliderAutoPlay(2);
 
-            // Custom styles for gallery filter buttons
             const style = document.createElement('style');
             style.innerHTML = `
                 .gallery-filter-btn {
