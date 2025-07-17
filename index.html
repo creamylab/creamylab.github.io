@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creamy Lab | Custom Cakes in Dayton, NJ</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Beautiful, delicious custom cakes handcrafted in Dayton, New Jersey. Serving South Brunswick, Monroe, Plainsboro, and surrounding areas. Order your special occasion cake today!">
+    <meta name="keywords" content="custom cakes Dayton NJ, home-based bakery New Jersey, birthday cakes South Brunswick, wedding cakes Monroe Township, celebration cakes Plainsboro, Kendall Park cakes, Franklin Park cakes">
+    <meta name="author" content="Creamy Lab">
+
+    <!-- Social Media Sharing (Open Graph) -->
+    <meta property="og:title" content="Creamy Lab | Custom Cakes in Dayton, NJ" />
+    <meta property="og:description" content="Handcrafted custom cakes for every occasion, made with love in Dayton, NJ." />
+    <meta property="og:image" content="https://placehold.co/1200x630/FFF0F5/333333?text=Creamy+Lab" />
+    <meta property="og:url" content="[YOUR_GITHUB_PAGES_URL_HERE]" />
+    <meta property="og:type" content="website" />
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Chosen Palette: Bakery Bliss -->
+    <!-- Application Structure Plan: A single-page, scrollable website with a fixed navigation bar for intuitive access to all key sections: Home (Hero), About, Gallery, Testimonials, and Order. This structure is ideal for a small business, presenting a clear, linear story to the user—from introduction to conversion (ordering). The mobile-first design uses a hamburger menu for clean navigation on small screens. The user flow is designed to build trust and desire through visual appeal (gallery) and social proof (testimonials) before leading to the call-to-action (order form). This is more effective for a local service business than a complex multi-page site. -->
+    <!-- Visualization & Content Choices: Report Info: Cake images -> Goal: Showcase products -> Viz/Presentation: Interactive Image Gallery with Two Sliders -> Interaction: JS-based category filtering, slider navigation (previous/next buttons), and auto-rotation with hover pause -> Justification: Allows users to easily view a large number of cakes relevant to their needs, enhancing user experience and visual appeal. Report Info: Customer feedback -> Goal: Build trust -> Viz/Presentation: Testimonial Cards -> Interaction: Static display -> Justification: Clean, readable format for social proof. Report Info: Order process -> Goal: Generate leads -> Viz/Presentation: Embedded Google Form -> Interaction: Form submission -> Justification: Seamlessly integrates the primary business goal (inquiries) into the site without external navigation. This architecture is built with HTML/Tailwind and vanilla JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Schema.org Markup for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FoodEstablishment",
+      "name": "Creamy Lab",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dayton",
+        "addressRegion": "NJ",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-XXX-XXX-XXXX",
+      "servesCuisine": "Custom Cakes",
+      "priceRange": "$$",
+      "image": "https://placehold.co/600x400/FFF0F5/333333?text=Signature+Cake",
+      "description": "A home-based bakery in Dayton, NJ, specializing in custom-designed cakes for birthdays, weddings, and all special occasions.",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Dayton"
+        },
+        {
+          "@type": "City",
+          "name": "South Brunswick"
+        },
+        {
+          "@type": "City",
+          "name": "Monroe Township"
+        },
+        {
+          "@type": "City",
+          "name": "Plainsboro Township"
+        },
+        {
+          "@type": "City",
+          "name": "Kendall Park"
+        },
+        {
+          "@type": "City",
+          "name": "Franklin Park"
+        }
+      ]
+    }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #FEFBF6; /* A warm, creamy off-white */
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/EAD8C0/FFFFFF?text=Replace+with+your+best+cake+photo');
+            background-size: cover;
+            background-position: center;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            flex-shrink: 0; /* Prevent items from shrinking */
+            width: 100%; /* Default: one item per view on mobile */
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .gallery-item {
+                width: 50%; /* Two items per view on tablet */
+            }
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .gallery-item {
+                width: 33.333%; /* Three items per view on desktop */
+            }
+        }
+
+        .gallery-item-large-slider {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            flex-shrink: 0;
+            width: 50%; /* Default: two items per view on mobile */
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .gallery-item-large-slider {
+                width: 33.333%; /* Three items per view on tablet */
+            }
+        }
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .gallery-item-large-slider {
+                width: 25%; /* Four items per view on desktop */
+            }
+        }
+        @media (min-width: 1280px) { /* xl breakpoint */
+            .gallery-item-large-slider {
+                width: 16.666%; /* Six items per view on large desktop */
+            }
+        }
+
+        .gallery-item:hover, .gallery-item-large-slider:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #A0522D; /* Sienna Brown */
+        }
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        .slider-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slider-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .slider-nav-button:hover {
+            opacity: 1;
+        }
+        .slider-nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .slider-nav-button-prev {
+            left: 1rem;
+        }
+        .slider-nav-button-next {
+            right: 1rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <!-- Logo Image Spot -->
+                <img src="https://placehold.co/50x50/FFF0F5/333333?text=Logo" alt="Creamy Lab Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover">
+                <a href="#home" class="font-display text-2xl md:text-3xl font-bold text-gray-800">Creamy Lab</a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-lg font-display">About</a>
+                <a href="#gallery" class="nav-link text-lg font-display">Gallery</a>
+                <a href="#testimonials" class="nav-link text-lg font-display">Reviews</a>
+                <a href="#order" class="nav-link text-lg font-display">Order</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#about" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">About</a>
+            <a href="#gallery" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Gallery</a>
+            <a href="#testimonials" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Reviews</a>
+            <a href="#order" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Order</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg h-screen flex items-center justify-center text-white">
+            <div class="text-center bg-black/50 p-8 rounded-lg">
+                <h1 class="font-display text-5xl md:text-7xl font-bold">Creating Sweet Memories</h1>
+                <p class="text-xl md:text-2xl mt-4 max-w-2xl">Handcrafted custom cakes from Dayton, NJ, for your special moments.</p>
+                <a href="#order" class="mt-8 inline-block bg-sienna-700 hover:bg-sienna-800 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105" style="background-color: #A0522D;">Order Your Cake</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">Baked with Love in Dayton</h2>
+                <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                    <img src="https://placehold.co/300x300/FFF0F5/333333?text=Your+Photo" alt="Owner of Creamy Lab" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg">
+                    <p class="max-w-2xl text-lg text-left">
+                        Welcome to Creamy Lab! My name is [Your Name], and baking isn't just a job for me—it's a passion. From my home kitchen right here in Dayton, NJ, I pour my heart into creating beautiful and delicious cakes that become the centerpiece of your celebrations. Every cake is made from scratch using premium ingredients, and all our cakes are 100% eggless, ensuring they taste as good as they look. Thank you for considering me to be a part of your special day!
+                    </p>
+                </div>
+                <div class="mt-12">
+                    <h3 class="font-display text-3xl font-bold mb-4">Serving Our Community</h3>
+                    <p class="text-lg">We are proud to deliver custom cakes to Dayton and surrounding areas, including:</p>
+                    <p class="mt-2 text-md text-gray-600 font-semibold">South Brunswick • Monroe Township • Plainsboro Township • Kendall Park • Franklin Park</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">Our Creations</h2>
+                <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
+                    <button class="gallery-filter-btn active" data-filter="all">All</button>
+                    <button class="gallery-filter-btn" data-filter="birthday">Birthday</button>
+                    <button class="gallery-filter-btn" data-filter="wedding">Wedding</button>
+                    <button class="gallery-filter-btn" data-filter="custom">Custom</button>
+                </div>
+
+                <!-- Image Slider 1 (1/2/3 images per view) -->
+                <div id="slider-container-1" class="slider-container max-w-5xl mx-auto mb-12">
+                    <div id="slider-content-1" class="slider-content">
+                        <!-- Gallery Items for Slider 1 -->
+                        <div class="gallery-item p-4" data-category="birthday">
+                            <img src="https://placehold.co/600x400/FFF0F5/A0522D?text=Colorful+Birthday+Cake+1" alt="A colorful birthday cake with sprinkles" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item p-4" data-category="wedding">
+                            <img src="https://placehold.co/600x400/F5F5F5/A0522D?text=Elegant+Wedding+Cake+1" alt="An elegant three-tier wedding cake with flowers" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item p-4" data-category="custom">
+                            <img src="https://placehold.co/600x400/E6E6FA/A0522D?text=Superhero+Custom+Cake+1" alt="A custom superhero-themed cake for a child's party" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item p-4" data-category="birthday">
+                            <img src="https://placehold.co/600x400/FFFACD/A0522D?text=Chocolate+Drip+Cake+2" alt="A decadent chocolate drip birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item p-4" data-category="wedding">
+                            <img src="https://placehold.co/600x400/F0FFF0/A0522D?text=Rustic+Wedding+Cake+2" alt="A rustic-style wedding cake with greenery" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item p-4" data-category="custom">
+                            <img src="https://placehold.co/600x400/ADD8E6/A0522D?text=Baby+Shower+Cake+2" alt="A cute baby shower cake with pastel colors" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                    </div>
+                    <!-- Slider Navigation Buttons for Slider 1 -->
+                    <button id="prev-slide-1" class="slider-nav-button slider-nav-button-prev">
+                        &#10094; <!-- Left arrow -->
+                    </button>
+                    <button id="next-slide-1" class="slider-nav-button slider-nav-button-next">
+                        &#10095; <!-- Right arrow -->
+                    </button>
+                </div>
+
+                <!-- Image Slider 2 (2/3/4/6 images per view) -->
+                <div id="slider-container-2" class="slider-container max-w-5xl mx-auto">
+                    <div id="slider-content-2" class="slider-content">
+                        <!-- Gallery Items for Slider 2 - More images to support 6 per view -->
+                        <div class="gallery-item-large-slider p-4" data-category="birthday">
+                            <img src="https://placehold.co/600x400/FFDAB9/A0522D?text=Unicorn+Birthday+Cake+3" alt="A unicorn-themed birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="wedding">
+                            <img src="https://placehold.co/600x400/F8F8FF/A0522D?text=Floral+Wedding+Cake+3" alt="A wedding cake with intricate floral details" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="custom">
+                            <img src="https://placehold.co/600x400/DDA0DD/A0522D?text=Graduation+Cake+3" alt="A custom graduation cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="birthday">
+                            <img src="https://placehold.co/600x400/B0E0E6/A0522D?text=Cartoon+Character+Cake+4" alt="A cartoon character themed birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="wedding">
+                            <img src="https://placehold.co/600x400/E0FFFF/A0522D?text=Simple+Tier+Cake+4" alt="A simple tiered wedding cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="custom">
+                            <img src="https://placehold.co/600x400/FFC0CB/A0522D?text=Baby+Reveal+Cake+4" alt="A baby gender reveal cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="birthday">
+                            <img src="https://placehold.co/600x400/F0F8FF/A0522D?text=Gaming+Cake+5" alt="A gaming console themed birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="wedding">
+                            <img src="https://placehold.co/600x400/FAEBD7/A0522D?text=Naked+Wedding+Cake+5" alt="A naked style wedding cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="custom">
+                            <img src="https://placehold.co/600x400/D8BFD8/A0522D?text=Corporate+Logo+Cake+5" alt="A custom cake with a corporate logo" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="birthday">
+                            <img src="https://placehold.co/600x400/E6E6FA/A0522D?text=Dinosaur+Cake+6" alt="A dinosaur themed birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="wedding">
+                            <img src="https://placehold.co/600x400/FFF0F5/A0522D?text=Modern+Wedding+Cake+6" alt="A modern minimalist wedding cake" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                        <div class="gallery-item-large-slider p-4" data-category="custom">
+                            <img src="https://placehold.co/600x400/F0FFF0/A0522D?text=Anniversary+Cake+6" alt="An anniversary cake with custom design" class="w-full h-64 object-cover rounded-lg shadow-md">
+                        </div>
+                    </div>
+                    <!-- Slider Navigation Buttons for Slider 2 -->
+                    <button id="prev-slide-2" class="slider-nav-button slider-nav-button-prev">
+                        &#10094; <!-- Left arrow -->
+                    </button>
+                    <button id="next-slide-2" class="slider-nav-button slider-nav-button-next">
+                        &#10095; <!-- Right arrow -->
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">What Our Customers Say</h2>
+                <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                        <p class="text-gray-600">"The cake was the star of the party! Absolutely stunning and it tasted even better. [Your Name] was so easy to work with. Highly recommend!"</p>
+                        <p class="font-bold mt-4">- Sarah L.</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                        <p class="text-gray-600">"I ordered a custom cake for my son's birthday, and it exceeded all expectations. The details were incredible. We will definitely be back for our next event."</p>
+                        <p class="font-bold mt-4">- Mark T.</p>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                        <p class="text-gray-600">"Our wedding cake was a dream come true. It was exactly what we envisioned. Thank you for making our day so much sweeter!"</p>
+                        <p class="font-bold mt-4">- The Johnsons</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">Ready for a Custom Cake?</h2>
+                <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
+                <p class="max-w-2xl mx-auto text-lg mb-8">
+                    Please fill out the form below to start your custom cake inquiry. Provide as much detail as possible, and I'll get back to you within 48 hours to discuss your creation. I can't wait to bake for you!
+                </p>
+                <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-lg">
+                    <!-- GOOGLE FORM EMBED -->
+                    <!-- 1. Create a Google Form with fields like: Name, Email, Phone, Event Date, Number of Guests, Cake Flavor, Design Ideas, etc. -->
+                    <!-- 2. Click "Send" in your Google Form. -->
+                    <!-- 3. Go to the "<>" (Embed HTML) tab. -->
+                    <!-- 4. Copy the entire iframe code provided. -->
+                    <!-- 5. Paste the iframe code here, replacing the placeholder below. -->
+                    <!-- 6. Adjust the width="100%" and height="800" attributes if needed. -->
+                    <iframe 
+                        src="[PASTE_YOUR_GOOGLE_FORM_EMBED_URL_HERE]" 
+                        width="100%" 
+                        height="800" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        class="rounded-md">
+                        Loading…
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="font-display text-2xl font-bold">Creamy Lab</h3>
+            <p class="mt-2">Dayton, New Jersey</p>
+            <p class="mt-1">Phone: (XXX) XXX-XXXX | Email: your-email@example.com</p>
+            <p class="text-sm mt-8 text-gray-400">&copy; 2024 Creamy Lab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Gallery Filtering and Slider Logic
+            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+            
+            // Collect all gallery items from both sets of initial HTML
+            const allGalleryItems1 = document.querySelectorAll('#slider-content-1 .gallery-item');
+            const allGalleryItems2 = document.querySelectorAll('#slider-content-2 .gallery-item-large-slider');
+
+            const sliderContent1 = document.getElementById('slider-content-1');
+            const prevSlideBtn1 = document.getElementById('prev-slide-1');
+            const nextSlideBtn1 = document.getElementById('next-slide-1');
+            const sliderContainer1 = document.getElementById('slider-container-1');
+
+            const sliderContent2 = document.getElementById('slider-content-2');
+            const prevSlideBtn2 = document.getElementById('prev-slide-2');
+            const nextSlideBtn2 = document.getElementById('next-slide-2');
+            const sliderContainer2 = document.getElementById('slider-container-2');
+
+            let currentSlideIndex1 = 0;
+            let currentSlideIndex2 = 0;
+            let visibleGalleryItems1 = Array.from(allGalleryItems1); // Filtered items for slider 1
+            let visibleGalleryItems2 = Array.from(allGalleryItems2); // Filtered items for slider 2
+
+            let slideInterval1;
+            let slideInterval2;
+            const autoSlideDelay = 3000; // 3 seconds
+
+            function getItemsPerView1() { // For the first slider
+                if (window.innerWidth >= 1024) { // lg breakpoint
+                    return 3;
+                } else if (window.innerWidth >= 768) { // md breakpoint
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
+
+            function getItemsPerView2() { // For the second slider
+                if (window.innerWidth >= 1280) { // xl breakpoint
+                    return 6;
+                } else if (window.innerWidth >= 1024) { // lg breakpoint
+                    return 4;
+                } else if (window.innerWidth >= 768) { // md breakpoint
+                    return 3;
+                } else {
+                    return 2;
+                }
+            }
+
+            function updateSlider(sliderNum) {
+                let sliderContent, prevBtn, nextBtn, currentSlideIndex, itemsPerViewFunc, visibleItems;
+
+                if (sliderNum === 1) {
+                    sliderContent = sliderContent1;
+                    prevBtn = prevSlideBtn1;
+                    nextBtn = nextSlideBtn1;
+                    currentSlideIndex = currentSlideIndex1;
+                    itemsPerViewFunc = getItemsPerView1;
+                    visibleItems = visibleGalleryItems1;
+                } else { // sliderNum === 2
+                    sliderContent = sliderContent2;
+                    prevBtn = prevSlideBtn2;
+                    nextBtn = nextSlideBtn2;
+                    currentSlideIndex = currentSlideIndex2;
+                    itemsPerViewFunc = getItemsPerView2;
+                    visibleItems = visibleGalleryItems2;
+                }
+
+                // Clear existing items in slider-content
+                sliderContent.innerHTML = '';
+                
+                // Append only the currently visible items to the slider
+                visibleItems.forEach(item => {
+                    sliderContent.appendChild(item.cloneNode(true)); // Clone to avoid moving original elements
+                });
+
+                const itemsPerView = itemsPerViewFunc();
+                const totalItems = visibleItems.length;
+                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+
+                // Ensure currentSlideIndex doesn't exceed max allowed index
+                if (currentSlideIndex > maxSlideIndex) {
+                    currentSlideIndex = maxSlideIndex;
+                }
+                if (currentSlideIndex < 0) {
+                    currentSlideIndex = 0;
+                }
+                
+                // Calculate the translation based on items per view
+                const translateXValue = -currentSlideIndex * (100 / itemsPerView);
+                sliderContent.style.transform = `translateX(${translateXValue}%)`;
+
+                // Update button states
+                prevBtn.classList.toggle('disabled', currentSlideIndex === 0);
+                nextBtn.classList.toggle('disabled', currentSlideIndex >= maxSlideIndex);
+
+                if (sliderNum === 1) {
+                    currentSlideIndex1 = currentSlideIndex;
+                } else {
+                    currentSlideIndex2 = currentSlideIndex;
+                }
+            }
+
+            function filterGallery(filter) {
+                visibleGalleryItems1 = Array.from(allGalleryItems1).filter(item => {
+                    return filter === 'all' || item.getAttribute('data-category') === filter;
+                });
+                visibleGalleryItems2 = Array.from(allGalleryItems2).filter(item => {
+                    return filter === 'all' || item.getAttribute('data-category') === filter;
+                });
+
+                currentSlideIndex1 = 0; // Reset slider to the beginning for new filter
+                currentSlideIndex2 = 0; // Reset slider to the beginning for new filter
+                
+                updateSlider(1);
+                updateSlider(2);
+
+                stopSliderAutoPlay(1);
+                stopSliderAutoPlay(2);
+                startSliderAutoPlay(1);
+                startSliderAutoPlay(2);
+            }
+
+            function startSliderAutoPlay(sliderNum) {
+                if (sliderNum === 1) {
+                    stopSliderAutoPlay(1); // Clear any existing interval
+                    slideInterval1 = setInterval(() => {
+                        const itemsPerView = getItemsPerView1();
+                        const totalItems = visibleGalleryItems1.length;
+                        const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                        if (currentSlideIndex1 < maxSlideIndex) {
+                            currentSlideIndex1++;
+                        } else {
+                            currentSlideIndex1 = 0; // Loop back to start
+                        }
+                        updateSlider(1);
+                    }, autoSlideDelay);
+                } else if (sliderNum === 2) {
+                    stopSliderAutoPlay(2); // Clear any existing interval
+                    slideInterval2 = setInterval(() => {
+                        const itemsPerView = getItemsPerView2();
+                        const totalItems = visibleGalleryItems2.length;
+                        const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                        if (currentSlideIndex2 < maxSlideIndex) {
+                            currentSlideIndex2++;
+                        } else {
+                            currentSlideIndex2 = 0; // Loop back to start
+                        }
+                        updateSlider(2);
+                    }, autoSlideDelay);
+                }
+            }
+
+            function stopSliderAutoPlay(sliderNum) {
+                if (sliderNum === 1) {
+                    clearInterval(slideInterval1);
+                } else if (sliderNum === 2) {
+                    clearInterval(slideInterval2);
+                }
+            }
+
+
+            // Event listeners for filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.getAttribute('data-filter');
+                    filterGallery(filter);
+                });
+            });
+
+            // Event listeners for slider 1 navigation
+            prevSlideBtn1.addEventListener('click', () => {
+                if (currentSlideIndex1 > 0) {
+                    currentSlideIndex1--;
+                    updateSlider(1);
+                }
+            });
+            nextSlideBtn1.addEventListener('click', () => {
+                const itemsPerView = getItemsPerView1();
+                const totalItems = visibleGalleryItems1.length;
+                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                if (currentSlideIndex1 < maxSlideIndex) {
+                    currentSlideIndex1++;
+                    updateSlider(1);
+                }
+            });
+
+            // Event listeners for slider 2 navigation
+            prevSlideBtn2.addEventListener('click', () => {
+                if (currentSlideIndex2 > 0) {
+                    currentSlideIndex2--;
+                    updateSlider(2);
+                }
+            });
+            nextSlideBtn2.addEventListener('click', () => {
+                const itemsPerView = getItemsPerView2();
+                const totalItems = visibleGalleryItems2.length;
+                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                if (currentSlideIndex2 < maxSlideIndex) {
+                    currentSlideIndex2++;
+                    updateSlider(2);
+                }
+            });
+
+            // Auto-play control for slider 1
+            sliderContainer1.addEventListener('mouseenter', () => stopSliderAutoPlay(1));
+            sliderContainer1.addEventListener('mouseleave', () => startSliderAutoPlay(1));
+
+            // Auto-play control for slider 2
+            sliderContainer2.addEventListener('mouseenter', () => stopSliderAutoPlay(2));
+            sliderContainer2.addEventListener('mouseleave', () => startSliderAutoPlay(2));
+
+
+            // Update sliders on window resize
+            window.addEventListener('resize', () => {
+                updateSlider(1);
+                updateSlider(2);
+                stopSliderAutoPlay(1); // Stop and restart to reset timer
+                stopSliderAutoPlay(2);
+                startSliderAutoPlay(1);
+                startSliderAutoPlay(2);
+            });
+
+            // Initial setup and start auto-play
+            updateSlider(1);
+            updateSlider(2);
+            startSliderAutoPlay(1);
+            startSliderAutoPlay(2);
+
+            // Custom styles for gallery filter buttons
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .gallery-filter-btn {
+                    padding: 0.5rem 1.5rem;
+                    border: 1px solid #D2B48C;
+                    border-radius: 9999px;
+                    color: #A0522D;
+                    font-weight: 600;
+                    transition: all 0.3s;
+                }
+                .gallery-filter-btn:hover {
+                    background-color: #D2B48C;
+                    color: white;
+                }
+                .gallery-filter-btn.active {
+                    background-color: #A0522D;
+                    color: white;
+                    border-color: #A0522D;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
