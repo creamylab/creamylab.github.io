@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creamy Lab | Custom Eggless Cakes in Dayton, NJ</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Beautiful, delicious custom eggless cakes handcrafted in Dayton, New Jersey. Serving South Brunswick, Monroe, Plainsboro, and surrounding areas. Order your special occasion cake today!">
     <meta name="keywords" content="custom cakes Dayton NJ, home-based bakery New Jersey, birthday cakes South Brunswick, wedding cakes Monroe Township, celebration cakes Plainsboro, Kendall Park cakes, Franklin Park cakes">
@@ -32,63 +32,63 @@
 
     <!-- Schema.org Markup for Local Business -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CakeShop",
-      "name": "Creamy Lab",
-      "address": {
-        "@type": "203 Blossom Cir",
-        "addressLocality": "Dayton",
-        "addressRegion": "NJ",
-        "addressZipCode": "08810",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-609-598-5807",
-      "servesCuisine": "Eggless Cakes",
-      "priceRange": "$$",
-      "image": "https://placehold.co/600x400/FFF0F5/333333?text=Signature+Cake",
-      "description": "A home-based bakery in Dayton, NJ, specializing in custom-designed eggless cakes for birthdays, weddings, and all special occasions.",
-      "areaServed": [
         {
-          "@type": "City",
-          "name": "Dayton"
-        },
-        {
-          "@type": "City",
-          "name": "South Brunswick"
-        },
-        {
-          "@type": "City",
-          "name": "Monroe Township"
-        },
-        {
-          "@type": "City",
-          "name": "Plainsboro Township"
-        },
-        {
-          "@type": "City",
-          "name": "Kendall Park"
-        },
-        {
-          "@type": "City",
-          "name": "Franklin Park"
-        },
-          {
-              "@type": "City",
-              "name": "North Brunswick"
-          },
-          {
-              "@type": "City",
-              "name": "Cranbury"
-          },
-          {
-              "@type": "City",
-              "name": "East Windsor"
-          }
-      ]
-    }
+            "@context": "https://schema.org",
+            "@type": "CakeShop",
+            "name": "Creamy Lab",
+            "address": {
+                "@type": "203 Blossom Cir",
+                "addressLocality": "Dayton",
+                "addressRegion": "NJ",
+                "addressZipCode": "08810",
+                "addressCountry": "US"
+            },
+            "telephone": "+1-609-598-5807",
+            "servesCuisine": "Eggless Cakes",
+            "priceRange": "$$",
+            "image": "https://placehold.co/600x400/FFF0F5/333333?text=Signature+Cake",
+            "description": "A home-based bakery in Dayton, NJ, specializing in custom-designed eggless cakes for birthdays, weddings, and all special occasions.",
+            "areaServed": [
+                {
+                    "@type": "City",
+                    "name": "Dayton"
+                },
+                {
+                    "@type": "City",
+                    "name": "South Brunswick"
+                },
+                {
+                    "@type": "City",
+                    "name": "Monroe Township"
+                },
+                {
+                    "@type": "City",
+                    "name": "Plainsboro Township"
+                },
+                {
+                    "@type": "City",
+                    "name": "Kendall Park"
+                },
+                {
+                    "@type": "City",
+                    "name": "Franklin Park"
+                },
+                {
+                    "@type": "City",
+                    "name": "North Brunswick"
+                },
+                {
+                    "@type": "City",
+                    "name": "Cranbury"
+                },
+                {
+                    "@type": "City",
+                    "name": "East Windsor"
+                }
+            ]
+        }
     </script>
-    
+
     <style>
         body {
             font-family: 'Lato', sans-serif;
@@ -98,8 +98,9 @@
             font-family: 'Playfair Display', serif;
         }
         .hero-slider-item {
-            background-size: cover;
+            background-size: contain; /* Changed from cover to contain */
             background-position: center;
+            background-repeat: no-repeat; /* Added to prevent repeating */
             position: absolute;
             top: 0;
             left: 0;
@@ -217,534 +218,498 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- Header & Navigation -->
-    <header id="header" class="bg-white/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-2 md:space-x-4">
-                <!-- Logo Image Spot -->
-                <img src="img/CreamyLab_Logo_1.PNG" alt="Creamy Lab Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover">
-                <a href="#home" class="font-display text-2xl md:text-3xl font-bold text-gray-800">Creamy Lab</a>
-            </div>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="#about" class="nav-link text-lg font-display">About</a>
-                <a href="#gallery" class="nav-link text-lg font-display">Gallery</a>
-                <a href="#testimonials" class="nav-link text-lg font-display">Reviews</a>
-                <a href="#order" class="nav-link text-lg font-display">Order</a>
-            </nav>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
-            </button>
+<!-- Header & Navigation -->
+<header id="header" class="bg-white/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-2 md:space-x-4">
+            <!-- Logo Image Spot -->
+            <img src="img/CreamyLab_Logo_1.PNG" alt="Creamy Lab Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover">
+            <a href="#home" class="font-display text-2xl md:text-3xl font-bold text-gray-800">Creamy Lab</a>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#about" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">About</a>
-            <a href="#gallery" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Gallery</a>
-            <a href="#testimonials" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Reviews</a>
-            <a href="#order" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Order</a>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+            <a href="#about" class="nav-link text-lg font-display">About</a>
+            <a href="#gallery" class="nav-link text-lg font-display">Gallery</a>
+            <a href="#testimonials" class="nav-link text-lg font-display">Reviews</a>
+            <a href="#order" class="nav-link text-lg font-display">Order</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white">
+        <a href="#about" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">About</a>
+        <a href="#gallery" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Gallery</a>
+        <a href="#testimonials" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Reviews</a>
+        <a href="#order" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Order</a>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+        <!-- Hero Background Slider -->
+        <div id="hero-slider-background" class="absolute inset-0">
+            <div class="hero-slider-item active" style="background-image: url('img/Hero1.JPG');"></div>
+            <div class="hero-slider-item" style="background-image: url('img/Hero2.JPG');"></div>
+            <div class="hero-slider-item" style="background-image: url('img/Hero3.JPG');"></div>
         </div>
-    </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
-            <!-- Hero Background Slider -->
-            <div id="hero-slider-background" class="absolute inset-0">
-                <div class="hero-slider-item active" style="background-image: url('img/Hero1.JPG');"></div>
-                <div class="hero-slider-item" style="background-image: url('img/Hero2.JPG');"></div>
-                <div class="hero-slider-item" style="background-image: url('img/Hero3.JPG');"></div>
-            </div>
+        <div class="relative z-10 text-center bg-black/50 p-8 rounded-lg">
+            <h1 class="font-display text-5xl md:text-7xl font-bold">Creating Sweet Memories</h1>
+            <p class="text-xl md:text-2xl mt-4 max-w-2xl">Handcrafted custom eggless cakes for your special moments.</p>
+            <a href="#order" class="mt-8 inline-block bg-sienna-700 hover:bg-sienna-800 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105" style="background-color: #A0522D;">Order Your Cake</a>
+        </div>
 
-            <div class="relative z-10 text-center bg-black/50 p-8 rounded-lg">
-                <h1 class="font-display text-5xl md:text-7xl font-bold">Creating Sweet Memories</h1>
-                <p class="text-xl md:text-2xl mt-4 max-w-2xl">Handcrafted custom eggless cakes for your special moments.</p>
-                <a href="#order" class="mt-8 inline-block bg-sienna-700 hover:bg-sienna-800 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105" style="background-color: #A0522D;">Order Your Cake</a>
-            </div>
+        <!-- Hero Slider Navigation Dots -->
+        <div id="hero-dots-container" class="hero-dots-container">
+            <span class="hero-dot active" data-slide-index="0"></span>
+            <span class="hero-dot" data-slide-index="1"></span>
+            <span class="hero-dot" data-slide-index="2"></span>
+        </div>
+    </section>
 
-            <!-- Hero Slider Navigation Dots -->
-            <div id="hero-dots-container" class="hero-dots-container">
-                <span class="hero-dot active" data-slide-index="0"></span>
-                <span class="hero-dot" data-slide-index="1"></span>
-                <span class="hero-dot" data-slide-index="2"></span>
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section id="about" class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-4xl font-bold mb-4">Baked with Love in Dayton</h2>
-                <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-                    <img src="img/Manisha.JPG" alt="Owner of Creamy Lab" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg">
-                    <p class="max-w-2xl text-lg text-left">
-                        Welcome to Creamy Lab! My name is Manisha, and baking isn't just a job for me—it's a passion. From my home kitchen right here in Dayton, NJ, I pour my heart into creating beautiful and delicious cakes that become the centerpiece of your celebrations. Every cake is made from scratch using premium ingredients, and all our cakes are 100% eggless, ensuring they taste as good as they look. Thank you for considering me to be a part of your special day!
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-4xl font-bold mb-4">Our Creations</h2>
-                <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
-                
-                <!-- Filter Buttons -->
-                <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
-                    <button class="gallery-filter-btn active" data-filter="all">All</button>
-                    <button class="gallery-filter-btn" data-filter="birthday">Birthday</button>
-                    <button class="gallery-filter-btn" data-filter="custom">Custom</button>
-                    <button class="gallery-filter-btn" data-filter="anniversary">Anniversary</button>
-                </div>
-
-                <!-- Image Slider 1 (1/2/3 images per view) -->
-                <div id="slider-container-1" class="slider-container max-w-5xl mx-auto mb-12">
-                    <div id="slider-content-1" class="slider-content">
-                        <!-- Gallery Items for Slider 1 -->
-                        <div class="gallery-item p-4" data-category="birthday">
-                            <img src="img/birthday_1_top.JPG" alt="birthday cake 1" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item p-4" data-category="custom">
-                            <img src="img/custom_0_top.JPG" alt="custom cake 0" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item p-4" data-category="birthday">
-                            <img src="img/birthday_2_top.JPG" alt="birthday cake 2" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item p-4" data-category="anniversary">
-                            <img src="img/anniversary_1_top.JPG" alt="anniversary cake 1" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item p-4" data-category="custom">
-                            <img src="img/custom_1_top.JPG" alt="custom cake 1" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item p-4" data-category="birthday">
-                            <img src="img/birthday_3_top.JPG" alt="birthday cake 3" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item p-4" data-category="custom">
-                            <img src="img/custom_2_top.JPG" alt="custom cake 2" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item p-4" data-category="custom">
-                            <img src="img/custom_3_top.JPG" alt="custom cake 3" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                    </div>
-                    <!-- Slider Navigation Buttons for Slider 1 -->
-                    <button id="prev-slide-1" class="slider-nav-button slider-nav-button-prev">
-                        &#10094; <!-- Left arrow -->
-                    </button>
-                    <button id="next-slide-1" class="slider-nav-button slider-nav-button-next">
-                        &#10095; <!-- Right arrow -->
-                    </button>
-                </div>
-
-                <!-- Image Slider 2 (2/3/4/6 images per view) -->
-                <div id="slider-container-2" class="slider-container max-w-4xl mx-auto">
-                    <div id="slider-content-2" class="slider-content">
-                        <!-- Gallery Items for Slider 2 - More images to support 6 per view -->
-                        <div class="gallery-item-large-slider p-4" data-category="birthday">
-                            <img src="img/birthday_1_bottom.JPG" alt="A unicorn-themed birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item-large-slider p-4" data-category="custom">
-                            <img src="img/custom_1_bottom.JPG" alt="A custom graduation cake" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item-large-slider p-4" data-category="birthday">
-                            <img src="img/birthday_2_bottom.JPG" alt="A cartoon character themed birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item-large-slider p-4" data-category="custom">
-                            <img src="img/custom_2_bottom.JPG" alt="A baby gender reveal cake" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item-large-slider p-4" data-category="birthday">
-                            <img src="img/birthday_3_bottom.JPG" alt="A gaming console themed birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item-large-slider p-4" data-category="custom">
-                            <img src="img/custom_3_bottom.JPG" alt="A custom cake with a corporate logo" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item-large-slider p-4" data-category="birthday">
-                            <img src="img/birthday_4_bottom.JPG" alt="A dinosaur themed birthday cake" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                        <div class="gallery-item-large-slider p-4" data-category="birthday">
-                            <img src="img/birthday_4_top.JPG" alt="An anniversary cake with custom design" class="w-full h-64 object-cover rounded-lg shadow-md">
-                        </div>
-                    </div>
-                    <!-- Slider Navigation Buttons for Slider 2 -->
-                    <button id="prev-slide-2" class="slider-nav-button slider-nav-button-prev">
-                        &#10094; <!-- Left arrow -->
-                    </button>
-                    <button id="next-slide-2" class="slider-nav-button slider-nav-button-next">
-                        &#10095; <!-- Right arrow -->
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-4xl font-bold mb-4">What Our Customers Say</h2>
-                <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-gray-600">"The cake was the star of the 50th Birthday party! Absolutely stunning and it tasted even better. Manisha was so easy to work with. Highly recommend!"</p>
-                        <p class="font-bold mt-4">- Saara M.</p>
-                    </div>
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-gray-600">"I ordered a custom cake for my son's birthday, and it exceeded all expectations. The details were incredible. We will definitely be back for our next event."</p>
-                        <p class="font-bold mt-4">- Dinesh K.</p>
-                    </div>
-                    <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                        <p class="text-gray-600">"Our anniversary cake was a dream come true. It was exactly what we envisioned. Thank you for making our day so much sweeter!"</p>
-                        <p class="font-bold mt-4">- Raj P.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Order Section -->
-        <section id="order" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-4xl font-bold mb-4">Ready for a Custom Cake?</h2>
-                <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
-                <p class="max-w-2xl mx-auto text-lg mb-8">
-                    Please fill out the form below to start your custom cake inquiry. Provide as much detail as possible, and I'll get back to you within 48 hours to discuss your creation. I can't wait to bake for you!
-                </p>
-                <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-lg">
-                    <!-- GOOGLE FORM EMBED -->
-                    <!-- 1. Create a Google Form with fields like: Name, Email, Phone, Event Date, Number of Guests, Cake Flavor, Design Ideas, etc. -->
-                    <!-- 2. Click "Send" in your Google Form. -->
-                    <!-- 3. Go to the "<>" (Embed HTML) tab. -->
-                    <!-- 4. Copy the entire iframe code provided. -->
-                    <!-- 5. Paste the iframe code here, replacing the placeholder below. -->
-                    <!-- 6. Adjust the width="100%" and height="800" attributes if needed. -->
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf29CoR94e9cO22NOPpclXO8FX3V8wxxpsp99X8YFU0M5QZbg/viewform?embedded=true"
-                            width="100%"
-                            height="1256"
-                            frameborder="0"
-                            marginheight="0"
-                            marginwidth="0"
-                            class="rounded-md">
-                        Loading…
-                    </iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6 text-center">
-            <h3 class="font-display text-2xl font-bold">Creamy Lab</h3>
-            <p class="mt-2">Dayton, New Jersey</p>
-            <p class="mt-1">Phone: (609) 598-5807 | Email: creamylabs@gmail.com</p>
-            <p class="text-sm mt-8 text-gray-400">&copy; 2025 Creamy Lab. All Rights Reserved.</p>
+            <h2 class="font-display text-4xl font-bold mb-4">Baked with Love in Dayton</h2>
+            <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <img src="img/Manisha.JPG" alt="Owner of Creamy Lab" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg">
+                <p class="max-w-2xl text-lg text-left">
+                    Welcome to Creamy Lab! My name is Manisha, and baking isn't just a job for me—it's a passion. From my home kitchen right here in Dayton, NJ, I pour my heart into creating beautiful and delicious cakes that become the centerpiece of your celebrations. Every cake is made from scratch using premium ingredients, and all our cakes are 100% eggless, ensuring they taste as good as they look. Thank you for considering me to be a part of your special day!
+                </p>
+            </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mobile Menu Toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl font-bold mb-4">Our Creations</h2>
+            <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
+
+            <!-- Filter Buttons -->
+            <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
+                <button class="gallery-filter-btn active" data-filter="all">All</button>
+                <button class="gallery-filter-btn" data-filter="birthday">Birthday</button>
+                <button class="gallery-filter-btn" data-filter="custom">Custom</button>
+                <button class="gallery-filter-btn" data-filter="anniversary">Anniversary</button>
+            </div>
+
+            <!-- Image Slider 1 (1/2/3 images per view) -->
+            <div id="slider-container-1" class="slider-container max-w-7xl mx-auto mb-12">
+                <div id="slider-content-1" class="slider-content">
+                    <!-- Images will be dynamically loaded here by JavaScript -->
+                </div>
+                <!-- Slider Navigation Buttons for Slider 1 -->
+                <button id="prev-slide-1" class="slider-nav-button slider-nav-button-prev">
+                    &#10094; <!-- Left arrow -->
+                </button>
+                <button id="next-slide-1" class="slider-nav-button slider-nav-button-next">
+                    &#10095; <!-- Right arrow -->
+                </button>
+            </div>
+
+            <!-- Image Slider 2 (2/3/4/6 images per view) -->
+            <div id="slider-container-2" class="slider-container max-w-7xl mx-auto">
+                <div id="slider-content-2" class="slider-content">
+                    <!-- Images will be dynamically loaded here by JavaScript -->
+                </div>
+                <!-- Slider Navigation Buttons for Slider 2 -->
+                <button id="prev-slide-2" class="slider-nav-button slider-nav-button-prev">
+                    &#10094; <!-- Left arrow -->
+                </button>
+                <button id="next-slide-2" class="slider-nav-button slider-nav-button-next">
+                    &#10095; <!-- Right arrow -->
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl font-bold mb-4">What Our Customers Say</h2>
+            <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                    <p class="text-gray-600">"The cake was the star of the 50th Birthday party! Absolutely stunning and it tasted even better. Manisha was so easy to work with. Highly recommend!"</p>
+                    <p class="font-bold mt-4">- Saara M.</p>
+                </div>
+                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                    <p class="text-gray-600">"I ordered a custom cake for my son's birthday, and it exceeded all expectations. The details were incredible. We will definitely be back for our next event."</p>
+                    <p class="font-bold mt-4">- Dinesh K.</p>
+                </div>
+                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
+                    <p class="text-gray-600">"Our anniversary cake was a dream come true. It was exactly what we envisioned. Thank you for making our day so much sweeter!"</p>
+                    <p class="font-bold mt-4">- Raj P.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl font-bold mb-4">Ready for a Custom Cake?</h2>
+            <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
+            <p class="max-w-2xl mx-auto text-lg mb-8">
+                Please fill out the form below to start your custom cake inquiry. Provide as much detail as possible, and I'll get back to you within 48 hours to discuss your creation. I can't wait to bake for you!
+            </p>
+            <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-lg">
+                <!-- GOOGLE FORM EMBED -->
+                <!-- 1. Create a Google Form with fields like: Name, Email, Phone, Event Date, Number of Guests, Cake Flavor, Design Ideas, etc. -->
+                <!-- 2. Click "Send" in your Google Form. -->
+                <!-- 3. Go to the "<>" (Embed HTML) tab. -->
+                <!-- 4. Copy the entire iframe code provided. -->
+                <!-- 5. Paste the iframe code here, replacing the placeholder below. -->
+                <!-- 6. Adjust the width="100%" and height="800" attributes if needed. -->
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf29CoR94e9cO22NOPpclXO8FX3V8wxxpsp99X8YFU0M5QZbg/viewform?embedded=true"
+                        width="100%"
+                        height="1256"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0"
+                        class="rounded-md">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-6 text-center">
+        <h3 class="font-display text-2xl font-bold">Creamy Lab</h3>
+        <p class="mt-2">Dayton, New Jersey</p>
+        <p class="mt-1">Phone: (609) 598-5807 | Email: creamylabs@gmail.com</p>
+        <p class="text-sm mt-8 text-gray-400">&copy; 2025 Creamy Lab. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Hero Section Slider Logic
+        const heroSlides = document.querySelectorAll('.hero-slider-item');
+        const heroDotsContainer = document.getElementById('hero-dots-container');
+        let currentHeroSlide = 0;
+        let heroSlideInterval;
+        const heroAutoSlideDelay = 5000; // 5 seconds
+
+        function showHeroSlide(index) {
+            heroSlides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                heroDotsContainer.children[i].classList.remove('active');
+            });
+            heroSlides[index].classList.add('active');
+            heroDotsContainer.children[index].classList.add('active');
+            currentHeroSlide = index;
+        }
+
+        function nextHeroSlide() {
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            showHeroSlide(currentHeroSlide);
+        }
+
+        function startHeroAutoPlay() {
+            stopHeroAutoPlay(); // Clear any existing interval
+            heroSlideInterval = setInterval(nextHeroSlide, heroAutoSlideDelay);
+        }
+
+        function stopHeroAutoPlay() {
+            clearInterval(heroSlideInterval);
+        }
+
+        // Add event listeners for hero dots
+        heroDotsContainer.querySelectorAll('.hero-dot').forEach(dot => {
+            dot.addEventListener('click', (event) => {
+                const index = parseInt(event.target.getAttribute('data-slide-index'));
+                showHeroSlide(index);
+                startHeroAutoPlay(); // Restart auto-play after manual navigation
+            });
+        });
+
+        // Pause/resume hero slider on hover
+        const heroSection = document.getElementById('home');
+        heroSection.addEventListener('mouseenter', stopHeroAutoPlay);
+        heroSection.addEventListener('mouseleave', startHeroAutoPlay);
+
+        // Initial hero slider setup
+        showHeroSlide(0);
+        startHeroAutoPlay();
+
+
+        // Gallery Filtering and Slider Logic
+        const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+
+        // Centralized data for all cake images
+        const allCakeImages = [
+            { src: 'img/birthday_1_top.JPG', alt: 'Colorful Birthday Cake 1', category: 'birthday', type: 'small' },
+            { src: 'img/custom_0_top.JPG', alt: 'Custom Cake 0', category: 'custom', type: 'small' },
+            { src: 'img/birthday_2_top.JPG', alt: 'Birthday Cake 2', category: 'birthday', type: 'small' },
+            { src: 'img/anniversary_1_top.JPG', alt: 'Anniversary Cake 1', category: 'anniversary', type: 'small' },
+            { src: 'img/custom_1_top.JPG', alt: 'Custom Cake 1', category: 'custom', type: 'small' },
+            { src: 'img/birthday_3_top.JPG', alt: 'Birthday Cake 3', category: 'birthday', type: 'small' },
+            { src: 'img/custom_2_top.JPG', alt: 'Custom Cake 2', category: 'custom', type: 'small' },
+            { src: 'img/custom_3_top.JPG', alt: 'Custom Cake 3', category: 'custom', type: 'small' },
+            // Large slider images
+            { src: 'img/birthday_1_bottom.JPG', alt: 'Unicorn Birthday Cake', category: 'birthday', type: 'large' },
+            { src: 'img/custom_1_bottom.JPG', alt: 'Custom Graduation Cake', category: 'custom', type: 'large' },
+            { src: 'img/birthday_2_bottom.JPG', alt: 'Cartoon Character Birthday Cake', category: 'birthday', type: 'large' },
+            { src: 'img/custom_2_bottom.JPG', alt: 'Baby Gender Reveal Cake', category: 'custom', type: 'large' },
+            { src: 'img/birthday_3_bottom.JPG', alt: 'Gaming Console Birthday Cake', category: 'birthday', type: 'large' },
+            { src: 'img/custom_3_bottom.JPG', alt: 'Corporate Logo Cake', category: 'custom', type: 'large' },
+            { src: 'img/birthday_4_bottom.JPG', alt: 'Dinosaur Themed Birthday Cake', category: 'birthday', type: 'large' },
+            { src: 'img/birthday_4_top.JPG', alt: 'Anniversary Cake with Custom Design', category: 'anniversary', type: 'large' },
+            { src: 'https://placehold.co/600x400/FFF0F5/A0522D?text=New+Cake+7', alt: 'New Cake 7', category: 'birthday', type: 'large' },
+            { src: 'https://placehold.co/600x400/F5F5F5/A0522D?text=New+Cake+8', alt: 'New Cake 8', category: 'custom', type: 'large' },
+            { src: 'https://placehold.co/600x400/E6E6FA/A0522D?text=New+Cake+9', alt: 'New Cake 9', category: 'anniversary', type: 'large' },
+            { src: 'https://placehold.co/600x400/FFFACD/A0522D?text=New+Cake+10', alt: 'New Cake 10', category: 'birthday', type: 'large' },
+        ];
+
+        const sliderContent1 = document.getElementById('slider-content-1');
+        const prevSlideBtn1 = document.getElementById('prev-slide-1');
+        const nextSlideBtn1 = document.getElementById('next-slide-1');
+        const sliderContainer1 = document.getElementById('slider-container-1');
+
+        const sliderContent2 = document.getElementById('slider-content-2');
+        const prevSlideBtn2 = document.getElementById('prev-slide-2');
+        const nextSlideBtn2 = document.getElementById('next-slide-2');
+        const sliderContainer2 = document.getElementById('slider-container-2');
+
+        let currentSlideIndex1 = 0;
+        let currentSlideIndex2 = 0;
+        let visibleGalleryItems1 = [];
+        let visibleGalleryItems2 = [];
+
+        let slideInterval1;
+        let slideInterval2;
+        const autoSlideDelay = 3000;
+
+        function getItemsPerView1() {
+            if (window.innerWidth >= 1024) {
+                return 3;
+            } else if (window.innerWidth >= 768) {
+                return 2;
+            } else {
+                return 1;
+            }
+        }
+
+        function getItemsPerView2() {
+            if (window.innerWidth >= 1280) {
+                return 6;
+            } else if (window.innerWidth >= 1024) {
+                return 4;
+            } else if (window.innerWidth >= 768) {
+                return 3;
+            } else {
+                return 2;
+            }
+        }
+
+        function updateSlider(sliderNum) {
+            let sliderContent, prevBtn, nextBtn, currentSlideIndex, itemsPerViewFunc, visibleItems, itemClass;
+
+            if (sliderNum === 1) {
+                sliderContent = sliderContent1;
+                prevBtn = prevSlideBtn1;
+                nextBtn = nextSlideBtn1;
+                currentSlideIndex = currentSlideIndex1;
+                itemsPerViewFunc = getItemsPerView1;
+                visibleItems = visibleGalleryItems1;
+                itemClass = 'gallery-item';
+            } else {
+                sliderContent = sliderContent2;
+                prevBtn = prevSlideBtn2;
+                nextBtn = nextSlideBtn2;
+                currentSlideIndex = currentSlideIndex2;
+                itemsPerViewFunc = getItemsPerView2;
+                visibleItems = visibleGalleryItems2;
+                itemClass = 'gallery-item-large-slider aspect-w-3 aspect-h-4'; // Added aspect ratio classes
+            }
+
+            sliderContent.innerHTML = ''; // Clear existing items
+
+            // Dynamically create and append items
+            visibleItems.forEach(itemData => {
+                const div = document.createElement('div');
+                div.className = `${itemClass} p-4`;
+                div.setAttribute('data-category', itemData.category);
+
+                const img = document.createElement('img');
+                img.src = itemData.src;
+                img.alt = itemData.alt;
+                img.className = 'w-full h-full object-cover rounded-lg shadow-md'; // img fills the aspect-ratio div
+
+                div.appendChild(img);
+                sliderContent.appendChild(div);
             });
 
-            // Close mobile menu when a link is clicked
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
+            const itemsPerView = itemsPerViewFunc();
+            const totalItems = visibleItems.length;
+            const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+
+            if (currentSlideIndex > maxSlideIndex) {
+                currentSlideIndex = maxSlideIndex;
+            }
+            if (currentSlideIndex < 0) {
+                currentSlideIndex = 0;
+            }
+
+            const translateXValue = -currentSlideIndex * (100 / itemsPerView);
+            sliderContent.style.transform = `translateX(${translateXValue}%)`;
+
+            prevBtn.classList.toggle('disabled', currentSlideIndex === 0 || totalItems <= itemsPerView);
+            nextBtn.classList.toggle('disabled', currentSlideIndex >= maxSlideIndex || totalItems <= itemsPerView);
+
+
+            if (sliderNum === 1) {
+                currentSlideIndex1 = currentSlideIndex;
+            } else {
+                currentSlideIndex2 = currentSlideIndex;
+            }
+        }
+
+        function filterGallery(filter) {
+            visibleGalleryItems1 = allCakeImages.filter(item => {
+                return item.type === 'small' && (filter === 'all' || item.category === filter);
+            });
+            visibleGalleryItems2 = allCakeImages.filter(item => {
+                return item.type === 'large' && (filter === 'all' || item.category === filter);
             });
 
-            // Hero Section Slider Logic
-            const heroSlides = document.querySelectorAll('.hero-slider-item');
-            const heroDotsContainer = document.getElementById('hero-dots-container');
-            let currentHeroSlide = 0;
-            let heroSlideInterval;
-            const heroAutoSlideDelay = 5000; // 5 seconds
-
-            function showHeroSlide(index) {
-                heroSlides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    heroDotsContainer.children[i].classList.remove('active');
-                });
-                heroSlides[index].classList.add('active');
-                heroDotsContainer.children[index].classList.add('active');
-                currentHeroSlide = index;
-            }
-
-            function nextHeroSlide() {
-                currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-                showHeroSlide(currentHeroSlide);
-            }
-
-            function startHeroAutoPlay() {
-                stopHeroAutoPlay(); // Clear any existing interval
-                heroSlideInterval = setInterval(nextHeroSlide, heroAutoSlideDelay);
-            }
-
-            function stopHeroAutoPlay() {
-                clearInterval(heroSlideInterval);
-            }
-
-            // Add event listeners for hero dots
-            heroDotsContainer.querySelectorAll('.hero-dot').forEach(dot => {
-                dot.addEventListener('click', (event) => {
-                    const index = parseInt(event.target.getAttribute('data-slide-index'));
-                    showHeroSlide(index);
-                    startHeroAutoPlay(); // Restart auto-play after manual navigation
-                });
-            });
-
-            // Pause/resume hero slider on hover
-            const heroSection = document.getElementById('home');
-            heroSection.addEventListener('mouseenter', stopHeroAutoPlay);
-            heroSection.addEventListener('mouseleave', startHeroAutoPlay);
-
-            // Initial hero slider setup
-            showHeroSlide(0);
-            startHeroAutoPlay();
-
-
-            // Gallery Filtering and Slider Logic
-            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
-            
-            const allGalleryItems1 = document.querySelectorAll('#slider-content-1 .gallery-item');
-            const allGalleryItems2 = document.querySelectorAll('#slider-content-2 .gallery-item-large-slider');
-
-            const sliderContent1 = document.getElementById('slider-content-1');
-            const prevSlideBtn1 = document.getElementById('prev-slide-1');
-            const nextSlideBtn1 = document.getElementById('next-slide-1');
-            const sliderContainer1 = document.getElementById('slider-container-1');
-
-            const sliderContent2 = document.getElementById('slider-content-2');
-            const prevSlideBtn2 = document.getElementById('prev-slide-2');
-            const nextSlideBtn2 = document.getElementById('next-slide-2');
-            const sliderContainer2 = document.getElementById('slider-container-2');
-
-            let currentSlideIndex1 = 0;
-            let currentSlideIndex2 = 0;
-            let visibleGalleryItems1 = Array.from(allGalleryItems1); 
-            let visibleGalleryItems2 = Array.from(allGalleryItems2); 
-
-            let slideInterval1;
-            let slideInterval2;
-            const autoSlideDelay = 3000; 
-
-            function getItemsPerView1() { 
-                if (window.innerWidth >= 1024) { 
-                    return 3;
-                } else if (window.innerWidth >= 768) { 
-                    return 2;
-                } else {
-                    return 1;
-                }
-            }
-
-            function getItemsPerView2() { 
-                if (window.innerWidth >= 1280) { 
-                    return 6;
-                } else if (window.innerWidth >= 1024) { 
-                    return 4;
-                } else if (window.innerWidth >= 768) { 
-                    return 3;
-                } else {
-                    return 2;
-                }
-            }
-
-            function updateSlider(sliderNum) {
-                let sliderContent, prevBtn, nextBtn, currentSlideIndex, itemsPerViewFunc, visibleItems;
-
-                if (sliderNum === 1) {
-                    sliderContent = sliderContent1;
-                    prevBtn = prevSlideBtn1;
-                    nextBtn = nextSlideBtn1;
-                    currentSlideIndex = currentSlideIndex1;
-                    itemsPerViewFunc = getItemsPerView1;
-                    visibleItems = visibleGalleryItems1;
-                } else { 
-                    sliderContent = sliderContent2;
-                    prevBtn = prevSlideBtn2;
-                    nextBtn = nextSlideBtn2;
-                    currentSlideIndex = currentSlideIndex2;
-                    itemsPerViewFunc = getItemsPerView2;
-                    visibleItems = visibleGalleryItems2;
-                }
-
-                sliderContent.innerHTML = '';
-                
-                visibleItems.forEach(item => {
-                    sliderContent.appendChild(item.cloneNode(true)); 
-                });
-
-                const itemsPerView = itemsPerViewFunc();
-                const totalItems = visibleItems.length;
-                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-
-                if (currentSlideIndex > maxSlideIndex) {
-                    currentSlideIndex = maxSlideIndex;
-                }
-                if (currentSlideIndex < 0) {
-                    currentSlideIndex = 0;
-                }
-                
-                const translateXValue = -currentSlideIndex * (100 / itemsPerView);
-                sliderContent.style.transform = `translateX(${translateXValue}%)`;
-
-                prevBtn.classList.toggle('disabled', currentSlideIndex === 0);
-                nextBtn.classList.toggle('disabled', currentSlideIndex >= maxSlideIndex);
-
-                if (sliderNum === 1) {
-                    currentSlideIndex1 = currentSlideIndex;
-                } else {
-                    currentSlideIndex2 = currentSlideIndex;
-                }
-            }
-
-            function filterGallery(filter) {
-                visibleGalleryItems1 = Array.from(allGalleryItems1).filter(item => {
-                    return filter === 'all' || item.getAttribute('data-category') === filter;
-                });
-                visibleGalleryItems2 = Array.from(allGalleryItems2).filter(item => {
-                    return filter === 'all' || item.getAttribute('data-category') === filter;
-                });
-
-                currentSlideIndex1 = 0; 
-                currentSlideIndex2 = 0; 
-                
-                updateSlider(1);
-                updateSlider(2);
-
-                stopSliderAutoPlay(1);
-                stopSliderAutoPlay(2);
-                startSliderAutoPlay(1);
-                startSliderAutoPlay(2);
-            }
-
-            function startSliderAutoPlay(sliderNum) {
-                if (sliderNum === 1) {
-                    stopSliderAutoPlay(1); 
-                    slideInterval1 = setInterval(() => {
-                        const itemsPerView = getItemsPerView1();
-                        const totalItems = visibleGalleryItems1.length;
-                        const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                        if (currentSlideIndex1 < maxSlideIndex) {
-                            currentSlideIndex1++;
-                        } else {
-                            currentSlideIndex1 = 0; 
-                        }
-                        updateSlider(1);
-                    }, autoSlideDelay);
-                } else if (sliderNum === 2) {
-                    stopSliderAutoPlay(2); 
-                    slideInterval2 = setInterval(() => {
-                        const itemsPerView = getItemsPerView2();
-                        const totalItems = visibleGalleryItems2.length;
-                        const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                        if (currentSlideIndex2 < maxSlideIndex) {
-                            currentSlideIndex2++;
-                        } else {
-                            currentSlideIndex2 = 0; 
-                        }
-                        updateSlider(2);
-                    }, autoSlideDelay);
-                }
-            }
-
-            function stopSliderAutoPlay(sliderNum) {
-                if (sliderNum === 1) {
-                    clearInterval(slideInterval1);
-                } else if (sliderNum === 2) {
-                    clearInterval(slideInterval2);
-                }
-            }
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    const filter = button.getAttribute('data-filter');
-                    filterGallery(filter);
-                });
-            });
-
-            prevSlideBtn1.addEventListener('click', () => {
-                if (currentSlideIndex1 > 0) {
-                    currentSlideIndex1--;
-                    updateSlider(1);
-                }
-            });
-            nextSlideBtn1.addEventListener('click', () => {
-                const itemsPerView = getItemsPerView1();
-                const totalItems = visibleGalleryItems1.length;
-                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                if (currentSlideIndex1 < maxSlideIndex) {
-                    currentSlideIndex1++;
-                    updateSlider(1);
-                }
-            });
-
-            prevSlideBtn2.addEventListener('click', () => {
-                if (currentSlideIndex2 > 0) {
-                    currentSlideIndex2--;
-                    updateSlider(2);
-                }
-            });
-            nextSlideBtn2.addEventListener('click', () => {
-                const itemsPerView = getItemsPerView2();
-                const totalItems = visibleGalleryItems2.length;
-                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                if (currentSlideIndex2 < maxSlideIndex) {
-                    currentSlideIndex2++;
-                    updateSlider(2);
-                }
-            });
-
-            sliderContainer1.addEventListener('mouseenter', () => stopSliderAutoPlay(1));
-            sliderContainer1.addEventListener('mouseleave', () => startSliderAutoPlay(1));
-
-            sliderContainer2.addEventListener('mouseenter', () => stopSliderAutoPlay(2));
-            sliderContainer2.addEventListener('mouseleave', () => startSliderAutoPlay(2));
-
-            window.addEventListener('resize', () => {
-                updateSlider(1);
-                updateSlider(2);
-                stopSliderAutoPlay(1); 
-                stopSliderAutoPlay(2);
-                startSliderAutoPlay(1);
-                startSliderAutoPlay(2);
-            });
+            currentSlideIndex1 = 0;
+            currentSlideIndex2 = 0;
 
             updateSlider(1);
             updateSlider(2);
+
+            stopSliderAutoPlay(1);
+            stopSliderAutoPlay(2);
             startSliderAutoPlay(1);
             startSliderAutoPlay(2);
+        }
 
-            const style = document.createElement('style');
-            style.innerHTML = `
-                .gallery-filter-btn {
-                    padding: 0.5rem 1.5rem;
-                    border: 1px solid #D2B48C;
-                    border-radius: 9999px;
-                    color: #A0522D;
-                    font-weight: 600;
-                    transition: all 0.3s;
-                }
-                .gallery-filter-btn:hover {
-                    background-color: #D2B48C;
-                    color: white;
-                }
-                .gallery-filter-btn.active {
-                    background-color: #A0522D;
-                    color: white;
-                    border-color: #A0522D;
-                }
-            `;
-            document.head.appendChild(style);
+        function startSliderAutoPlay(sliderNum) {
+            if (sliderNum === 1) {
+                stopSliderAutoPlay(1);
+                slideInterval1 = setInterval(() => {
+                    const itemsPerView = getItemsPerView1();
+                    const totalItems = visibleGalleryItems1.length;
+                    const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                    if (currentSlideIndex1 < maxSlideIndex) {
+                        currentSlideIndex1++;
+                    } else {
+                        currentSlideIndex1 = 0;
+                    }
+                    updateSlider(1);
+                }, autoSlideDelay);
+            } else if (sliderNum === 2) {
+                stopSliderAutoPlay(2);
+                slideInterval2 = setInterval(() => {
+                    const itemsPerView = getItemsPerView2();
+                    const totalItems = visibleGalleryItems2.length;
+                    const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                    if (currentSlideIndex2 < maxSlideIndex) {
+                        currentSlideIndex2++;
+                    } else {
+                        currentSlideIndex2 = 0;
+                    }
+                    updateSlider(2);
+                }, autoSlideDelay);
+            }
+        }
+
+        function stopSliderAutoPlay(sliderNum) {
+            if (sliderNum === 1) {
+                clearInterval(slideInterval1);
+            } else if (sliderNum === 2) {
+                clearInterval(slideInterval2);
+            }
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const filter = button.getAttribute('data-filter');
+                filterGallery(filter);
+            });
         });
-    </script>
+
+        prevSlideBtn1.addEventListener('click', () => {
+            if (currentSlideIndex1 > 0) {
+                currentSlideIndex1--;
+                updateSlider(1);
+            }
+        });
+        nextSlideBtn1.addEventListener('click', () => {
+            const itemsPerView = getItemsPerView1();
+            const totalItems = visibleGalleryItems1.length;
+            const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+            if (currentSlideIndex1 < maxSlideIndex) {
+                currentSlideIndex1++;
+                updateSlider(1);
+            }
+        });
+
+        prevSlideBtn2.addEventListener('click', () => {
+            if (currentSlideIndex2 > 0) {
+                currentSlideIndex2--;
+                updateSlider(2);
+            }
+        });
+        nextSlideBtn2.addEventListener('click', () => {
+            const itemsPerView = getItemsPerView2();
+            const totalItems = visibleGalleryItems2.length;
+            const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+            if (currentSlideIndex2 < maxSlideIndex) {
+                currentSlideIndex2++;
+                updateSlider(2);
+            }
+        });
+
+        sliderContainer1.addEventListener('mouseenter', () => stopSliderAutoPlay(1));
+        sliderContainer1.addEventListener('mouseleave', () => startSliderAutoPlay(1));
+
+        sliderContainer2.addEventListener('mouseenter', () => stopSliderAutoPlay(2));
+        sliderContainer2.addEventListener('mouseleave', () => startSliderAutoPlay(2));
+
+        window.addEventListener('resize', () => {
+            updateSlider(1);
+            updateSlider(2);
+            stopSliderAutoPlay(1);
+            stopSliderAutoPlay(2);
+            startSliderAutoPlay(1);
+            startSliderAutoPlay(2);
+        });
+
+        // Initial setup - filter 'all' and start auto-play
+        filterGallery('all');
+    });
+</script>
 </body>
 </html>
