@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creamy Lab | Custom Eggless Cakes in Dayton, NJ</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Beautiful, delicious custom eggless cakes handcrafted in Dayton, New Jersey. Serving South Brunswick, Monroe, Plainsboro, and surrounding areas. Order your special occasion cake today!">
-    <meta name="keywords" content="custom cakes Dayton NJ, home-based bakery New Jersey, birthday cakes South Brunswick, wedding cakes Monroe Township, celebration cakes Plainsboro, Kendall Park cakes, Franklin Park cakes">
+    <meta name="description"
+        content="Beautiful, delicious custom eggless cakes handcrafted in Dayton, New Jersey. Serving South Brunswick, Monroe, Plainsboro, and surrounding areas. Order your special occasion cake today!">
+    <meta name="keywords"
+        content="custom cakes Dayton NJ, home-based bakery New Jersey, birthday cakes South Brunswick, wedding cakes Monroe Township, celebration cakes Plainsboro, Kendall Park cakes, Franklin Park cakes">
     <meta name="author" content="Creamy Lab">
 
     <!-- Social Media Sharing (Open Graph) -->
     <meta property="og:title" content="Creamy Lab | Eggless Custom Cakes in Dayton, NJ" />
-    <meta property="og:description" content="Handcrafted custom eggless cakes for every occasion, made with love in Dayton, NJ." />
+    <meta property="og:description"
+        content="Handcrafted custom eggless cakes for every occasion, made with love in Dayton, NJ." />
     <meta property="og:image" content="https://placehold.co/1200x630/FFF0F5/333333?text=Creamy+Lab" />
     <meta property="og:url" content="https://creamylab.github.io/" />
     <meta property="og:type" content="website" />
@@ -23,12 +27,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
 
     <!-- Chosen Palette: Bakery Bliss -->
-    <!-- Application Structure Plan: A single-page, scrollable website with a fixed navigation bar for intuitive access to all key sections: Home (Hero), About, Gallery, Testimonials, and Order. This structure is ideal for a small business, presenting a clear, linear story to the user—from introduction to conversion (ordering). The mobile-first design uses a hamburger menu for clean navigation on small screens. The user flow is designed to build trust and desire through visual appeal (gallery) and social proof (testimonials) before leading to the call-to-action (order form). This is more effective for a local service business than a complex multi-page site. -->
-    <!-- Visualization & Content Choices: Report Info: Cake images -> Goal: Showcase products -> Viz/Presentation: Interactive Image Gallery with Two Sliders and Hero Background Slider -> Interaction: JS-based category filtering, slider navigation (previous/next buttons), and auto-rotation with hover pause for all sliders -> Justification: Allows users to easily view a large number of cakes relevant to their needs, enhancing user experience and visual appeal. The hero slider provides a dynamic and engaging first impression. Report Info: Customer feedback -> Goal: Build trust -> Viz/Presentation: Testimonial Cards -> Interaction: Static display -> Justification: Clean, readable format for social proof. Report Info: Order process -> Goal: Generate leads -> Viz/Presentation: Embedded Google Form -> Interaction: Form submission -> Justification: Seamlessly integrates the primary business goal (inquiries) into the site without external navigation. This architecture is built with HTML/Tailwind and vanilla JS. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- ... (comments preserved/omitted for brevity) ... -->
 
     <!-- Schema.org Markup for Local Business -->
     <script type="application/ld+json">
@@ -90,17 +94,93 @@
     </script>
 
     <style>
+        :root {
+            /* Artisan Bakery Palette */
+            --color-primary: #4E342E;
+            /* Deep Chocolate - Headings, Footer */
+            --color-secondary: #D68C45;
+            /* Golden Caramel - Dividers, Sub-accents */
+            --color-accent: #E9EDC9;
+            /* Soft Pistachio/Cream - Subtle accents */
+            --color-bg: #FDFBF7;
+            /* Clotted Cream - Main Background */
+            --color-surface: #FFF0E6;
+            /* Baked Dough - Card Backgrounds */
+            --color-text: #4A4A4A;
+            /* Dark Gray - Body Text */
+            --color-highlight: #D8435C;
+            /* Passionate Rose - Buttons, Links, Highlights */
+        }
+
         body {
             font-family: 'Lato', sans-serif;
-            background-color: #FEFBF6; /* A warm, creamy off-white */
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            font-size: 18px;
+            /* Larger base font for readability */
         }
-        h1, h2, h3, .font-display {
+
+        h1,
+        h2,
+        h3,
+        .font-display {
             font-family: 'Playfair Display', serif;
+            color: var(--color-primary);
         }
+
+        .font-cute {
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* Mobile First Typography Scaling */
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5em;
+        }
+
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 3rem;
+            }
+        }
+
+        .btn-primary {
+            background-color: var(--color-highlight);
+            /* Use the bright color for eager action */
+            color: white;
+            padding: 12px 30px;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(255, 107, 107, 0.3);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 107, 107, 0.4);
+        }
+
         .hero-slider-item {
-            background-size: contain; /* Changed from cover to contain */
+            background-size: cover;
+            /* Back to cover for immersive feel */
             background-position: center;
-            background-repeat: no-repeat; /* Added to prevent repeating */
+            background-repeat: no-repeat;
             position: absolute;
             top: 0;
             left: 0;
@@ -109,634 +189,766 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
+
+        .hero-slider-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+        }
+
         .hero-slider-item.active {
             opacity: 1;
         }
-        .gallery-item {
+
+        .gallery-item,
+        .gallery-item-large-slider {
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            flex-shrink: 0; /* Prevent items from shrinking */
-            width: 100%; /* Default: one item per view on mobile */
+            flex-shrink: 0;
         }
-        @media (min-width: 768px) { /* md breakpoint */
+
+        .gallery-item-img {
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0 3s ease;
+        }
+
+        /* Gallery Grids */
+        .gallery-item {
+            width: 100%;
+            padding: 10px;
+        }
+
+        @media (min-width: 768px) {
             .gallery-item {
-                width: 50%; /* Two items per view on tablet */
+                width: 50%;
             }
         }
-        @media (min-width: 1024px) { /* lg breakpoint */
+
+        @media (min-width: 1024px) {
             .gallery-item {
-                width: 33.333%; /* Three items per view on desktop */
+                width: 33.333%;
             }
         }
 
         .gallery-item-large-slider {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            flex-shrink: 0;
-            width: 50%; /* Default: two items per view on mobile */
+            width: 100%;
+            padding: 10px;
         }
-        @media (min-width: 768px) { /* md breakpoint */
+
+        /* Mobile 1 per view */
+        @media (min-width: 640px) {
             .gallery-item-large-slider {
-                width: 33.333%; /* Three items per view on tablet */
-            }
-        }
-        @media (min-width: 1024px) { /* lg breakpoint */
-            .gallery-item-large-slider {
-                width: 25%; /* Four items per view on desktop */
-            }
-        }
-        @media (min-width: 1280px) { /* xl breakpoint */
-            .gallery-item-large-slider {
-                width: 16.666%; /* Six items per view on large desktop */
+                width: 50%;
             }
         }
 
-        .gallery-item:hover, .gallery-item-large-slider:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        @media (min-width: 768px) {
+            .gallery-item-large-slider {
+                width: 33.333%;
+            }
         }
+
+        @media (min-width: 1024px) {
+            .gallery-item-large-slider {
+                width: 25%;
+            }
+        }
+
+        .gallery-item:hover .gallery-item-img,
+        .gallery-item-large-slider:hover .gallery-item-img {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
         .nav-link {
-            transition: color 0.3s;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Bouncy transition */
+            font-family: 'Pacifico', cursive;
+            /* Cute font */
+            font-size: 1.25rem;
+            /* Slightly larger */
+            letter-spacing: 0.5px;
         }
+
         .nav-link:hover {
-            color: #A0522D; /* Sienna Brown */
+            color: var(--color-highlight);
+            transform: rotate(-3deg) scale(1.1);
+            /* Playful tilt and grow */
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
         }
+
         .slider-container {
             position: relative;
             overflow: hidden;
             width: 100%;
+            padding: 20px 0;
+            /* Add space for shadow */
         }
+
         .slider-content {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            align-items: center;
+            /* Center vertically */
         }
+
         .slider-nav-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 0.75rem 0.5rem;
-            border-radius: 0.5rem;
+            background-color: white;
+            /* Clean white button */
+            color: var(--color-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             cursor: pointer;
             z-index: 10;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
+
         .slider-nav-button:hover {
-            opacity: 1;
+            background-color: var(--color-primary);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .slider-nav-button.disabled {
-            opacity: 0.3;
+            opacity: 0.5;
             cursor: not-allowed;
+            background-color: #f3f3f3;
+            color: #ccc;
         }
+
         .slider-nav-button-prev {
-            left: 1rem;
+            left: 10px;
         }
+
         .slider-nav-button-next {
-            right: 1rem;
+            right: 10px;
         }
+
         .hero-dots-container {
             position: absolute;
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 0.5rem;
+            gap: 0.8rem;
             z-index: 20;
         }
+
         .hero-dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.5);
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
+
         .hero-dot.active {
             background-color: white;
+            transform: scale(1.2);
+        }
+
+        /* Glassmorphism Header */
+        header#header {
+            background: rgba(255, 251, 247, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.05);
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-secondary);
+            margin: 0 auto 2rem;
+            border-radius: 2px;
         }
     </style>
 </head>
-<body class="text-gray-800">
 
-<!-- Header & Navigation -->
-<header id="header" class="bg-white/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-        <div class="flex items-center space-x-2 md:space-x-4">
-            <!-- Logo Image Spot -->
-            <img src="img/CreamyLab_Logo_1.PNG" alt="Creamy Lab Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover">
-            <a href="#home" class="font-display text-2xl md:text-3xl font-bold text-gray-800">Creamy Lab</a>
+<body class="">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <!-- Logo Image Spot -->
+                <img src="img/CreamyLab_Logo_1.PNG" alt="Creamy Lab Logo"
+                    class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover">
+                <a href="#home" class="font-cute text-2xl md:text-3xl font-bold"
+                    style="color: var(--color-highlight);">Creamy Lab</a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-lg font-display">About</a>
+                <!-- Instagram Link Added Here -->
+                <a href="https://www.instagram.com/creamycreation94/" target="_blank" rel="noopener noreferrer"
+                    class="nav-link text-lg font-display flex items-center space-x-2"
+                    title="Check out my work on Instagram" aria-label="Check out my work on Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M12.315 2c2.43 0 2.784.013 3.792.058.975.045 1.745.218 2.37.465a4.908 4.908 0 011.77 1.151 4.907 4.907 0 011.15 1.77c.248.625.42 1.395.465 2.37.046 1.008.058 1.358.058 3.792s-.013 2.784-.058 3.792c-.045.975-.218 1.745-.465 2.37a4.908 4.908 0 01-1.151 1.77 4.907 4.907 0 01-1.77 1.15c-.625.248-1.395.42-2.37.465-1.008.046-1.358.058-3.792.058s-2.784-.013-3.792-.058c-.975-.045-1.745-.218-2.37-.465a4.908 4.908 0 01-1.77-1.151 4.907 4.907 0 01-1.15-1.77c-.248-.625-.42-1.395-.465-2.37-.046-1.008-.058-1.358-.058-3.792s.013-2.784.058-3.792c.045-.975.218-1.745.465-2.37a4.908 4.908 0 011.151-1.77 4.907 4.907 0 011.77-1.15c.625-.248 1.395-.42 2.37-.465C9.531 2.013 9.881 2 12.315 2zm0 2.1c-2.31 0-2.61.01-3.51.052-.89.04-1.4.19-1.79.34a2.808 2.808 0 00-1.02.66 2.808 2.808 0 00-.66 1.02c-.15.39-.3 1-.34 1.79-.042.9-.052 1.2-.052 3.51s.01 2.61.052 3.51c.04.89.19 1.4.34 1.79a2.808 2.808 0 00.66 1.02 2.808 2.808 0 001.02.66c.39.15 1 .3 1.79.34.9.042 1.2.052 3.51.052s2.61-.01 3.51-.052c.89-.04 1.4-.19 1.79-.34a2.808 2.808 0 001.02-.66 2.808 2.808 0 00.66-1.02c.15-.39.3-1 .34-1.79.042-.9.052-1.2.052-3.51s-.01-2.61-.052-3.51c-.04-.89-.19-1.4-.34-1.79a2.808 2.808 0 00-.66-1.02 2.808 2.808 0 00-1.02-.66c-.39-.15-1-.3-1.79-.34-.9-.042-1.2-.052-3.51-.052zM12.315 7a5.315 5.315 0 100 10.63 5.315 5.315 0 000-10.63zm0 2.1a3.215 3.215 0 110 6.43 3.215 3.215 0 010-6.43zm6.365-3.415a1.26 1.26 0 100 2.52 1.26 1.26 0 000-2.52z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+                <a href="#gallery" class="nav-link text-lg font-display">Gallery</a>
+                <a href="#testimonials" class="nav-link text-lg font-display">Reviews</a>
+                <a href="#order" class="nav-link text-lg font-display">Order</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10">
+                    </path>
+                </svg>
+            </button>
         </div>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-8">
-            <a href="#about" class="nav-link text-lg font-display">About</a>
-            <!-- Instagram Link Added Here -->
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#about" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">About</a>
+            <!-- Instagram Link Added Here for Mobile -->
             <a href="https://www.instagram.com/creamycreation94/" target="_blank" rel="noopener noreferrer"
-               class="nav-link text-lg font-display flex items-center space-x-2"
-               title="Check out my work on Instagram" aria-label="Check out my work on Instagram">
+                class="block py-2 px-6 text-center nav-link mobile-nav-link font-display flex items-center justify-center space-x-2">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.792.058.975.045 1.745.218 2.37.465a4.908 4.908 0 011.77 1.151 4.907 4.907 0 011.15 1.77c.248.625.42 1.395.465 2.37.046 1.008.058 1.358.058 3.792s-.013 2.784-.058 3.792c-.045.975-.218 1.745-.465 2.37a4.908 4.908 0 01-1.151 1.77 4.907 4.907 0 01-1.77 1.15c-.625.248-1.395.42-2.37.465-1.008.046-1.358.058-3.792.058s-2.784-.013-3.792-.058c-.975-.045-1.745-.218-2.37-.465a4.908 4.908 0 01-1.77-1.151 4.907 4.907 0 01-1.15-1.77c-.248-.625-.42-1.395-.465-2.37-.046-1.008-.058-1.358-.058-3.792s.013-2.784.058-3.792c.045-.975.218-1.745.465-2.37a4.908 4.908 0 011.151-1.77 4.907 4.907 0 011.77-1.15c.625-.248 1.395-.42 2.37-.465C9.531 2.013 9.881 2 12.315 2zm0 2.1c-2.31 0-2.61.01-3.51.052-.89.04-1.4.19-1.79.34a2.808 2.808 0 00-1.02.66 2.808 2.808 0 00-.66 1.02c-.15.39-.3 1-.34 1.79-.042.9-.052 1.2-.052 3.51s.01 2.61.052 3.51c.04.89.19 1.4.34 1.79a2.808 2.808 0 00.66 1.02 2.808 2.808 0 001.02.66c.39.15 1 .3 1.79.34.9.042 1.2.052 3.51.052s2.61-.01 3.51-.052c.89-.04 1.4-.19 1.79-.34a2.808 2.808 0 001.02-.66 2.808 2.808 0 00.66-1.02c.15-.39.3-1 .34-1.79.042-.9.052-1.2.052-3.51s-.01-2.61-.052-3.51c-.04-.89-.19-1.4-.34-1.79a2.808 2.808 0 00-.66-1.02 2.808 2.808 0 00-1.02-.66c-.39-.15-1-.3-1.79-.34-.9-.042-1.2-.052-3.51-.052zM12.315 7a5.315 5.315 0 100 10.63 5.315 5.315 0 000-10.63zm0 2.1a3.215 3.215 0 110 6.43 3.215 3.215 0 010-6.43zm6.365-3.415a1.26 1.26 0 100 2.52 1.26 1.26 0 000-2.52z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                        d="M12.315 2c2.43 0 2.784.013 3.792.058.975.045 1.745.218 2.37.465a4.908 4.908 0 011.77 1.151 4.907 4.907 0 011.15 1.77c.248.625.42 1.395.465 2.37.046 1.008.058 1.358.058 3.792s-.013 2.784-.058 3.792c-.045.975-.218 1.745-.465 2.37a4.908 4.908 0 01-1.151 1.77 4.907 4.907 0 01-1.77 1.15c-.625.248-1.395.42-2.37.465-1.008.046-1.358.058-3.792.058s-2.784-.013-3.792-.058c-.975-.045-1.745-.218-2.37-.465a4.908 4.908 0 01-1.77-1.151 4.907 4.907 0 01-1.15-1.77c-.248-.625-.42-1.395-.465-2.37-.046-1.008-.058-1.358-.058-3.792s.013-2.784.058-3.792c.045-.975.218-1.745.465-2.37a4.908 4.908 0 011.151-1.77 4.907 4.907 0 011.77-1.15c.625-.248 1.395-.42 2.37-.465C9.531 2.013 9.881 2 12.315 2zm0 2.1c-2.31 0-2.61.01-3.51.052-.89.04-1.4.19-1.79.34a2.808 2.808 0 00-1.02.66 2.808 2.808 0 00-.66 1.02c-.15.39-.3 1-.34 1.79-.042.9-.052 1.2-.052 3.51s.01 2.61.052 3.51c.04.89.19 1.4.34 1.79a2.808 2.808 0 00.66 1.02 2.808 2.808 0 001.02.66c.39.15 1 .3 1.79.34.9.042 1.2.052 3.51.052s2.61-.01 3.51-.052c.89-.04 1.4-.19 1.79-.34a2.808 2.808 0 001.02-.66 2.808 2.808 0 00.66-1.02c.15-.39.3-1 .34-1.79.042-.9.052-1.2.052-3.51s-.01-2.61-.052-3.51c-.04-.89-.19-1.4-.34-1.79a2.808 2.808 0 00-.66-1.02 2.808 2.808 0 00-1.02-.66c-.39-.15-1-.3-1.79-.34-.9-.042-1.2-.052-3.51-.052zM12.315 7a5.315 5.315 0 100 10.63 5.315 5.315 0 000-10.63zm0 2.1a3.215 3.215 0 110 6.43 3.215 3.215 0 010-6.43zm6.365-3.415a1.26 1.26 0 100 2.52 1.26 1.26 0 000-2.52z"
+                        clip-rule="evenodd" />
                 </svg>
                 <span>Instagram</span>
             </a>
-            <a href="#gallery" class="nav-link text-lg font-display">Gallery</a>
-            <a href="#testimonials" class="nav-link text-lg font-display">Reviews</a>
-            <a href="#order" class="nav-link text-lg font-display">Order</a>
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="md:hidden">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h10"></path></svg>
-        </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white">
-        <a href="#about" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">About</a>
-        <!-- Instagram Link Added Here for Mobile -->
-        <a href="https://www.instagram.com/creamycreation94/" target="_blank" rel="noopener noreferrer"
-           class="block py-2 px-6 text-center nav-link mobile-nav-link font-display flex items-center justify-center space-x-2">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.792.058.975.045 1.745.218 2.37.465a4.908 4.908 0 011.77 1.151 4.907 4.907 0 011.15 1.77c.248.625.42 1.395.465 2.37.046 1.008.058 1.358.058 3.792s-.013 2.784-.058 3.792c-.045.975-.218 1.745-.465 2.37a4.908 4.908 0 01-1.151 1.77 4.907 4.907 0 01-1.77 1.15c-.625.248-1.395.42-2.37.465-1.008.046-1.358.058-3.792.058s-2.784-.013-3.792-.058c-.975-.045-1.745-.218-2.37-.465a4.908 4.908 0 01-1.77-1.151 4.907 4.907 0 01-1.15-1.77c-.248-.625-.42-1.395-.465-2.37-.046-1.008-.058-1.358-.058-3.792s.013-2.784.058-3.792c.045-.975.218-1.745.465-2.37a4.908 4.908 0 011.151-1.77 4.907 4.907 0 011.77-1.15c.625-.248 1.395-.42 2.37-.465C9.531 2.013 9.881 2 12.315 2zm0 2.1c-2.31 0-2.61.01-3.51.052-.89.04-1.4.19-1.79.34a2.808 2.808 0 00-1.02.66 2.808 2.808 0 00-.66 1.02c-.15.39-.3 1-.34 1.79-.042.9-.052 1.2-.052 3.51s.01 2.61.052 3.51c.04.89.19 1.4.34 1.79a2.808 2.808 0 00.66 1.02 2.808 2.808 0 001.02.66c.39.15 1 .3 1.79.34.9.042 1.2.052 3.51.052s2.61-.01 3.51-.052c.89-.04 1.4-.19 1.79-.34a2.808 2.808 0 001.02-.66 2.808 2.808 0 00.66-1.02c.15-.39.3-1 .34-1.79.042-.9.052-1.2.052-3.51s-.01-2.61-.052-3.51c-.04-.89-.19-1.4-.34-1.79a2.808 2.808 0 00-.66-1.02 2.808 2.808 0 00-1.02-.66c-.39-.15-1-.3-1.79-.34-.9-.042-1.2-.052-3.51-.052zM12.315 7a5.315 5.315 0 100 10.63 5.315 5.315 0 000-10.63zm0 2.1a3.215 3.215 0 110 6.43 3.215 3.215 0 010-6.43zm6.365-3.415a1.26 1.26 0 100 2.52 1.26 1.26 0 000-2.52z" clip-rule="evenodd" />
-            </svg>
-            <span>Instagram</span>
-        </a>
-        <a href="#gallery" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Gallery</a>
-        <a href="#testimonials" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Reviews</a>
-        <a href="#order" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Order</a>
-    </div>
-</header>
-
-<main>
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <!-- Hero Background Slider -->
-        <div id="hero-slider-background" class="absolute inset-0">
-            <div class="hero-slider-item active" style="background-image: url('img/Hero1.JPG');"></div>
-            <div class="hero-slider-item" style="background-image: url('img/Hero2.JPG');"></div>
-            <div class="hero-slider-item" style="background-image: url('img/Hero3.JPG');"></div>
+            <a href="#gallery" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Gallery</a>
+            <a href="#testimonials"
+                class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Reviews</a>
+            <a href="#order" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Order</a>
         </div>
+    </header>
 
-        <div class="relative z-10 text-center bg-black/50 p-8 rounded-lg">
-            <h1 class="font-display text-5xl md:text-7xl font-bold">Creating Sweet Memories</h1>
-            <p class="text-xl md:text-2xl mt-4 max-w-2xl">Handcrafted custom eggless cakes for your special moments.</p>
-            <a href="#order" class="mt-8 inline-block bg-sienna-700 hover:bg-sienna-800 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105" style="background-color: #A0522D;">Order Your Cake</a>
-        </div>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+            <!-- Hero Background Slider -->
+            <div id="hero-slider-background" class="absolute inset-0">
+                <div class="hero-slider-item active" style="background-image: url('img/Hero1.JPG');"></div>
+                <div class="hero-slider-item" style="background-image: url('img/Hero2.JPG');"></div>
+                <div class="hero-slider-item" style="background-image: url('img/Hero3.JPG');"></div>
+            </div>
 
-        <!-- Hero Slider Navigation Dots -->
-        <div id="hero-dots-container" class="hero-dots-container">
-            <span class="hero-dot active" data-slide-index="0"></span>
-            <span class="hero-dot" data-slide-index="1"></span>
-            <span class="hero-dot" data-slide-index="2"></span>
-        </div>
-    </section>
+            <div class="relative z-10 text-center bg-black/40 p-8 rounded-lg backdrop-blur-sm">
+                <h1 class="font-cute text-5xl md:text-7xl font-bold" style="color: var(--color-highlight);">Creating
+                    Sweet Memories</h1>
+                <p class="text-xl md:text-2xl mt-4 max-w-2xl font-bold drop-shadow-md" style="color: #FFF;">Celebrate
+                    life's
+                    sweetest moments with handcrafted, 100% eggless cakes — fresh, delicious, and full of love.</p>
+                <a href="https://wa.me/16095985807" target="_blank"
+                    class="mt-8 inline-block btn-primary text-lg transition-transform transform hover:scale-105">Order
+                    Your Cake</a>
+            </div>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-20 bg-white">
+            <!-- Hero Slider Navigation Dots -->
+            <div id="hero-dots-container" class="hero-dots-container">
+                <span class="hero-dot active" data-slide-index="0"></span>
+                <span class="hero-dot" data-slide-index="1"></span>
+                <span class="hero-dot" data-slide-index="2"></span>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">Baked with Love in Dayton, NJ</h2>
+                <div class="section-divider"></div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                    <img src="img/Manisha.JPG" alt="Owner of Creamy Lab"
+                        class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg">
+                    <div class="max-w-2xl text-lg text-left">
+                        <p class="mb-4">
+                            Welcome to Creamy Lab! My name is Manisha, and baking isn't just a job for me—it's a
+                            passion. From my home kitchen right here in Dayton, NJ, I pour my heart into creating
+                            beautiful and delicious cakes that become the centerpiece of your celebrations. Every cake
+                            is made from scratch using premium ingredients, and all our cakes are 100% eggless, ensuring
+                            they taste as good as they look. Thank you for considering me to be a part of your special
+                            day!
+                        </p>
+                        <!-- Instagram Link Added Here in About Us Section -->
+                        <a href="https://www.instagram.com/creamy.labs/" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center space-x-2 font-bold transition-colors duration-300"
+                            style="color: var(--color-highlight);" title="Check out my work on Instagram"
+                            aria-label="Check out my work on Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.792.058.975.045 1.745.218 2.37.465a4.908 4.908 0 011.77 1.151 4.907 4.907 0 011.15 1.77c.248.625.42 1.395.465 2.37.046 1.008.058 1.358.058 3.792s-.013 2.784-.058 3.792c-.045.975-.218 1.745-.465 2.37a4.908 4.908 0 01-1.151 1.77 4.907 4.907 0 01-1.77 1.15c-.625.248-1.395.42-2.37.465-1.008.046-1.358.058-3.792.058s-2.784-.013-3.792-.058c-.975-.045-1.745-.218-2.37-.465a4.908 4.908 0 01-1.77-1.151 4.907 4.907 0 01-1.15-1.77c-.248-.625-.42-1.395-.465-2.37-.046-1.008-.058-1.358-.058-3.792s.013-2.784.058-3.792c.045-.975.218-1.745.465-2.37a4.908 4.908 0 011.151-1.77 4.907 4.907 0 011.77-1.15c.625-.248 1.395-.42 2.37-.465C9.531 2.013 9.881 2 12.315 2zm0 2.1c-2.31 0-2.61.01-3.51.052-.89.04-1.4.19-1.79.34a2.808 2.808 0 00-1.02.66 2.808 2.808 0 00-.66 1.02c-.15.39-.3 1-.34 1.79-.042.9-.052 1.2-.052 3.51s.01 2.61.052 3.51c.04.89.19 1.4.34 1.79a2.808 2.808 0 00.66 1.02 2.808 2.808 0 001.02.66c.39.15 1 .3 1.79.34.9.042 1.2.052 3.51.052s2.61-.01 3.51-.052c.89-.04 1.4-.19 1.79-.34a2.808 2.808 0 001.02-.66 2.808 2.808 0 00.66-1.02c.15-.39.3-1 .34-1.79.042-.9.052-1.2.052-3.51s-.01-2.61-.052-3.51c-.04-.89-.19-1.4-.34-1.79a2.808 2.808 0 00-.66-1.02 2.808 2.808 0 00-1.02-.66c-.39-.15-1-.3-1.79-.34-.9-.042-1.2-.052-3.51-.052zM12.315 7a5.315 5.315 0 100 10.63 5.315 5.315 0 000-10.63zm0 2.1a3.215 3.215 0 110 6.43 3.215 3.215 0 010-6.43zm6.365-3.415a1.26 1.26 0 100 2.52 1.26 1.26 0 000-2.52z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="font-cute text-2xl transition-colors"
+                                style="color: var(--color-highlight);">Follow
+                                the flavor: scroll through my Instagram.</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">Our Creations</h2>
+                <div class="section-divider"></div>
+
+                <!-- Filter Buttons -->
+                <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
+                    <button class="gallery-filter-btn active" data-filter="all">All</button>
+                    <button class="gallery-filter-btn" data-filter="birthday">Birthday</button>
+                    <button class="gallery-filter-btn" data-filter="custom">Custom</button>
+                    <button class="gallery-filter-btn" data-filter="anniversary">Anniversary</button>
+                </div>
+
+                <!-- Image Slider 1 (1/2/3 images per view) -->
+                <div id="slider-container-1" class="slider-container max-w-7xl mx-auto mb-12">
+                    <div id="slider-content-1" class="slider-content">
+                        <!-- Images will be dynamically loaded here by JavaScript -->
+                    </div>
+                    <!-- Slider Navigation Buttons for Slider 1 -->
+                    <button id="prev-slide-1" class="slider-nav-button slider-nav-button-prev">
+                        &#10094; <!-- Left arrow -->
+                    </button>
+                    <button id="next-slide-1" class="slider-nav-button slider-nav-button-next">
+                        &#10095; <!-- Right arrow -->
+                    </button>
+                </div>
+
+                <!-- Image Slider 2 (2/3/4/6 images per view) -->
+                <div id="slider-container-2" class="slider-container max-w-7xl mx-auto">
+                    <div id="slider-content-2" class="slider-content">
+                        <!-- Images will be dynamically loaded here by JavaScript -->
+                    </div>
+                    <!-- Slider Navigation Buttons for Slider 2 -->
+                    <button id="prev-slide-2" class="slider-nav-button slider-nav-button-prev">
+                        &#10094; <!-- Left arrow -->
+                    </button>
+                    <button id="next-slide-2" class="slider-nav-button slider-nav-button-next">
+                        &#10095; <!-- Right arrow -->
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">What Our Customers Say</h2>
+                <div class="section-divider"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <div class="p-6 rounded-lg shadow-sm" style="background-color: var(--color-surface);">
+                        <p class="text-gray-600">"The cake was the star of the 50th Birthday party! Absolutely stunning
+                            and it tasted even better. Manisha was so easy to work with. Highly recommend!"</p>
+                        <p class="font-bold mt-4">- Saara M.</p>
+                    </div>
+                    <div class="p-6 rounded-lg shadow-sm" style="background-color: var(--color-surface);">
+                        <p class="text-gray-600">"I ordered a custom cake for my son's birthday, and it exceeded all
+                            expectations. The details were incredible. We will definitely be back for our next event."
+                        </p>
+                        <p class="font-bold mt-4">- Dinesh K.</p>
+                    </div>
+                    <div class="p-6 rounded-lg shadow-sm" style="background-color: var(--color-surface);">
+                        <p class="text-gray-600">"Our anniversary cake was a dream come true. It was exactly what we
+                            envisioned. Thank you for making our day so much sweeter!"</p>
+                        <p class="font-bold mt-4">- Raj P.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl font-bold mb-4">Ready for a Custom Cake?</h2>
+                <div class="section-divider"></div>
+                <p class="max-w-2xl mx-auto text-lg mb-8">
+                    Please fill out the form below to start your custom cake inquiry. Provide as much detail as
+                    possible, and I'll get back to you within 48 hours to discuss your creation. I can't wait to bake
+                    for you!
+                </p>
+                <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-lg">
+                    <!-- GOOGLE FORM EMBED -->
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSf29CoR94e9cO22NOPpclXO8FX3V8wxxpsp99X8YFU0M5QZbg/viewform?embedded=true"
+                        width="100%" height="1256" frameborder="0" marginheight="0" marginwidth="0" class="rounded-md">
+                        Loading…
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/16095985807" target="_blank"
+        class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110 flex items-center justify-center"
+        aria-label="Contact on WhatsApp">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.601 2.2 5.304 4.093 5.337 4.298l-.136.634-1.22 4.456 4.515-1.185.736.177zm9.102-4.226s-1.304-.76-1.508-.885-.347-.197-.48.198c-.135.396-.527.66-.723.754s-.418.109-.766-.046c-1.465-.655-2.735-1.785-3.696-3.15-.224-.316-.024-.486.149-.658.156-.156.417-.564.571-.724.183-.189.245-.316.368-.527.124-.212.062-.396-.03-.528-.095-.133-1.003-2.029-1.298-2.673-.284-.619-.508-.507-.696-.507-.175 0-.376.012-.576.035-.2.024-.526.084-.803.385-.276.3-.923 1.054-.923 2.158 0 1.258 1.077 2.454 1.232 2.662.155.207 2.508 3.585 5.869 5.228 2.016.985 2.822 1.063 3.864.931.787-.099 2.067-.846 2.361-1.662.294-.816.294-1.516.208-1.662-.086-.146-.316-.233-.526-.339z" />
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="text-white py-12" style="background-color: var(--color-primary);">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="font-display text-4xl font-bold mb-4">Baked with Love in Dayton</h2>
-            <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-                <img src="img/Manisha.JPG" alt="Owner of Creamy Lab" class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg">
-                <div class="max-w-2xl text-lg text-left">
-                    <p class="mb-4">
-                        Welcome to Creamy Lab! My name is Manisha, and baking isn't just a job for me—it's a passion. From my home kitchen right here in Dayton, NJ, I pour my heart into creating beautiful and delicious cakes that become the centerpiece of your celebrations. Every cake is made from scratch using premium ingredients, and all our cakes are 100% eggless, ensuring they taste as good as they look. Thank you for considering me to be a part of your special day!
-                    </p>
-                    <!-- Instagram Link Added Here in About Us Section -->
-                    <a href="https://www.instagram.com/creamy.labs/" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center space-x-2 text-sienna-700 hover:text-sienna-800 font-bold transition-colors duration-300"
-                       title="Check out my work on Instagram" aria-label="Check out my work on Instagram">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.792.058.975.045 1.745.218 2.37.465a4.908 4.908 0 011.77 1.151 4.907 4.907 0 011.15 1.77c.248.625.42 1.395.465 2.37.046 1.008.058 1.358.058 3.792s-.013 2.784-.058 3.792c-.045.975-.218 1.745-.465 2.37a4.908 4.908 0 01-1.151 1.77 4.907 4.907 0 01-1.77 1.15c-.625.248-1.395.42-2.37.465-1.008.046-1.358.058-3.792.058s-2.784-.013-3.792-.058c-.975-.045-1.745-.218-2.37-.465a4.908 4.908 0 01-1.77-1.151 4.907 4.907 0 01-1.15-1.77c-.248-.625-.42-1.395-.465-2.37-.046-1.008-.058-1.358-.058-3.792s.013-2.784.058-3.792c.045-.975.218-1.745.465-2.37a4.908 4.908 0 011.151-1.77 4.907 4.907 0 011.77-1.15c.625-.248 1.395-.42 2.37-.465C9.531 2.013 9.881 2 12.315 2zm0 2.1c-2.31 0-2.61.01-3.51.052-.89.04-1.4.19-1.79.34a2.808 2.808 0 00-1.02.66 2.808 2.808 0 00-.66 1.02c-.15.39-.3 1-.34 1.79-.042.9-.052 1.2-.052 3.51s.01 2.61.052 3.51c.04.89.19 1.4.34 1.79a2.808 2.808 0 00.66 1.02 2.808 2.808 0 001.02.66c.39.15 1 .3 1.79.34.9.042 1.2.052 3.51.052s2.61-.01 3.51-.052c.89-.04 1.4-.19 1.79-.34a2.808 2.808 0 001.02-.66 2.808 2.808 0 00.66-1.02c.15-.39.3-1 .34-1.79.042-.9.052-1.2.052-3.51s-.01-2.61-.052-3.51c-.04-.89-.19-1.4-.34-1.79a2.808 2.808 0 00-.66-1.02 2.808 2.808 0 00-1.02-.66c-.39-.15-1-.3-1.79-.34-.9-.042-1.2-.052-3.51-.052zM12.315 7a5.315 5.315 0 100 10.63 5.315 5.315 0 000-10.63zm0 2.1a3.215 3.215 0 110 6.43 3.215 3.215 0 010-6.43zm6.365-3.415a1.26 1.26 0 100 2.52 1.26 1.26 0 000-2.52z" clip-rule="evenodd" />
-                        </svg>
-                        <span>Check out my work on Instagram</span>
-                    </a>
-                </div>
-            </div>
+            <h3 class="font-display text-2xl font-bold">Creamy Lab</h3>
+            <p class="mt-2">Dayton, New Jersey</p>
+            <p class="mt-1">Phone: (609) 598-5807 | Email: creamylabs@gmail.com</p>
+            <p class="text-sm mt-8 text-gray-400">&copy; 2025 Creamy Lab. All Rights Reserved.</p>
         </div>
-    </section>
+    </footer>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="font-display text-4xl font-bold mb-4">Our Creations</h2>
-            <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
-
-            <!-- Filter Buttons -->
-            <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
-                <button class="gallery-filter-btn active" data-filter="all">All</button>
-                <button class="gallery-filter-btn" data-filter="birthday">Birthday</button>
-                <button class="gallery-filter-btn" data-filter="custom">Custom</button>
-                <button class="gallery-filter-btn" data-filter="anniversary">Anniversary</button>
-            </div>
-
-            <!-- Image Slider 1 (1/2/3 images per view) -->
-            <div id="slider-container-1" class="slider-container max-w-7xl mx-auto mb-12">
-                <div id="slider-content-1" class="slider-content">
-                    <!-- Images will be dynamically loaded here by JavaScript -->
-                </div>
-                <!-- Slider Navigation Buttons for Slider 1 -->
-                <button id="prev-slide-1" class="slider-nav-button slider-nav-button-prev">
-                    &#10094; <!-- Left arrow -->
-                </button>
-                <button id="next-slide-1" class="slider-nav-button slider-nav-button-next">
-                    &#10095; <!-- Right arrow -->
-                </button>
-            </div>
-
-            <!-- Image Slider 2 (2/3/4/6 images per view) -->
-            <div id="slider-container-2" class="slider-container max-w-7xl mx-auto">
-                <div id="slider-content-2" class="slider-content">
-                    <!-- Images will be dynamically loaded here by JavaScript -->
-                </div>
-                <!-- Slider Navigation Buttons for Slider 2 -->
-                <button id="prev-slide-2" class="slider-nav-button slider-nav-button-prev">
-                    &#10094; <!-- Left arrow -->
-                </button>
-                <button id="next-slide-2" class="slider-nav-button slider-nav-button-next">
-                    &#10095; <!-- Right arrow -->
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="font-display text-4xl font-bold mb-4">What Our Customers Say</h2>
-            <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                    <p class="text-gray-600">"The cake was the star of the 50th Birthday party! Absolutely stunning and it tasted even better. Manisha was so easy to work with. Highly recommend!"</p>
-                    <p class="font-bold mt-4">- Saara M.</p>
-                </div>
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                    <p class="text-gray-600">"I ordered a custom cake for my son's birthday, and it exceeded all expectations. The details were incredible. We will definitely be back for our next event."</p>
-                    <p class="font-bold mt-4">- Dinesh K.</p>
-                </div>
-                <div class="bg-stone-50 p-6 rounded-lg shadow-sm">
-                    <p class="text-gray-600">"Our anniversary cake was a dream come true. It was exactly what we envisioned. Thank you for making our day so much sweeter!"</p>
-                    <p class="font-bold mt-4">- Raj P.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Order Section -->
-    <section id="order" class="py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="font-display text-4xl font-bold mb-4">Ready for a Custom Cake?</h2>
-            <div class="w-24 h-1 bg-sienna-500 mx-auto mb-8" style="background-color: #D2B48C;"></div>
-            <p class="max-w-2xl mx-auto text-lg mb-8">
-                Please fill out the form below to start your custom cake inquiry. Provide as much detail as possible, and I'll get back to you within 48 hours to discuss your creation. I can't wait to bake for you!
-            </p>
-            <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-lg">
-                <!-- GOOGLE FORM EMBED -->
-                <!-- 1. Create a Google Form with fields like: Name, Email, Phone, Event Date, Number of Guests, Cake Flavor, Design Ideas, etc. -->
-                <!-- 2. Click "Send" in your Google Form. -->
-                <!-- 3. Go to the "<>" (Embed HTML) tab. -->
-                <!-- 4. Copy the entire iframe code provided. -->
-                <!-- 5. Paste the iframe code here, replacing the placeholder below. -->
-                <!-- 6. Adjust the width="100%" and height="800" attributes if needed. -->
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf29CoR94e9cO22NOPpclXO8FX3V8wxxpsp99X8YFU0M5QZbg/viewform?embedded=true"
-                        width="100%"
-                        height="1256"
-                        frameborder="0"
-                        marginheight="0"
-                        marginwidth="0"
-                        class="rounded-md">
-                    Loading…
-                </iframe>
-            </div>
-        </div>
-    </section>
-</main>
-
-<!-- Footer -->
-<footer class="bg-gray-800 text-white py-12">
-    <div class="container mx-auto px-6 text-center">
-        <h3 class="font-display text-2xl font-bold">Creamy Lab</h3>
-        <p class="mt-2">Dayton, New Jersey</p>
-        <p class="mt-1">Phone: (609) 598-5807 | Email: creamylabs@gmail.com</p>
-        <p class="text-sm mt-8 text-gray-400">&copy; 2025 Creamy Lab. All Rights Reserved.</p>
-    </div>
-</footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Hero Section Slider Logic
-        const heroSlides = document.querySelectorAll('.hero-slider-item');
-        const heroDotsContainer = document.getElementById('hero-dots-container');
-        let currentHeroSlide = 0;
-        let heroSlideInterval;
-        const heroAutoSlideDelay = 5000; // 5 seconds
-
-        function showHeroSlide(index) {
-            heroSlides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                heroDotsContainer.children[i].classList.remove('active');
-            });
-            heroSlides[index].classList.add('active');
-            heroDotsContainer.children[index].classList.add('active');
-            currentHeroSlide = index;
-        }
-
-        function nextHeroSlide() {
-            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-            showHeroSlide(currentHeroSlide);
-        }
-
-        function startHeroAutoPlay() {
-            stopHeroAutoPlay(); // Clear any existing interval
-            heroSlideInterval = setInterval(nextHeroSlide, heroAutoSlideDelay);
-        }
-
-        function stopHeroAutoPlay() {
-            clearInterval(heroSlideInterval);
-        }
-
-        // Add event listeners for hero dots
-        heroDotsContainer.querySelectorAll('.hero-dot').forEach(dot => {
-            dot.addEventListener('click', (event) => {
-                const index = parseInt(event.target.getAttribute('data-slide-index'));
-                showHeroSlide(index);
-                startHeroAutoPlay(); // Restart auto-play after manual navigation
-            });
-        });
-
-        // Pause/resume hero slider on hover
-        const heroSection = document.getElementById('home');
-        heroSection.addEventListener('mouseenter', stopHeroAutoPlay);
-        heroSection.addEventListener('mouseleave', startHeroAutoPlay);
-
-        // Initial hero slider setup
-        showHeroSlide(0);
-        startHeroAutoPlay();
-
-
-        // Gallery Filtering and Slider Logic
-        const filterButtons = document.querySelectorAll('.gallery-filter-btn');
-
-        // Centralized data for all cake images
-        const allCakeImages = [
-            { src: 'img/birthday_1_top.JPG', alt: 'Colorful Birthday Cake 1', category: 'birthday', type: 'small' },
-            { src: 'img/custom_0_top.JPG', alt: 'Custom Cake 0', category: 'custom', type: 'small' },
-            { src: 'img/birthday_4_top.JPG', alt: 'Birthday Cake 2', category: 'birthday', type: 'small' },
-            { src: 'img/anniversary_1_top.JPG', alt: 'Anniversary Cake 1', category: 'anniversary', type: 'small' },
-            { src: 'img/custom_1_top.JPG', alt: 'Custom Cake 1', category: 'custom', type: 'small' },
-            { src: 'img/birthday_3_top.JPG', alt: 'Birthday Cake 3', category: 'birthday', type: 'small' },
-            { src: 'img/custom_2_top.JPG', alt: 'Custom Cake 2', category: 'custom', type: 'small' },
-            { src: 'img/custom_3_top.JPG', alt: 'Custom Cake 3', category: 'custom', type: 'small' },
-            // Large slider images
-            { src: 'img/birthday_1_bottom.JPG', alt: 'Unicorn Birthday Cake', category: 'birthday', type: 'large' },
-            { src: 'img/custom_1_bottom.JPG', alt: 'Custom Graduation Cake', category: 'custom', type: 'large' },
-            { src: 'img/birthday_2_bottom.JPG', alt: 'Cartoon Character Birthday Cake', category: 'birthday', type: 'large' },
-            { src: 'img/custom_2_bottom.JPG', alt: 'Baby Gender Reveal Cake', category: 'custom', type: 'large' },
-            { src: 'img/birthday_3_bottom.JPG', alt: 'Gaming Console Birthday Cake', category: 'birthday', type: 'large' },
-            { src: 'img/custom_3_bottom.JPG', alt: 'Corporate Logo Cake', category: 'custom', type: 'large' },
-            { src: 'img/birthday_4_bottom.JPG', alt: 'Dinosaur Themed Birthday Cake', category: 'birthday', type: 'large' },
-        //    { src: 'https://placehold.co/600x400/FFF0F5/A0522D?text=New+Cake+7', alt: 'New Cake 7', category: 'birthday', type: 'large' },
-        //    { src: 'https://placehold.co/600x400/F5F5F5/A0522D?text=New+Cake+8', alt: 'New Cake 8', category: 'custom', type: 'large' },
-        //    { src: 'https://placehold.co/600x400/E6E6FA/A0522D?text=New+Cake+9', alt: 'New Cake 9', category: 'anniversary', type: 'large' },
-        //    { src: 'https://placehold.co/600x400/FFFACD/A0522D?text=New+Cake+10', alt: 'New Cake 10', category: 'birthday', type: 'large' },
-        ];
-
-        const sliderContent1 = document.getElementById('slider-content-1');
-        const prevSlideBtn1 = document.getElementById('prev-slide-1');
-        const nextSlideBtn1 = document.getElementById('next-slide-1');
-        const sliderContainer1 = document.getElementById('slider-container-1');
-
-        const sliderContent2 = document.getElementById('slider-content-2');
-        const prevSlideBtn2 = document.getElementById('prev-slide-2');
-        const nextSlideBtn2 = document.getElementById('next-slide-2');
-        const sliderContainer2 = document.getElementById('slider-container-2');
-
-        let currentSlideIndex1 = 0;
-        let currentSlideIndex2 = 0;
-        let visibleGalleryItems1 = [];
-        let visibleGalleryItems2 = [];
-
-        let slideInterval1;
-        let slideInterval2;
-        const autoSlideDelay = 3000;
-
-        function getItemsPerView1() {
-            if (window.innerWidth >= 1024) {
-                return 3;
-            } else if (window.innerWidth >= 768) {
-                return 2;
-            } else {
-                return 1;
-            }
-        }
-
-        function getItemsPerView2() {
-            if (window.innerWidth >= 1280) {
-                return 6;
-            } else if (window.innerWidth >= 1024) {
-                return 4;
-            } else if (window.innerWidth >= 768) {
-                return 3;
-            } else {
-                return 2;
-            }
-        }
-
-        function updateSlider(sliderNum) {
-            let sliderContent, prevBtn, nextBtn, currentSlideIndex, itemsPerViewFunc, visibleItems, itemClass;
-
-            if (sliderNum === 1) {
-                sliderContent = sliderContent1;
-                prevBtn = prevSlideBtn1;
-                nextBtn = nextSlideBtn1;
-                currentSlideIndex = currentSlideIndex1;
-                itemsPerViewFunc = getItemsPerView1;
-                visibleItems = visibleGalleryItems1;
-                itemClass = 'gallery-item';
-            } else {
-                sliderContent = sliderContent2;
-                prevBtn = prevSlideBtn2;
-                nextBtn = nextSlideBtn2;
-                currentSlideIndex = currentSlideIndex2;
-                itemsPerViewFunc = getItemsPerView2;
-                visibleItems = visibleGalleryItems2;
-                itemClass = 'gallery-item-large-slider aspect-w-3 aspect-h-4'; // Added aspect ratio classes
-            }
-
-            sliderContent.innerHTML = ''; // Clear existing items
-
-            // Dynamically create and append items
-            visibleItems.forEach(itemData => {
-                const div = document.createElement('div');
-                div.className = `${itemClass} p-4`;
-                div.setAttribute('data-category', itemData.category);
-
-                const img = document.createElement('img');
-                img.src = itemData.src;
-                img.alt = itemData.alt;
-                img.className = 'w-full h-full object-cover rounded-lg shadow-md'; // img fills the aspect-ratio div
-
-                div.appendChild(img);
-                sliderContent.appendChild(div);
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
 
-            const itemsPerView = itemsPerViewFunc();
-            const totalItems = visibleItems.length;
-            const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-
-            if (currentSlideIndex > maxSlideIndex) {
-                currentSlideIndex = maxSlideIndex;
-            }
-            if (currentSlideIndex < 0) {
-                currentSlideIndex = 0;
-            }
-
-            const translateXValue = -currentSlideIndex * (100 / itemsPerView);
-            sliderContent.style.transform = `translateX(${translateXValue}%)`;
-
-            prevBtn.classList.toggle('disabled', currentSlideIndex === 0 || totalItems <= itemsPerView);
-            nextBtn.classList.toggle('disabled', currentSlideIndex >= maxSlideIndex || totalItems <= itemsPerView);
-
-
-            if (sliderNum === 1) {
-                currentSlideIndex1 = currentSlideIndex;
-            } else {
-                currentSlideIndex2 = currentSlideIndex;
-            }
-        }
-
-        function filterGallery(filter) {
-            visibleGalleryItems1 = allCakeImages.filter(item => {
-                return item.type === 'small' && (filter === 'all' || item.category === filter);
-            });
-            visibleGalleryItems2 = allCakeImages.filter(item => {
-                return item.type === 'large' && (filter === 'all' || item.category === filter);
+            // Close mobile menu when a link is clicked
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
             });
 
-            currentSlideIndex1 = 0;
-            currentSlideIndex2 = 0;
+            // Hero Section Slider Logic
+            const heroSlides = document.querySelectorAll('.hero-slider-item');
+            const heroDotsContainer = document.getElementById('hero-dots-container');
+            let currentHeroSlide = 0;
+            let heroSlideInterval;
+            const heroAutoSlideDelay = 5000; // 5 seconds
 
-            updateSlider(1);
-            updateSlider(2);
+            function showHeroSlide(index) {
+                heroSlides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    heroDotsContainer.children[i].classList.remove('active');
+                });
+                heroSlides[index].classList.add('active');
+                heroDotsContainer.children[index].classList.add('active');
+                currentHeroSlide = index;
+            }
 
-            stopSliderAutoPlay(1);
-            stopSliderAutoPlay(2);
-            startSliderAutoPlay(1);
-            startSliderAutoPlay(2);
-        }
+            function nextHeroSlide() {
+                currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+                showHeroSlide(currentHeroSlide);
+            }
 
-        function startSliderAutoPlay(sliderNum) {
-            if (sliderNum === 1) {
+            function startHeroAutoPlay() {
+                stopHeroAutoPlay(); // Clear any existing interval
+                heroSlideInterval = setInterval(nextHeroSlide, heroAutoSlideDelay);
+            }
+
+            function stopHeroAutoPlay() {
+                clearInterval(heroSlideInterval);
+            }
+
+            // Add event listeners for hero dots
+            heroDotsContainer.querySelectorAll('.hero-dot').forEach(dot => {
+                dot.addEventListener('click', (event) => {
+                    const index = parseInt(event.target.getAttribute('data-slide-index'));
+                    showHeroSlide(index);
+                    startHeroAutoPlay(); // Restart auto-play after manual navigation
+                });
+            });
+
+            // Pause/resume hero slider on hover
+            const heroSection = document.getElementById('home');
+            heroSection.addEventListener('mouseenter', stopHeroAutoPlay);
+            heroSection.addEventListener('mouseleave', startHeroAutoPlay);
+
+            // Initial hero slider setup
+            showHeroSlide(0);
+            startHeroAutoPlay();
+
+
+            // Gallery Filtering and Slider Logic
+            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+
+            // Centralized data for all cake images
+            const allCakeImages = [
+                { src: 'img/birthday_1_top.JPG', alt: 'Colorful Birthday Cake 1', category: 'birthday', type: 'small', theme: 'Queen of Hearts', flavor: 'Vanilla Confetti' },
+                { src: 'img/custom_0_top.JPG', alt: 'Custom Cake 0', category: 'custom', type: 'small', theme: 'Elegant Floral', flavor: 'Chocolate Fudge' },
+                { src: 'img/birthday_4_top.JPG', alt: 'Birthday Cake 2', category: 'birthday', type: 'small', theme: 'Dino World', flavor: 'Marble Swirl' },
+                { src: 'img/anniversary_1_top.JPG', alt: 'Anniversary Cake 1', category: 'anniversary', type: 'small', theme: 'Golden Jubilee', flavor: 'Red Velvet' },
+                { src: 'img/custom_1_top.JPG', alt: 'Custom Cake 1', category: 'custom', type: 'small', theme: 'Graduation', flavor: 'Cookies & Cream' },
+                { src: 'img/birthday_3_top.JPG', alt: 'Birthday Cake 3', category: 'birthday', type: 'small', theme: 'Gaming Pro', flavor: 'Double Chocolate' },
+                { src: 'img/custom_2_top.JPG', alt: 'Custom Cake 2', category: 'custom', type: 'small', theme: 'Baby Reveal', flavor: 'Vanilla Bean' },
+                { src: 'img/custom_3_top.JPG', alt: 'Custom Cake 3', category: 'custom', type: 'small', theme: 'Corporate Brand', flavor: 'Coffee & Walnut' },
+                // Large slider images
+                { src: 'img/birthday_1_bottom.JPG', alt: 'Unicorn Birthday Cake', category: 'birthday', type: 'large', theme: 'Magical Unicorn', flavor: 'Strawberry Delight' },
+                { src: 'img/custom_1_bottom.JPG', alt: 'Custom Graduation Cake', category: 'custom', type: 'large', theme: 'Class of 2025', flavor: 'Chocolate Hazelnut' },
+                { src: 'img/birthday_2_bottom.JPG', alt: 'Cartoon Character Birthday Cake', category: 'birthday', type: 'large', theme: 'Toon Time', flavor: 'Banana Chocolate' },
+                { src: 'img/custom_2_bottom.JPG', alt: 'Baby Gender Reveal Cake', category: 'custom', type: 'large', theme: 'Boho Baby', flavor: 'Lemon Zest' },
+                { src: 'img/birthday_3_bottom.JPG', alt: 'Gaming Console Birthday Cake', category: 'birthday', type: 'large', theme: 'Level Up', flavor: 'Dark Chocolate' },
+                { src: 'img/custom_3_bottom.JPG', alt: 'Corporate Logo Cake', category: 'custom', type: 'large', theme: 'Company Milestone', flavor: 'Carrot Cake' },
+                { src: 'img/birthday_4_bottom.JPG', alt: 'Dinosaur Themed Birthday Cake', category: 'birthday', type: 'large', theme: 'Jurassic Party', flavor: 'Chocolate Orange' },
+            ];
+
+            const sliderContent1 = document.getElementById('slider-content-1');
+            const prevSlideBtn1 = document.getElementById('prev-slide-1');
+            const nextSlideBtn1 = document.getElementById('next-slide-1');
+            const sliderContainer1 = document.getElementById('slider-container-1');
+
+            const sliderContent2 = document.getElementById('slider-content-2');
+            const prevSlideBtn2 = document.getElementById('prev-slide-2');
+            const nextSlideBtn2 = document.getElementById('next-slide-2');
+            const sliderContainer2 = document.getElementById('slider-container-2');
+
+            let currentSlideIndex1 = 0;
+            let currentSlideIndex2 = 0;
+            let visibleGalleryItems1 = [];
+            let visibleGalleryItems2 = [];
+
+            let slideInterval1;
+            let slideInterval2;
+            const autoSlideDelay = 3000;
+
+            function getItemsPerView1() {
+                if (window.innerWidth >= 1024) {
+                    return 3;
+                } else if (window.innerWidth >= 768) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
+
+            function getItemsPerView2() {
+                if (window.innerWidth >= 1280) {
+                    return 6;
+                } else if (window.innerWidth >= 1024) {
+                    return 4;
+                } else if (window.innerWidth >= 768) {
+                    return 3;
+                } else {
+                    return 2;
+                }
+            }
+
+            function updateSlider(sliderNum) {
+                let sliderContent, prevBtn, nextBtn, currentSlideIndex, itemsPerViewFunc, visibleItems, itemClass;
+
+                if (sliderNum === 1) {
+                    sliderContent = sliderContent1;
+                    prevBtn = prevSlideBtn1;
+                    nextBtn = nextSlideBtn1;
+                    currentSlideIndex = currentSlideIndex1;
+                    itemsPerViewFunc = getItemsPerView1;
+                    visibleItems = visibleGalleryItems1;
+                    itemClass = 'gallery-item';
+                } else {
+                    sliderContent = sliderContent2;
+                    prevBtn = prevSlideBtn2;
+                    nextBtn = nextSlideBtn2;
+                    currentSlideIndex = currentSlideIndex2;
+                    itemsPerViewFunc = getItemsPerView2;
+                    visibleItems = visibleGalleryItems2;
+                    itemClass = 'gallery-item-large-slider aspect-w-3 aspect-h-4'; // Added aspect ratio classes
+                }
+
+                sliderContent.innerHTML = ''; // Clear existing items
+
+                // Dynamically create and append items
+                visibleItems.forEach(itemData => {
+                    const div = document.createElement('div');
+                    div.className = `${itemClass} p-4`;
+                    div.setAttribute('data-category', itemData.category);
+
+                    // Wrapper for relative positioning of badge
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'relative group w-full h-full';
+                    // Note: 'h-full' added to ensure wrapper takes height in large slider aspect ratio
+
+                    const img = document.createElement('img');
+                    img.src = itemData.src;
+                    img.alt = itemData.alt;
+                    img.className = 'w-full h-full object-cover gallery-item-img';
+
+                    // Theme Badge
+                    const badge = document.createElement('span');
+                    badge.className = 'absolute top-2 right-2 text-white text-xs font-bold px-2 py-1 rounded-md shadow-md transform rotate-2 group-hover:rotate-0 transition-transform duration-300';
+                    badge.style.backgroundColor = 'var(--color-highlight)';
+                    badge.innerText = itemData.theme;
+
+                    // Flavor Text
+                    const flavorText = document.createElement('div');
+                    flavorText.className = 'text-center mt-2 font-display text-gray-700 italic text-sm';
+                    flavorText.innerText = `${itemData.flavor}`;
+
+                    wrapper.appendChild(img);
+                    wrapper.appendChild(badge);
+
+                    div.appendChild(wrapper);
+                    div.appendChild(flavorText);
+
+                    sliderContent.appendChild(div);
+                });
+
+                const itemsPerView = itemsPerViewFunc();
+                const totalItems = visibleItems.length;
+                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+
+                if (currentSlideIndex > maxSlideIndex) {
+                    currentSlideIndex = maxSlideIndex;
+                }
+                if (currentSlideIndex < 0) {
+                    currentSlideIndex = 0;
+                }
+
+                const translateXValue = -currentSlideIndex * (100 / itemsPerView);
+                sliderContent.style.transform = `translateX(${translateXValue}%)`;
+
+                prevBtn.classList.toggle('disabled', currentSlideIndex === 0 || totalItems <= itemsPerView);
+                nextBtn.classList.toggle('disabled', currentSlideIndex >= maxSlideIndex || totalItems <= itemsPerView);
+
+
+                if (sliderNum === 1) {
+                    currentSlideIndex1 = currentSlideIndex;
+                } else {
+                    currentSlideIndex2 = currentSlideIndex;
+                }
+            }
+
+            function filterGallery(filter) {
+                visibleGalleryItems1 = allCakeImages.filter(item => {
+                    return item.type === 'small' && (filter === 'all' || item.category === filter);
+                });
+                visibleGalleryItems2 = allCakeImages.filter(item => {
+                    return item.type === 'large' && (filter === 'all' || item.category === filter);
+                });
+
+                currentSlideIndex1 = 0;
+                currentSlideIndex2 = 0;
+
+                updateSlider(1);
+                updateSlider(2);
+
                 stopSliderAutoPlay(1);
-                slideInterval1 = setInterval(() => {
-                    const itemsPerView = getItemsPerView1();
-                    const totalItems = visibleGalleryItems1.length;
-                    const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                    if (currentSlideIndex1 < maxSlideIndex) {
-                        currentSlideIndex1++;
-                    } else {
-                        currentSlideIndex1 = 0;
-                    }
-                    updateSlider(1);
-                }, autoSlideDelay);
-            } else if (sliderNum === 2) {
                 stopSliderAutoPlay(2);
-                slideInterval2 = setInterval(() => {
-                    const itemsPerView = getItemsPerView2();
-                    const totalItems = visibleGalleryItems2.length;
-                    const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                    if (currentSlideIndex2 < maxSlideIndex) {
-                        currentSlideIndex2++;
-                    } else {
-                        currentSlideIndex2 = 0;
-                    }
-                    updateSlider(2);
-                }, autoSlideDelay);
+                startSliderAutoPlay(1);
+                startSliderAutoPlay(2);
             }
-        }
 
-        function stopSliderAutoPlay(sliderNum) {
-            if (sliderNum === 1) {
-                clearInterval(slideInterval1);
-            } else if (sliderNum === 2) {
-                clearInterval(slideInterval2);
+            function startSliderAutoPlay(sliderNum) {
+                if (sliderNum === 1) {
+                    stopSliderAutoPlay(1);
+                    slideInterval1 = setInterval(() => {
+                        const itemsPerView = getItemsPerView1();
+                        const totalItems = visibleGalleryItems1.length;
+                        const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                        if (currentSlideIndex1 < maxSlideIndex) {
+                            currentSlideIndex1++;
+                        } else {
+                            currentSlideIndex1 = 0;
+                        }
+                        updateSlider(1);
+                    }, autoSlideDelay);
+                } else if (sliderNum === 2) {
+                    stopSliderAutoPlay(2);
+                    slideInterval2 = setInterval(() => {
+                        const itemsPerView = getItemsPerView2();
+                        const totalItems = visibleGalleryItems2.length;
+                        const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                        if (currentSlideIndex2 < maxSlideIndex) {
+                            currentSlideIndex2++;
+                        } else {
+                            currentSlideIndex2 = 0;
+                        }
+                        updateSlider(2);
+                    }, autoSlideDelay);
+                }
             }
-        }
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                const filter = button.getAttribute('data-filter');
-                filterGallery(filter);
+            function stopSliderAutoPlay(sliderNum) {
+                if (sliderNum === 1) {
+                    clearInterval(slideInterval1);
+                } else if (sliderNum === 2) {
+                    clearInterval(slideInterval2);
+                }
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.getAttribute('data-filter');
+                    filterGallery(filter);
+                });
             });
-        });
 
-        prevSlideBtn1.addEventListener('click', () => {
-            if (currentSlideIndex1 > 0) {
-                currentSlideIndex1--;
+            prevSlideBtn1.addEventListener('click', () => {
+                if (currentSlideIndex1 > 0) {
+                    currentSlideIndex1--;
+                    updateSlider(1);
+                }
+            });
+            nextSlideBtn1.addEventListener('click', () => {
+                const itemsPerView = getItemsPerView1();
+                const totalItems = visibleGalleryItems1.length;
+                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                if (currentSlideIndex1 < maxSlideIndex) {
+                    currentSlideIndex1++;
+                    updateSlider(1);
+                }
+            });
+
+            prevSlideBtn2.addEventListener('click', () => {
+                if (currentSlideIndex2 > 0) {
+                    currentSlideIndex2--;
+                    updateSlider(2);
+                }
+            });
+            nextSlideBtn2.addEventListener('click', () => {
+                const itemsPerView = getItemsPerView2();
+                const totalItems = visibleGalleryItems2.length;
+                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
+                if (currentSlideIndex2 < maxSlideIndex) {
+                    currentSlideIndex2++;
+                    updateSlider(2);
+                }
+            });
+
+            sliderContainer1.addEventListener('mouseenter', () => stopSliderAutoPlay(1));
+            sliderContainer1.addEventListener('mouseleave', () => startSliderAutoPlay(1));
+
+            sliderContainer2.addEventListener('mouseenter', () => stopSliderAutoPlay(2));
+            sliderContainer2.addEventListener('mouseleave', () => startSliderAutoPlay(2));
+
+            window.addEventListener('resize', () => {
                 updateSlider(1);
-            }
-        });
-        nextSlideBtn1.addEventListener('click', () => {
-            const itemsPerView = getItemsPerView1();
-            const totalItems = visibleGalleryItems1.length;
-            const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-            if (currentSlideIndex1 < maxSlideIndex) {
-                currentSlideIndex1++;
-                updateSlider(1);
-            }
-        });
-
-        prevSlideBtn2.addEventListener('click', () => {
-            if (currentSlideIndex2 > 0) {
-                currentSlideIndex2--;
                 updateSlider(2);
-            }
+                stopSliderAutoPlay(1);
+                stopSliderAutoPlay(2);
+                startSliderAutoPlay(1);
+                startSliderAutoPlay(2);
+            });
+
+            // Initial setup - filter 'all' and start auto-play
+            filterGallery('all');
         });
-        nextSlideBtn2.addEventListener('click', () => {
-            const itemsPerView = getItemsPerView2();
-            const totalItems = visibleGalleryItems2.length;
-            const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-            if (currentSlideIndex2 < maxSlideIndex) {
-                currentSlideIndex2++;
-                updateSlider(2);
-            }
-        });
-
-        sliderContainer1.addEventListener('mouseenter', () => stopSliderAutoPlay(1));
-        sliderContainer1.addEventListener('mouseleave', () => startSliderAutoPlay(1));
-
-        sliderContainer2.addEventListener('mouseenter', () => stopSliderAutoPlay(2));
-        sliderContainer2.addEventListener('mouseleave', () => startSliderAutoPlay(2));
-
-        window.addEventListener('resize', () => {
-            updateSlider(1);
-            updateSlider(2);
-            stopSliderAutoPlay(1);
-            stopSliderAutoPlay(2);
-            startSliderAutoPlay(1);
-            startSliderAutoPlay(2);
-        });
-
-        // Initial setup - filter 'all' and start auto-play
-        filterGallery('all');
-    });
-</script>
+    </script>
 </body>
+
 </html>
