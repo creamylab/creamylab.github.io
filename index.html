@@ -27,9 +27,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&family=Pacifico&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&family=Pacifico&display=swap">
 
     <!-- Chosen Palette: Bakery Bliss -->
     <!-- ... (comments preserved/omitted for brevity) ... -->
@@ -100,6 +99,7 @@
             /* Deep Chocolate - Headings, Footer */
             --color-secondary: #D68C45;
             /* Golden Caramel - Dividers, Sub-accents */
+            --font-hand: 'Nothing You Could Do', cursive;
             --color-accent: #E9EDC9;
             /* Soft Pistachio/Cream - Subtle accents */
             --color-bg: #FDFBF7;
@@ -137,6 +137,10 @@
         h1 {
             font-size: 2.5rem;
             line-height: 1.2;
+        }
+
+        .font-hand {
+            font-family: var(--font-hand);
         }
 
         @media (min-width: 768px) {
@@ -201,64 +205,122 @@
             opacity: 1;
         }
 
-        .gallery-item,
-        .gallery-item-large-slider {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            flex-shrink: 0;
+        /* New Gallery Card Styles */
+        .gallery-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        .gallery-item-img {
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0 3s ease;
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        /* Gallery Grids */
-        .gallery-item {
+        .gallery-image-container {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            /* Taller, elegant aspect ratio */
+        }
+
+        .gallery-card-img {
             width: 100%;
-            padding: 10px;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
         }
 
-        @media (min-width: 768px) {
-            .gallery-item {
-                width: 50%;
-            }
+        .gallery-card:hover .gallery-card-img {
+            transform: scale(1.1);
         }
 
-        @media (min-width: 1024px) {
-            .gallery-item {
-                width: 33.333%;
-            }
+        .gallery-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
         }
 
-        .gallery-item-large-slider {
+        .gallery-card-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .gallery-title {
+            font-family: 'Pacifico', cursive;
+            /* Cute font for title */
+            font-size: 1.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 8px;
+        }
+
+        .gallery-flavor {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 16px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .gallery-flavor::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-highlight);
+            border-radius: 50%;
+        }
+
+        .gallery-desc {
+            font-size: 0.95rem;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn-order-card {
+            display: block;
             width: 100%;
-            padding: 10px;
+            text-align: center;
+            padding: 12px;
+            background-color: transparent;
+            border: 2px solid var(--color-highlight);
+            color: var(--color-highlight);
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
-        /* Mobile 1 per view */
-        @media (min-width: 640px) {
-            .gallery-item-large-slider {
-                width: 50%;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .gallery-item-large-slider {
-                width: 33.333%;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .gallery-item-large-slider {
-                width: 25%;
-            }
-        }
-
-        .gallery-item:hover .gallery-item-img,
-        .gallery-item-large-slider:hover .gallery-item-img {
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        .btn-order-card:hover {
+            background-color: var(--color-highlight);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
         }
 
         .nav-link {
@@ -406,7 +468,7 @@
                 </a>
                 <a href="#gallery" class="nav-link text-lg font-display">Gallery</a>
                 <a href="#testimonials" class="nav-link text-lg font-display">Reviews</a>
-                <a href="#order" class="nav-link text-lg font-display">Order</a>
+                <a href="https://wa.me/16095985807" target="_blank" class="nav-link text-lg font-display">Order</a>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -435,7 +497,8 @@
             <a href="#gallery" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Gallery</a>
             <a href="#testimonials"
                 class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Reviews</a>
-            <a href="#order" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Order</a>
+            <a href="https://wa.me/16095985807" target="_blank"
+                class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">Order</a>
         </div>
     </header>
 
@@ -468,82 +531,77 @@
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-4xl font-bold mb-4">Baked with Love in Dayton, NJ</h2>
-                <div class="section-divider"></div>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-                    <img src="img/Manisha.JPG" alt="Owner of Creamy Lab"
-                        class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-lg">
-                    <div class="max-w-2xl text-lg text-left">
-                        <p class="mb-4">
-                            Welcome to Creamy Lab! My name is Manisha, and baking isn't just a job for me—it's a
-                            passion. From my home kitchen right here in Dayton, NJ, I pour my heart into creating
-                            beautiful and delicious cakes that become the centerpiece of your celebrations. Every cake
-                            is made from scratch using premium ingredients, and all our cakes are 100% eggless, ensuring
-                            they taste as good as they look. Thank you for considering me to be a part of your special
-                            day!
+        <!-- About Section (Bento Grid) -->
+        <section id="about" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 grid-rows-[auto]">
+
+                    <!-- Text Content -->
+                    <div
+                        class="md:col-span-8 md:row-span-2 bg-[#FFF0F5] p-8 md:p-12 rounded-[2rem] flex flex-col justify-center relative overflow-hidden group">
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-white/40 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2">
+                        </div>
+
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 relative z-10">Baked with Passion,<br>Crafted for
+                            Joy.</h2>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed relative z-10">
+                            Hi, I'm <strong class="text-orange-600">Manisha</strong>. Baking isn't just a job for
+                            me—it's an art form. From my home kitchen in Dayton, NJ, I pour my heart into creating cakes
+                            that are not only 100% eggless but also visually stunning and incredibly delicious.
                         </p>
-                        <!-- Instagram Link Added Here in About Us Section -->
-                        <a href="https://www.instagram.com/creamy.labs/" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center space-x-2 font-bold transition-colors duration-300"
-                            style="color: var(--color-highlight);" title="Check out my work on Instagram"
-                            aria-label="Check out my work on Instagram">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.784.013 3.792.058.975.045 1.745.218 2.37.465a4.908 4.908 0 011.77 1.151 4.907 4.907 0 011.15 1.77c.248.625.42 1.395.465 2.37.046 1.008.058 1.358.058 3.792s-.013 2.784-.058 3.792c-.045.975-.218 1.745-.465 2.37a4.908 4.908 0 01-1.151 1.77 4.907 4.907 0 01-1.77 1.15c-.625.248-1.395.42-2.37.465-1.008.046-1.358.058-3.792.058s-2.784-.013-3.792-.058c-.975-.045-1.745-.218-2.37-.465a4.908 4.908 0 01-1.77-1.151 4.907 4.907 0 01-1.15-1.77c-.248-.625-.42-1.395-.465-2.37-.046-1.008-.058-1.358-.058-3.792s.013-2.784.058-3.792c.045-.975.218-1.745.465-2.37a4.908 4.908 0 011.151-1.77 4.907 4.907 0 011.77-1.15c.625-.248 1.395-.42 2.37-.465C9.531 2.013 9.881 2 12.315 2zm0 2.1c-2.31 0-2.61.01-3.51.052-.89.04-1.4.19-1.79.34a2.808 2.808 0 00-1.02.66 2.808 2.808 0 00-.66 1.02c-.15.39-.3 1-.34 1.79-.042.9-.052 1.2-.052 3.51s.01 2.61.052 3.51c.04.89.19 1.4.34 1.79a2.808 2.808 0 00.66 1.02 2.808 2.808 0 001.02.66c.39.15 1 .3 1.79.34.9.042 1.2.052 3.51.052s2.61-.01 3.51-.052c.89-.04 1.4-.19 1.79-.34a2.808 2.808 0 001.02-.66 2.808 2.808 0 00.66-1.02c.15-.39.3-1 .34-1.79.042-.9.052-1.2.052-3.51s-.01-2.61-.052-3.51c-.04-.89-.19-1.4-.34-1.79a2.808 2.808 0 00-.66-1.02 2.808 2.808 0 00-1.02-.66c-.39-.15-1-.3-1.79-.34-.9-.042-1.2-.052-3.51-.052zM12.315 7a5.315 5.315 0 100 10.63 5.315 5.315 0 000-10.63zm0 2.1a3.215 3.215 0 110 6.43 3.215 3.215 0 010-6.43zm6.365-3.415a1.26 1.26 0 100 2.52 1.26 1.26 0 000-2.52z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <span class="font-cute text-2xl transition-colors"
-                                style="color: var(--color-highlight);">Follow
-                                the flavor: scroll through my Instagram.</span>
-                        </a>
+                        <p
+                            class="text-lg text-gray-700 leading-relaxed font-hand text-2xl relative z-10 text-orange-800">
+                            "Every cake tells a story, let me help write yours."
+                        </p>
+                        <div class="mt-8 relative z-10">
+                            <a href="https://www.instagram.com/creamy.labs/" target="_blank"
+                                class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide border-b-2 border-black pb-1 hover:text-orange-600 hover:border-orange-600 transition-colors">
+                                scroll through my creations on Instagram!
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Image -->
+                    <div
+                        class="md:col-span-4 md:row-span-1 h-80 md:h-auto rounded-[2rem] overflow-hidden relative group">
+                        <img src="img/Manisha.JPG" alt="Manisha"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Highlight Card 1 -->
+                    <div
+                        class="md:col-span-4 bg-orange-500 rounded-[2rem] p-8 text-white flex flex-col justify-center items-start group hover:bg-orange-600 transition-colors">
+                        <svg class="w-10 h-10 mb-4 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-2">Designed for You</h3>
+                        <p class="text-orange-100 text-sm">Every cake is a custom collaboration, tailored to your exact
+                            theme and flavor preferences.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-4xl font-bold mb-4">Our Creations</h2>
-                <div class="section-divider"></div>
-
-                <!-- Filter Buttons -->
-                <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
-                    <button class="gallery-filter-btn active" data-filter="all">All</button>
-                    <button class="gallery-filter-btn" data-filter="birthday">Birthday</button>
-                    <button class="gallery-filter-btn" data-filter="custom">Custom</button>
-                    <button class="gallery-filter-btn" data-filter="anniversary">Anniversary</button>
+        <section id="gallery" class="py-24 bg-[#FAFAFA]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-display text-5xl font-bold mb-4">Our Creations</h2>
+                    <div class="section-divider"></div>
+                    <p class="text-gray-500 max-w-2xl mx-auto mt-4 text-lg">Detailed works of art, baked to perfection.
+                        Click to order a customization of any design.</p>
                 </div>
 
-                <!-- Image Slider 1 (1/2/3 images per view) -->
-                <div id="slider-container-1" class="slider-container max-w-7xl mx-auto mb-12">
-                    <div id="slider-content-1" class="slider-content">
-                        <!-- Images will be dynamically loaded here by JavaScript -->
-                    </div>
-                    <!-- Slider Navigation Buttons for Slider 1 -->
-                    <button id="prev-slide-1" class="slider-nav-button slider-nav-button-prev">
-                        &#10094; <!-- Left arrow -->
-                    </button>
-                    <button id="next-slide-1" class="slider-nav-button slider-nav-button-next">
-                        &#10095; <!-- Right arrow -->
-                    </button>
-                </div>
-
-                <!-- Image Slider 2 (2/3/4/6 images per view) -->
-                <div id="slider-container-2" class="slider-container max-w-7xl mx-auto">
-                    <div id="slider-content-2" class="slider-content">
-                        <!-- Images will be dynamically loaded here by JavaScript -->
-                    </div>
-                    <!-- Slider Navigation Buttons for Slider 2 -->
-                    <button id="prev-slide-2" class="slider-nav-button slider-nav-button-prev">
-                        &#10094; <!-- Left arrow -->
-                    </button>
-                    <button id="next-slide-2" class="slider-nav-button slider-nav-button-next">
-                        &#10095; <!-- Right arrow -->
-                    </button>
+                <!-- Gallery Grid -->
+                <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                    <!-- Cards will be dynamically injected here -->
                 </div>
             </div>
         </section>
@@ -570,27 +628,6 @@
                             envisioned. Thank you for making our day so much sweeter!"</p>
                         <p class="font-bold mt-4">- Raj P.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Order Section -->
-        <section id="order" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-4xl font-bold mb-4">Ready for a Custom Cake?</h2>
-                <div class="section-divider"></div>
-                <p class="max-w-2xl mx-auto text-lg mb-8">
-                    Please fill out the form below to start your custom cake inquiry. Provide as much detail as
-                    possible, and I'll get back to you within 48 hours to discuss your creation. I can't wait to bake
-                    for you!
-                </p>
-                <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-lg">
-                    <!-- GOOGLE FORM EMBED -->
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSf29CoR94e9cO22NOPpclXO8FX3V8wxxpsp99X8YFU0M5QZbg/viewform?embedded=true"
-                        width="100%" height="1256" frameborder="0" marginheight="0" marginwidth="0" class="rounded-md">
-                        Loading…
-                    </iframe>
                 </div>
             </div>
         </section>
@@ -683,270 +720,69 @@
             startHeroAutoPlay();
 
 
-            // Gallery Filtering and Slider Logic
-            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
-
-            // Centralized data for all cake images
+            // Gallery Logic - New Grid Implementation
             const allCakeImages = [
-                { src: 'img/birthday_1_top.JPG', alt: 'Colorful Birthday Cake 1', category: 'birthday', type: 'small', theme: 'Queen of Hearts', flavor: 'Vanilla Confetti' },
-                { src: 'img/custom_0_top.JPG', alt: 'Custom Cake 0', category: 'custom', type: 'small', theme: 'Elegant Floral', flavor: 'Chocolate Fudge' },
-                { src: 'img/birthday_4_top.JPG', alt: 'Birthday Cake 2', category: 'birthday', type: 'small', theme: 'Dino World', flavor: 'Marble Swirl' },
-                { src: 'img/anniversary_1_top.JPG', alt: 'Anniversary Cake 1', category: 'anniversary', type: 'small', theme: 'Golden Jubilee', flavor: 'Red Velvet' },
-                { src: 'img/custom_1_top.JPG', alt: 'Custom Cake 1', category: 'custom', type: 'small', theme: 'Graduation', flavor: 'Cookies & Cream' },
-                { src: 'img/birthday_3_top.JPG', alt: 'Birthday Cake 3', category: 'birthday', type: 'small', theme: 'Gaming Pro', flavor: 'Double Chocolate' },
-                { src: 'img/custom_2_top.JPG', alt: 'Custom Cake 2', category: 'custom', type: 'small', theme: 'Baby Reveal', flavor: 'Vanilla Bean' },
-                { src: 'img/custom_3_top.JPG', alt: 'Custom Cake 3', category: 'custom', type: 'small', theme: 'Corporate Brand', flavor: 'Coffee & Walnut' },
-                // Large slider images
-                { src: 'img/birthday_1_bottom.JPG', alt: 'Unicorn Birthday Cake', category: 'birthday', type: 'large', theme: 'Magical Unicorn', flavor: 'Strawberry Delight' },
-                { src: 'img/custom_1_bottom.JPG', alt: 'Custom Graduation Cake', category: 'custom', type: 'large', theme: 'Class of 2025', flavor: 'Chocolate Hazelnut' },
-                { src: 'img/birthday_2_bottom.JPG', alt: 'Cartoon Character Birthday Cake', category: 'birthday', type: 'large', theme: 'Toon Time', flavor: 'Banana Chocolate' },
-                { src: 'img/custom_2_bottom.JPG', alt: 'Baby Gender Reveal Cake', category: 'custom', type: 'large', theme: 'Boho Baby', flavor: 'Lemon Zest' },
-                { src: 'img/birthday_3_bottom.JPG', alt: 'Gaming Console Birthday Cake', category: 'birthday', type: 'large', theme: 'Level Up', flavor: 'Dark Chocolate' },
-                { src: 'img/custom_3_bottom.JPG', alt: 'Corporate Logo Cake', category: 'custom', type: 'large', theme: 'Company Milestone', flavor: 'Carrot Cake' },
-                { src: 'img/birthday_4_bottom.JPG', alt: 'Dinosaur Themed Birthday Cake', category: 'birthday', type: 'large', theme: 'Jurassic Party', flavor: 'Chocolate Orange' },
+                { src: 'img/Sweet16_StrawberryChocolateRedVelvet.jpg', category: 'Birthday', theme: 'Sweet 16', flavor: 'Strawberry, Chocolate, & Red Velvet', desc: 'Sweet 16 never looked (or tasted) so good! 💜✨ Three tiers of pure elegance featuring a cascading floral waterfall and all the shimmer.' },
+                { src: 'img/SpaceAstronaut_ButterScotch_RasMalai.jpg', category: '1st Birthday', theme: 'Astronaut in Space', flavor: 'Sweet Butterscotch & Creamy Ras Malai', desc: 'One small step for man, one giant leap for ANVIT! 🚀✨ "First Trip Around the Sun" with a galactic adventure in every bite.' },
+                { src: 'img/GenderReveal_ChocolateMousse.jpg', category: 'Gender Reveal', theme: 'Prince OR Princess', flavor: 'Heavenly Chocolate Mousse', desc: 'Pink or Blue? We can’t wait to find out! 💖💙 This royal-themed drip cake is ready to reveal the biggest surprise of the year. 👑✨' },
+                { src: 'img/SurprizeRevealed_Strawberry.jpg', category: 'Anniversary', theme: 'FireCake Surprise', flavor: 'Fresh Strawberry', desc: '15 years of love, and the surprises keep coming! ❤️💍 This anniversary cake wasn\'t just sweet—it was a whole mood.' },
+                { src: 'img/Championship_DubaiChocolate.jpg', category: 'Celebration', theme: 'Championship Trophy', flavor: 'Dubai Chocolate', desc: 'Victory never tasted so sweet! 🏆🏓 Big congrats to the Champions! We leveled up this celebration with a design that’s as bold as the win.' },
+                { src: 'img/Minecraft_Blackforrest.jpg', category: 'Birthday', theme: 'Minecraft', flavor: 'Black Forest', desc: 'Survival mode: OFF. Birthday mode: ON! 🎮🟩 We had so much fun building this custom Minecraft cake for Viyan’s 6th birthday!' },
+                { src: 'img/MusicLover_Mango.jpg', category: 'Birthday', theme: 'Music Lover', flavor: 'Fresh Mango', desc: 'Turning 14 and feeling the beat! 🎶🎹 We loved creating this monochrome masterpiece for Manushi’s big day. It’s sleek, it’s stylish, and it’s a total vibe for any music lover.' },
+                { src: 'img/JungleSafari_ChocolateCaremal.jpg', category: 'Birthday', theme: 'Jungle Safari', flavor: 'Chocolate Caramel', desc: 'Welcome to the jungle! 🦁🌴 We went all out for Shivansh’s 2nd birthday with this towering safari adventure. From the glowing fairy lights to the hand-sculpted animal friends, every detail was a walk on the wild side!' },
+                { src: 'img/HalfBirthdayMiniMouse_Chocolate.jpg', category: 'Half Birthday', theme: 'Minnie Mouse', flavor: 'Chocolate', desc: 'Half the year, double the cute! 🎀🐭 We’re obsessed with this Minnie Mouse cake for Kaya’s 6-month milestone. Who says you have to wait a full year to have a party?' },
+                { src: 'img/Sonic_ChocolateTruffle.jpg', category: 'Birthday', theme: 'Sonic', flavor: 'Chocolate Truffle', desc: 'Level 9 unlocked! 🎮🌀 We sped through the workshop to get this Sonic the Hedgehog cake ready for Reyansh’s big day. Complete with golden rings and those signature blue quills!' },
+                { src: 'img/Retro50thBirthday_Mango.jpg', category: '50th Birthday', theme: 'Retro Disco', flavor: 'Fresh Mango', desc: '50 and fabulous! 🕺✨ We’re taking it back to the disco era for Natesh and Raj’s milestone 50th birthdays. From the dancing silhouettes to the glowing disco balls, this cake was made to party!' },
+                { src: 'img/Modak_RasMalai.jpg', category: 'Festival', theme: 'Divine Modak', flavor: 'Ras Malai', desc: 'Ganapati Bappa Morya! 🙏✨ We’ve turned the ultimate traditional offering into a showstopping celebration cake. This giant Modak-inspired design is the perfect way to welcome Bappa home!' },
+                { src: 'img/HotPink_VanillaButterCream.jpg', category: 'Birthday', theme: 'Hot Pink', flavor: 'Vanilla Buttercream', desc: 'Think pink! 💖✨ We are obsessed with this high-energy Hot Pink birthday creation. It’s bold, it’s bright, and it’s ultimate classic that never goes out of style.' },
+                { src: 'img/WelcomeBaby_Mango.jpg', category: 'Birthday', theme: 'Welcome Baby', flavor: 'Fresh Mango', desc: 'A royal welcome for a brand new prince! 👑💙 We loved creating this bright and cheerful sheet cake for Little Prince Aadhyans. It’s a full-on celebration in every bite!' },
+                { src: 'img/Birthday_Pineapple.jpg', category: 'Birthday', theme: 'Tic-Tac-Toe', flavor: 'Tangy Pineapple', desc: 'Tic-tac-toe, three hearts in a row! ❤️ We loved creating this "Win-Win" birthday cake for a very special Dada. It’s the perfect way to show him he\'s #1 in your book!' },
+                { src: 'img/Comic_FreshVanilla.jpg', category: 'Birthday', theme: 'Comic', flavor: 'Fresh Vanilla', desc: 'Is it real or is it a drawing? ✍️🎂 We’re leveling up the celebration with this 2D Comic Style cake for Aditya’s 14th birthday! This trend is all about those bold outlines and pop-art vibes.' },
+                { src: 'img/PrincessOnTheWay_Vanilla_BlueberryStrawberry.jpg', category: 'Baby Shower', theme: 'Princess On The Way', flavor: 'Classic Vanilla, Sweet Blueberry & Fresh Strawberry', desc: 'A royal celebration is brewing! 👑 doting on every pearly detail of this "Princess on the Way" cake. Between the rose gold crown and that stunning organza bow, it’s a total fairytale come to life.' },
+                { src: 'img/PickleBall_Vanilla_Pineapple.jpg', category: 'Birthday', theme: 'Pickle Ball', flavor: 'Vanilla & Tangy Pineapple', desc: 'Serving up some birthday realness! 🏓💚 We had a blast creating this custom Pickleball cake for Jagadish. Whether you\'re a pro on the court or just here for the snacks, this one is a total ace!' },
+                { src: 'img/GenderReveal_OreoCupCakes.jpg', category: 'Gender Reveal', theme: 'Gender Reveal', flavor: 'Oreo Cupcakes', desc: 'Sweet reveals and blue-tiful details! 💙🧁 We are obsessed with the intricate floral piping on these Gender Reveal cupcakes.' },
+                { src: 'img/HalfwayToOne_Strawberry.jpg', category: 'Halfway To One', theme: 'Rosette', flavor: 'Fresh Strawberry', desc: '6 months of giggles, 6 months of curls, and 6 months of being the luckiest parents in the world! 💖👶 Celebrating this "Halfway to One" milestone with all the pink rosettes and pearls.' },
             ];
 
-            const sliderContent1 = document.getElementById('slider-content-1');
-            const prevSlideBtn1 = document.getElementById('prev-slide-1');
-            const nextSlideBtn1 = document.getElementById('next-slide-1');
-            const sliderContainer1 = document.getElementById('slider-container-1');
+            const galleryGrid = document.getElementById('gallery-grid');
 
-            const sliderContent2 = document.getElementById('slider-content-2');
-            const prevSlideBtn2 = document.getElementById('prev-slide-2');
-            const nextSlideBtn2 = document.getElementById('next-slide-2');
-            const sliderContainer2 = document.getElementById('slider-container-2');
+            function renderGallery() {
+                galleryGrid.innerHTML = ''; // Clear
 
-            let currentSlideIndex1 = 0;
-            let currentSlideIndex2 = 0;
-            let visibleGalleryItems1 = [];
-            let visibleGalleryItems2 = [];
+                allCakeImages.forEach(cake => {
+                    // Create Card HTML
+                    const card = document.createElement('article');
+                    card.className = 'gallery-card group';
 
-            let slideInterval1;
-            let slideInterval2;
-            const autoSlideDelay = 3000;
+                    // WhatsApp Message Construction
+                    const waMessage = `Hi, I saw the "${cake.theme}" cake on your website and I'd like to order something similar!`;
+                    const waLink = `https://wa.me/16095985807?text=${encodeURIComponent(waMessage)}`;
 
-            function getItemsPerView1() {
-                if (window.innerWidth >= 1024) {
-                    return 3;
-                } else if (window.innerWidth >= 768) {
-                    return 2;
-                } else {
-                    return 1;
-                }
-            }
+                    card.innerHTML = `
+                        <div class="gallery-image-container">
+                            <span class="gallery-badge">${cake.category}</span>
+                            <img src="${cake.src}" alt="${cake.theme} Cake" class="gallery-card-img" loading="lazy">
+                        </div>
+                        <div class="gallery-card-content">
+                            <div>
+                                <h3 class="gallery-title">${cake.theme}</h3>
+                                <div class="gallery-flavor">
+                                    <span>Flavor: ${cake.flavor}</span>
+                                </div>
+                                <p class="gallery-desc">${cake.desc}</p>
+                            </div>
+                            <a href="${waLink}" target="_blank" class="btn-order-card">
+                                Customize This Cake
+                            </a>
+                        </div>
+                    `;
 
-            function getItemsPerView2() {
-                if (window.innerWidth >= 1280) {
-                    return 6;
-                } else if (window.innerWidth >= 1024) {
-                    return 4;
-                } else if (window.innerWidth >= 768) {
-                    return 3;
-                } else {
-                    return 2;
-                }
-            }
-
-            function updateSlider(sliderNum) {
-                let sliderContent, prevBtn, nextBtn, currentSlideIndex, itemsPerViewFunc, visibleItems, itemClass;
-
-                if (sliderNum === 1) {
-                    sliderContent = sliderContent1;
-                    prevBtn = prevSlideBtn1;
-                    nextBtn = nextSlideBtn1;
-                    currentSlideIndex = currentSlideIndex1;
-                    itemsPerViewFunc = getItemsPerView1;
-                    visibleItems = visibleGalleryItems1;
-                    itemClass = 'gallery-item';
-                } else {
-                    sliderContent = sliderContent2;
-                    prevBtn = prevSlideBtn2;
-                    nextBtn = nextSlideBtn2;
-                    currentSlideIndex = currentSlideIndex2;
-                    itemsPerViewFunc = getItemsPerView2;
-                    visibleItems = visibleGalleryItems2;
-                    itemClass = 'gallery-item-large-slider aspect-w-3 aspect-h-4'; // Added aspect ratio classes
-                }
-
-                sliderContent.innerHTML = ''; // Clear existing items
-
-                // Dynamically create and append items
-                visibleItems.forEach(itemData => {
-                    const div = document.createElement('div');
-                    div.className = `${itemClass} p-4`;
-                    div.setAttribute('data-category', itemData.category);
-
-                    // Wrapper for relative positioning of badge
-                    const wrapper = document.createElement('div');
-                    wrapper.className = 'relative group w-full h-full';
-                    // Note: 'h-full' added to ensure wrapper takes height in large slider aspect ratio
-
-                    const img = document.createElement('img');
-                    img.src = itemData.src;
-                    img.alt = itemData.alt;
-                    img.className = 'w-full h-full object-cover gallery-item-img';
-
-                    // Theme Badge
-                    const badge = document.createElement('span');
-                    badge.className = 'absolute top-2 right-2 text-white text-xs font-bold px-2 py-1 rounded-md shadow-md transform rotate-2 group-hover:rotate-0 transition-transform duration-300';
-                    badge.style.backgroundColor = 'var(--color-highlight)';
-                    badge.innerText = itemData.theme;
-
-                    // Flavor Text
-                    const flavorText = document.createElement('div');
-                    flavorText.className = 'text-center mt-2 font-display text-gray-700 italic text-sm';
-                    flavorText.innerText = `${itemData.flavor}`;
-
-                    wrapper.appendChild(img);
-                    wrapper.appendChild(badge);
-
-                    div.appendChild(wrapper);
-                    div.appendChild(flavorText);
-
-                    sliderContent.appendChild(div);
+                    galleryGrid.appendChild(card);
                 });
-
-                const itemsPerView = itemsPerViewFunc();
-                const totalItems = visibleItems.length;
-                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-
-                if (currentSlideIndex > maxSlideIndex) {
-                    currentSlideIndex = maxSlideIndex;
-                }
-                if (currentSlideIndex < 0) {
-                    currentSlideIndex = 0;
-                }
-
-                const translateXValue = -currentSlideIndex * (100 / itemsPerView);
-                sliderContent.style.transform = `translateX(${translateXValue}%)`;
-
-                prevBtn.classList.toggle('disabled', currentSlideIndex === 0 || totalItems <= itemsPerView);
-                nextBtn.classList.toggle('disabled', currentSlideIndex >= maxSlideIndex || totalItems <= itemsPerView);
-
-
-                if (sliderNum === 1) {
-                    currentSlideIndex1 = currentSlideIndex;
-                } else {
-                    currentSlideIndex2 = currentSlideIndex;
-                }
             }
 
-            function filterGallery(filter) {
-                visibleGalleryItems1 = allCakeImages.filter(item => {
-                    return item.type === 'small' && (filter === 'all' || item.category === filter);
-                });
-                visibleGalleryItems2 = allCakeImages.filter(item => {
-                    return item.type === 'large' && (filter === 'all' || item.category === filter);
-                });
-
-                currentSlideIndex1 = 0;
-                currentSlideIndex2 = 0;
-
-                updateSlider(1);
-                updateSlider(2);
-
-                stopSliderAutoPlay(1);
-                stopSliderAutoPlay(2);
-                startSliderAutoPlay(1);
-                startSliderAutoPlay(2);
-            }
-
-            function startSliderAutoPlay(sliderNum) {
-                if (sliderNum === 1) {
-                    stopSliderAutoPlay(1);
-                    slideInterval1 = setInterval(() => {
-                        const itemsPerView = getItemsPerView1();
-                        const totalItems = visibleGalleryItems1.length;
-                        const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                        if (currentSlideIndex1 < maxSlideIndex) {
-                            currentSlideIndex1++;
-                        } else {
-                            currentSlideIndex1 = 0;
-                        }
-                        updateSlider(1);
-                    }, autoSlideDelay);
-                } else if (sliderNum === 2) {
-                    stopSliderAutoPlay(2);
-                    slideInterval2 = setInterval(() => {
-                        const itemsPerView = getItemsPerView2();
-                        const totalItems = visibleGalleryItems2.length;
-                        const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                        if (currentSlideIndex2 < maxSlideIndex) {
-                            currentSlideIndex2++;
-                        } else {
-                            currentSlideIndex2 = 0;
-                        }
-                        updateSlider(2);
-                    }, autoSlideDelay);
-                }
-            }
-
-            function stopSliderAutoPlay(sliderNum) {
-                if (sliderNum === 1) {
-                    clearInterval(slideInterval1);
-                } else if (sliderNum === 2) {
-                    clearInterval(slideInterval2);
-                }
-            }
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    const filter = button.getAttribute('data-filter');
-                    filterGallery(filter);
-                });
-            });
-
-            prevSlideBtn1.addEventListener('click', () => {
-                if (currentSlideIndex1 > 0) {
-                    currentSlideIndex1--;
-                    updateSlider(1);
-                }
-            });
-            nextSlideBtn1.addEventListener('click', () => {
-                const itemsPerView = getItemsPerView1();
-                const totalItems = visibleGalleryItems1.length;
-                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                if (currentSlideIndex1 < maxSlideIndex) {
-                    currentSlideIndex1++;
-                    updateSlider(1);
-                }
-            });
-
-            prevSlideBtn2.addEventListener('click', () => {
-                if (currentSlideIndex2 > 0) {
-                    currentSlideIndex2--;
-                    updateSlider(2);
-                }
-            });
-            nextSlideBtn2.addEventListener('click', () => {
-                const itemsPerView = getItemsPerView2();
-                const totalItems = visibleGalleryItems2.length;
-                const maxSlideIndex = Math.max(0, Math.ceil(totalItems / itemsPerView) - 1);
-                if (currentSlideIndex2 < maxSlideIndex) {
-                    currentSlideIndex2++;
-                    updateSlider(2);
-                }
-            });
-
-            sliderContainer1.addEventListener('mouseenter', () => stopSliderAutoPlay(1));
-            sliderContainer1.addEventListener('mouseleave', () => startSliderAutoPlay(1));
-
-            sliderContainer2.addEventListener('mouseenter', () => stopSliderAutoPlay(2));
-            sliderContainer2.addEventListener('mouseleave', () => startSliderAutoPlay(2));
-
-            window.addEventListener('resize', () => {
-                updateSlider(1);
-                updateSlider(2);
-                stopSliderAutoPlay(1);
-                stopSliderAutoPlay(2);
-                startSliderAutoPlay(1);
-                startSliderAutoPlay(2);
-            });
-
-            // Initial setup - filter 'all' and start auto-play
-            filterGallery('all');
+            // Initial Render
+            renderGallery();
         });
     </script>
 </body>
