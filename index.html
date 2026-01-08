@@ -436,6 +436,179 @@
             margin: 0 auto 2rem;
             border-radius: 2px;
         }
+
+        /* Utility: Hide Scrollbar but keep functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            display: flex;
+            width: 100%;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 2rem;
+            animation: scroll 40s linear infinite;
+            padding-left: 2rem;
+            /* Initial offset if needed */
+            width: max-content;
+            /* Ensure it takes full width of children */
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Footer Redesign */
+        .footer-premium {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            font-family: 'DM Sans', sans-serif;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-top {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand h3 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            color: var(--color-highlight);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.7;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-heading {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--color-highlight);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-highlight);
+            transform: translateX(5px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--color-highlight);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-btn:hover {
+            background: var(--color-highlight);
+            transform: translateY(-3px) rotate(10deg);
+            border-color: var(--color-highlight);
+        }
+
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 220px;
+            width: 100%;
+            background: #2a2a2a;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .map-container:hover {
+            border-color: var(--color-highlight);
+        }
+
+        .footer-bottom {
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            background-color: #151515;
+        }
     </style>
 </head>
 
@@ -532,7 +705,7 @@
         </section>
 
         <!-- About Section (Bento Grid) -->
-        <section id="about" class="py-24 relative">
+        <section id="about" class="pt-24 pb-8 relative">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-6 grid-rows-[auto]">
 
@@ -590,13 +763,13 @@
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="py-24 bg-[#FAFAFA]">
+        <section id="gallery" class="pt-8 pb-24 bg-[#FAFAFA]">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="font-display text-5xl font-bold mb-4">Our Creations</h2>
                     <div class="section-divider"></div>
-                    <p class="text-gray-500 max-w-2xl mx-auto mt-4 text-lg">Detailed works of art, baked to perfection.
-                        Click to order a customization of any design.</p>
+                    <p class="text-gray-500 max-w-2xl mx-auto mt-4 text-lg">Crafted with passion and love. Create your
+                        custom cake.</p>
                 </div>
 
                 <!-- Gallery Grid -->
@@ -606,28 +779,275 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-display text-4xl font-bold mb-4">What Our Customers Say</h2>
-                <div class="section-divider"></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                    <div class="p-6 rounded-lg shadow-sm" style="background-color: var(--color-surface);">
-                        <p class="text-gray-600">"The cake was the star of the 50th Birthday party! Absolutely stunning
-                            and it tasted even better. Manisha was so easy to work with. Highly recommend!"</p>
-                        <p class="font-bold mt-4">- Saara M.</p>
+        <!-- Testimonials Section (Google Reviews) -->
+        <section id="testimonials" class="py-24 bg-[#FFF0F5] overflow-hidden relative">
+            <!-- Decorative Elements -->
+            <div
+                class="absolute top-0 left-0 w-64 h-64 bg-white/40 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-96 h-96 bg-orange-100/50 rounded-full blur-3xl transform translate-x-1/3 translate-y-1/3 pointer-events-none">
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-orange-600 font-bold tracking-wider uppercase text-sm">Testimonials</span>
+                    <h2 class="font-display text-5xl font-bold mb-4 mt-2">Sweet Words</h2>
+                    <div class="section-divider"></div>
+                    <p class="text-gray-500 max-w-2xl mx-auto mt-4 text-lg">Don't just take our word for it. Here's
+                        what our amazing customers have to say on Google.</p>
+                </div>
+
+                <!-- Reviews Horizontal Scroll Container -->
+                <div class="relative group">
+                    <!-- Marquee Container -->
+                    <div class="marquee-container" id="reviews-marquee">
+                        <div class="marquee-content" id="reviews-track">
+                            <!-- Original Reviews will be duplicated by JS -->
+
+                            <!-- Review 1: Ushmaben Mehta -->
+                            <div
+                                class="min-w-[300px] md:min-w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between snap-center hover:shadow-lg transition-shadow duration-300">
+                                <div>
+                                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-600 mb-6 leading-relaxed italic">"I have ordered cakes for
+                                        different
+                                        occasions from creamy lab , and it always so yummy , fresh and creamy. And most
+                                        importantly high end cakes in economical price ,I would recommend this place
+                                        over
+                                        and over ."</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto border-t border-gray-100 pt-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-sm">
+                                            UM</div>
+                                        <div>
+                                            <h4 class="font-bold text-sm text-gray-800">Ushmaben Mehta</h4>
+                                            <span class="text-xs text-gray-500">Google Review</span>
+                                        </div>
+                                    </div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                        alt="Google" class="w-5 h-5 opacity-70">
+                                </div>
+                            </div>
+
+                            <!-- Review 2: vaishnavi reddy -->
+                            <div
+                                class="min-w-[300px] md:min-w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between snap-center hover:shadow-lg transition-shadow duration-300">
+                                <div>
+                                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-600 mb-6 leading-relaxed italic">"I ordered twice here...
+                                        Amazing
+                                        and very tasty cakes...A must try I will say 😋"</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto border-t border-gray-100 pt-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-sm">
+                                            VR</div>
+                                        <div>
+                                            <h4 class="font-bold text-sm text-gray-800">vaishnavi reddy</h4>
+                                            <span class="text-xs text-gray-500">Google Review</span>
+                                        </div>
+                                    </div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                        alt="Google" class="w-5 h-5 opacity-70">
+                                </div>
+                            </div>
+
+                            <!-- Review 3: Mansi Shah -->
+                            <div
+                                class="min-w-[300px] md:min-w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between snap-center hover:shadow-lg transition-shadow duration-300">
+                                <div>
+                                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-600 mb-6 leading-relaxed italic">"Manisha from Creamy lab is
+                                        extremely very warm and a nice person. She answers all your questions and also
+                                        accommodates all your requirements... I highly recommend Creamy labs for all
+                                        kind of
+                                        cakes."</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto border-t border-gray-100 pt-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">
+                                            MS</div>
+                                        <div>
+                                            <h4 class="font-bold text-sm text-gray-800">Mansi Shah</h4>
+                                            <span class="text-xs text-gray-500">Google Review</span>
+                                        </div>
+                                    </div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                        alt="Google" class="w-5 h-5 opacity-70">
+                                </div>
+                            </div>
+
+                            <!-- Review 4: Vijayalaxmi Nanda -->
+                            <div
+                                class="min-w-[300px] md:min-w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between snap-center hover:shadow-lg transition-shadow duration-300">
+                                <div>
+                                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-600 mb-6 leading-relaxed italic">"The cake from Creamy Lab was
+                                        beautifully made and tasted amazing. It was very soft, moist, and not too sweet.
+                                        Truly enjoyed by everyone."</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto border-t border-gray-100 pt-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm">
+                                            VN</div>
+                                        <div>
+                                            <h4 class="font-bold text-sm text-gray-800">Vijayalaxmi Nanda</h4>
+                                            <span class="text-xs text-gray-500">Google Review</span>
+                                        </div>
+                                    </div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                        alt="Google" class="w-5 h-5 opacity-70">
+                                </div>
+                            </div>
+
+                            <!-- Review 5: Kimberly Valdez -->
+                            <div
+                                class="min-w-[300px] md:min-w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between snap-center hover:shadow-lg transition-shadow duration-300">
+                                <div>
+                                    <div class="flex items-center gap-1 mb-4 text-yellow-400">
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                        </svg>
+                                    </div>
+                                    <p class="text-gray-600 mb-6 leading-relaxed italic">"Great service and great
+                                        communication. My daughter decided to elope, so we chose to find a local baker.
+                                        Creamy Lab did not disappoint. She created a beautiful personal cake for the
+                                        bride
+                                        and groom..."</p>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto border-t border-gray-100 pt-4">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold text-sm">
+                                            KV</div>
+                                        <div>
+                                            <h4 class="font-bold text-sm text-gray-800">Kimberly Valdez</h4>
+                                            <span class="text-xs text-gray-500">Google Review</span>
+                                        </div>
+                                    </div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                        alt="Google" class="w-5 h-5 opacity-70">
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="p-6 rounded-lg shadow-sm" style="background-color: var(--color-surface);">
-                        <p class="text-gray-600">"I ordered a custom cake for my son's birthday, and it exceeded all
-                            expectations. The details were incredible. We will definitely be back for our next event."
-                        </p>
-                        <p class="font-bold mt-4">- Dinesh K.</p>
-                    </div>
-                    <div class="p-6 rounded-lg shadow-sm" style="background-color: var(--color-surface);">
-                        <p class="text-gray-600">"Our anniversary cake was a dream come true. It was exactly what we
-                            envisioned. Thank you for making our day so much sweeter!"</p>
-                        <p class="font-bold mt-4">- Raj P.</p>
-                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="https://share.google/OVEGr3FVyURrXRnxG" target="_blank"
+                        class="inline-flex items-center gap-2 btn-primary !bg-white !text-gray-800 border border-gray-200 hover:!bg-gray-50 hover:!shadow-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                            alt="Google" class="w-5 h-5">
+                        Read All Reviews on Google
+                    </a>
                 </div>
             </div>
         </section>
@@ -644,12 +1064,123 @@
     </a>
 
     <!-- Footer -->
-    <footer class="text-white py-12" style="background-color: var(--color-primary);">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="font-display text-2xl font-bold">Creamy Lab</h3>
-            <p class="mt-2">Dayton, New Jersey</p>
-            <p class="mt-1">Phone: (609) 598-5807 | Email: creamylabs@gmail.com</p>
-            <p class="text-sm mt-8 text-gray-400">&copy; 2025 Creamy Lab. All Rights Reserved.</p>
+    <footer class="footer-premium">
+        <div class="footer-top">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                    <!-- Brand Column -->
+                    <div class="footer-brand">
+                        <div class="flex items-center gap-3 mb-6">
+                            <img src="img/CreamyLab_Logo_1.PNG" alt="Creamy Lab Logo"
+                                class="h-12 w-12 rounded-full border-2 border-white/20">
+                            <h3>Creamy Lab</h3>
+                        </div>
+                        <p>As life unfolds, indulge in the sweetness it deserves. Elevate your celebration with a
+                            handcrafted eggless cake made just for you.</p>
+                        <a href="https://wa.me/16095985807" target="_blank"
+                            class="inline-block mt-4 text-sm font-bold border-b border-orange-500 pb-1 hover:text-orange-500 transition-colors">Start
+                            Your Order →</a>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-links">
+                        <h4 class="footer-heading">Explore</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Manisha</a></li>
+                            <li><a href="#gallery">Our Creations</a></li>
+                            <li><a href="#testimonials">Customer Reviews</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Column -->
+                    <div class="footer-contact">
+                        <h4 class="footer-heading">Contact Us</h4>
+
+                        <div class="footer-contact-item">
+                            <svg class="footer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <div>
+                                <span class="block text-xs uppercase opacity-50 mb-1">Phone</span>
+                                <a href="tel:6095985807" class="!p-0 hover:!translate-x-0 hover:!text-white">(609)
+                                    598-5807</a>
+                            </div>
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <svg class="footer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <div>
+                                <span class="block text-xs uppercase opacity-50 mb-1">Email</span>
+                                <a href="mailto:creamylabs@gmail.com"
+                                    class="!p-0 hover:!translate-x-0 hover:!text-white">creamylabs@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="footer-contact-item">
+                            <svg class="footer-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <span class="block text-xs uppercase opacity-50 mb-1">Location</span>
+                                <span>Blossom Cir, Dayton, New Jersey 08810</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visit & Socials -->
+                    <div>
+                        <h4 class="footer-heading">Find Us</h4>
+                        <div class="map-container mb-6 relative group">
+                            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
+                                marginwidth="0"
+                                src="https://maps.google.com/maps?q=Blossom+Cir,+Dayton,+New+Jersey+08810&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                style="filter: grayscale(100%) invert(92%) contrast(83%); opacity: 0.8; transition: all 0.5s;"
+                                class="group-hover:opacity-100 group-hover:filter-none">
+                            </iframe>
+                            <a href="https://maps.app.goo.gl/zGNhMD7pcu2NR9ea7" target="_blank"
+                                class="absolute inset-0 z-10" aria-label="Open in Google Maps"></a>
+                        </div>
+
+                        <div class="footer-socials">
+                            <a href="https://www.instagram.com/creamy.labs/" target="_blank" class="social-btn"
+                                aria-label="Instagram">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M12.315 2c2.43 0 2.784.013 3.792.058.975.045 1.745.218 2.37.465a4.908 4.908 0 011.77 1.151 4.907 4.907 0 011.15 1.77c.248.625.42 1.395.465 2.37.046 1.008.058 1.358.058 3.792s-.013 2.784-.058 3.792c-.045.975-.218 1.745-.465 2.37a4.908 4.908 0 01-1.151 1.77 4.907 4.907 0 01-1.77 1.15c-.625.248-1.395.42-2.37.465-1.008.046-1.358.058-3.792.058s-2.784-.013-3.792-.058c-.975-.045-1.745-.218-2.37-.465a4.908 4.908 0 01-1.77-1.151 4.907 4.907 0 01-1.15-1.77c-.248-.625-.42-1.395-.465-2.37-.046-1.008-.058-1.358-.058-3.792s.013-2.784.058-3.792c.045-.975.218-1.745.465-2.37a4.908 4.908 0 011.151-1.77 4.907 4.907 0 011.77-1.15c.625-.248 1.395-.42 2.37-.465C9.531 2.013 9.881 2 12.315 2zm0 2.1c-2.31 0-2.61.01-3.51.052-.89.04-1.4.19-1.79.34a2.808 2.808 0 00-1.02.66 2.808 2.808 0 00-.66 1.02c-.15.39-.3 1-.34 1.79-.042.9-.052 1.2-.052 3.51s.01 2.61.052 3.51c.04.89.19 1.4.34 1.79a2.808 2.808 0 00.66 1.02 2.808 2.808 0 001.02.66c.39.15 1 .3 1.79.34.9.042 1.2.052 3.51.052s2.61-.01 3.51-.052c.89-.04 1.4-.19 1.79-.34a2.808 2.808 0 001.02-.66 2.808 2.808 0 00.66-1.02c.15-.39.3-1 .34-1.79.042-.9.052-1.2.052-3.51s-.01-2.61-.052-3.51c-.04-.89-.19-1.4-.34-1.79a2.808 2.808 0 00-.66-1.02 2.808 2.808 0 00-1.02-.66c-.39-.15-1-.3-1.79-.34-.9-.042-1.2-.052-3.51-.052zM12.315 7a5.315 5.315 0 100 10.63 5.315 5.315 0 000-10.63zm0 2.1a3.215 3.215 0 110 6.43 3.215 3.215 0 010-6.43zm6.365-3.415a1.26 1.26 0 100 2.52 1.26 1.26 0 000-2.52z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/16095985807" target="_blank" class="social-btn"
+                                aria-label="WhatsApp">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.601 2.2 5.304 4.093 5.337 4.298l-.136.634-1.22 4.456 4.515-1.185.736.177zm9.102-4.226s-1.304-.76-1.508-.885-.347-.197-.48.198c-.135.396-.527.66-.723.754s-.418.109-.766-.046c-1.465-.655-2.735-1.785-3.696-3.15-.224-.316-.024-.486.149-.658.156-.156.417-.564.571-.724.183-.189.245-.316.368-.527.124-.212.062-.396-.03-.528-.095-.133-1.003-2.029-1.298-2.673-.284-.619-.508-.507-.696-.507-.175 0-.376.012-.576.035-.2.024-.526.084-.803.385-.276.3-.923 1.054-.923 2.158 0 1.258 1.077 2.454 1.232 2.662.155.207 2.508 3.585 5.869 5.228 2.016.985 2.822 1.063 3.864.931.787-.099 2.067-.846 2.361-1.662.294-.816.294-1.516.208-1.662-.086-.146-.316-.233-.526-.339z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container mx-auto px-6">
+                <p>&copy; 2026 Creamy Lab. All Rights Reserved. <span class="mx-2">|</span> Made with ❤️ in Dayton, NJ.
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -783,6 +1314,17 @@
 
             // Initial Render
             renderGallery();
+
+            // Reviews Marquee Logic
+            const reviewsTrack = document.getElementById('reviews-track');
+            if (reviewsTrack) {
+                const reviews = Array.from(reviewsTrack.children);
+                // Duplicate reviews to create seamless loop
+                reviews.forEach(review => {
+                    const clone = review.cloneNode(true);
+                    reviewsTrack.appendChild(clone);
+                });
+            }
         });
     </script>
 </body>
