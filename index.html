@@ -776,6 +776,11 @@
                 <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     <!-- Cards will be dynamically injected here -->
                 </div>
+
+                <!-- Gallery Controls -->
+                <div id="gallery-controls" class="text-center mt-12">
+                    <!-- View More Button will be injected here -->
+                </div>
             </div>
         </section>
 
@@ -1276,11 +1281,26 @@
             ];
 
             const galleryGrid = document.getElementById('gallery-grid');
+            const galleryControls = document.getElementById('gallery-controls');
+            let isExpanded = false;
+
+            // Determines how many items to show initially based on screen width
+            function getCurrentLimit() {
+                // Mobile if < 768px (using same breakpoint as Tailwind 'md')
+                // window.innerWidth can change, so we check it dynamically
+                return window.innerWidth < 768 ? 5 : 9;
+            }
 
             function renderGallery() {
-                galleryGrid.innerHTML = ''; // Clear
+                galleryGrid.innerHTML = ''; // Clear existing cards
+                galleryControls.innerHTML = ''; // Clear controls
 
-                allCakeImages.forEach(cake => {
+                const currentLimit = getCurrentLimit();
+
+                // If not expanded, slice the array. If expanded, show all.
+                const cakesToShow = isExpanded ? allCakeImages : allCakeImages.slice(0, currentLimit);
+
+                cakesToShow.forEach(cake => {
                     // Create Card HTML
                     const card = document.createElement('article');
                     card.className = 'gallery-card group';
@@ -1310,10 +1330,45 @@
 
                     galleryGrid.appendChild(card);
                 });
+
+                // Render "View More" / "View Less" button if we have more items than the current limit
+                // We compare total images vs current limit.
+                // If expanded, we show "View Less" (unless total is small, which isn't the case here)
+                if (allCakeImages.length > currentLimit) {
+                    const btn = document.createElement('button');
+                    btn.className = 'btn-primary inline-flex items-center gap-2'; // Reusing your primary button style
+
+                    // Icon logic
+                    const arrowIcon = isExpanded
+                        ? '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>'
+                        : '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
+
+                    btn.innerHTML = `<span>${isExpanded ? 'View Less' : 'View More'}</span>${arrowIcon}`;
+
+                    btn.onclick = () => {
+                        isExpanded = !isExpanded;
+                        renderGallery();
+                        // Scroll back to top of gallery if collapsing
+                        if (!isExpanded) {
+                            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    };
+
+                    galleryControls.appendChild(btn);
+                }
             }
 
             // Initial Render
             renderGallery();
+
+            // Re-render on window resize to respect the 5 vs 9 limit logic dynamically
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    renderGallery();
+                }, 200); // Debounce
+            });
 
             // Reviews Marquee Logic
             const reviewsTrack = document.getElementById('reviews-track');
