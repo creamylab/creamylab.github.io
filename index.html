@@ -28,7 +28,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&family=Pacifico&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Lato:wght@400;700&family=Pacifico&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Chosen Palette: Bakery Bliss -->
     <!-- ... (comments preserved/omitted for brevity) ... -->
@@ -95,7 +99,7 @@
     <style>
         :root {
             /* Artisan Bakery Palette */
-            --color-primary: #4E342E;
+            --color-primary: #582e2b;
             /* Deep Chocolate - Headings, Footer */
             --color-secondary: #D68C45;
             /* Golden Caramel - Dividers, Sub-accents */
@@ -161,7 +165,7 @@
         }
 
         .btn-primary {
-            background-color: var(--color-highlight);
+            background-color: var(--color-primary);
             /* Use the bright color for eager action */
             color: white;
             padding: 12px 30px;
@@ -290,7 +294,7 @@
             display: inline-block;
             width: 6px;
             height: 6px;
-            background-color: var(--color-highlight);
+            background-color: var(--color-primary);
             border-radius: 50%;
         }
 
@@ -307,8 +311,8 @@
             text-align: center;
             padding: 12px;
             background-color: transparent;
-            border: 2px solid var(--color-highlight);
-            color: var(--color-highlight);
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
             border-radius: 12px;
             font-weight: 700;
             text-transform: uppercase;
@@ -318,7 +322,7 @@
         }
 
         .btn-order-card:hover {
-            background-color: var(--color-highlight);
+            background-color: var(--color-primary);
             color: white;
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
         }
@@ -334,7 +338,7 @@
         }
 
         .nav-link:hover {
-            color: var(--color-highlight);
+            color: var(--color-primary);
             transform: rotate(-3deg) scale(1.1);
             /* Playful tilt and grow */
             text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
@@ -497,7 +501,7 @@
         .footer-brand h3 {
             font-family: 'Pacifico', cursive;
             font-size: 2.5rem;
-            color: var(--color-highlight);
+            color: var(--color-primary);
             margin-bottom: 1rem;
         }
 
@@ -526,7 +530,7 @@
             left: 0;
             width: 30px;
             height: 2px;
-            background-color: var(--color-highlight);
+            background-color: var(--color-primary);
         }
 
         .footer-links ul li {
@@ -543,7 +547,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--color-highlight);
+            color: var(--color-primary);
             transform: translateX(5px);
         }
 
@@ -558,7 +562,7 @@
         .footer-icon {
             width: 20px;
             height: 20px;
-            color: var(--color-highlight);
+            color: var(--color-primary);
             flex-shrink: 0;
             margin-top: 3px;
         }
@@ -583,9 +587,9 @@
         }
 
         .social-btn:hover {
-            background: var(--color-highlight);
+            background: var(--color-primary);
             transform: translateY(-3px) rotate(10deg);
-            border-color: var(--color-highlight);
+            border-color: var(--color-primary);
         }
 
         .map-container {
@@ -599,7 +603,7 @@
         }
 
         .map-container:hover {
-            border-color: var(--color-highlight);
+            border-color: var(--color-primary);
         }
 
         .footer-bottom {
@@ -608,6 +612,82 @@
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.5);
             background-color: #151515;
+        }
+
+        /* Hero Custom Styles */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 3s infinite;
+        }
+
+        @keyframes bounce-slow {
+
+            0%,
+            100% {
+                transform: translateY(-5%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+
+        /* GSAP Reveal Utilities */
+        .hero-line {
+            overflow: hidden;
+            /* For text reveal mask */
+        }
+
+        /* New Hero CSS */
+        .hero-text-line {
+            overflow: hidden;
+        }
+
+        .mask-image-reveal {
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            /* Start hidden */
+            transition: clip-path 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .mask-image-reveal.revealed {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .magnetic-btn {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .parallax-layer {
+            will-change: transform;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        .status-badge {
+            will-change: transform, opacity;
         }
     </style>
 </head>
@@ -622,14 +702,14 @@
                 <img src="img/CreamyLab_Logo_1.PNG" alt="Creamy Lab Logo"
                     class="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover">
                 <a href="#home" class="font-cute text-2xl md:text-3xl font-bold"
-                    style="color: var(--color-highlight);">Creamy Lab</a>
+                    style="color: var(--color-primary);">Creamy Lab</a>
             </div>
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8">
                 <a href="#about" class="nav-link text-lg font-display">About</a>
                 <!-- Instagram Link Added Here -->
-                <a href="https://www.instagram.com/creamycreation94/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/creamy.labs/" target="_blank" rel="noopener noreferrer"
                     class="nav-link text-lg font-display flex items-center space-x-2"
                     title="Check out my work on Instagram" aria-label="Check out my work on Instagram">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -658,7 +738,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white">
             <a href="#about" class="block py-2 px-6 text-center nav-link mobile-nav-link font-display">About</a>
             <!-- Instagram Link Added Here for Mobile -->
-            <a href="https://www.instagram.com/creamycreation94/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.instagram.com/creamy.labs/" target="_blank" rel="noopener noreferrer"
                 class="block py-2 px-6 text-center nav-link mobile-nav-link font-display flex items-center justify-center space-x-2">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd"
@@ -677,41 +757,186 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
-            <!-- Hero Background Slider -->
-            <div id="hero-slider-background" class="absolute inset-0">
-                <div class="hero-slider-item active" style="background-image: url('img/Hero1.JPG');"></div>
-                <div class="hero-slider-item" style="background-image: url('img/Hero2.JPG');"></div>
-                <div class="hero-slider-item" style="background-image: url('img/Hero3.JPG');"></div>
+        <section id="home" class="relative min-h-[100dvh] flex items-center overflow-hidden bg-[var(--color-bg)] pt-20">
+            <!-- Dynamic Background -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div
+                    class="absolute top-[-10%] right-[-10%] w-[70%] h-[70%] bg-[var(--color-secondary)]/10 blur-[150px] rounded-full">
+                </div>
+                <div
+                    class="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-[var(--color-primary)]/5 blur-[120px] rounded-full">
+                </div>
             </div>
 
-            <div class="relative z-10 text-center bg-black/40 p-8 rounded-lg backdrop-blur-sm">
-                <h1 class="font-cute text-5xl md:text-7xl font-bold" style="color: var(--color-highlight);">Creating
-                    Sweet Memories</h1>
-                <p class="text-xl md:text-2xl mt-4 max-w-2xl font-bold drop-shadow-md" style="color: #FFF;">Celebrate
-                    life's
-                    sweetest moments with handcrafted, 100% eggless cakes — fresh, delicious, and full of love.</p>
-                <a href="https://wa.me/16095985807" target="_blank"
-                    class="mt-8 inline-block btn-primary text-lg transition-transform transform hover:scale-105">Order
-                    Your Cake</a>
+            <div
+                class="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center h-full">
+
+                <!-- Content Column (Left) -->
+                <div class="lg:col-span-7 flex flex-col justify-center relative z-20 pt-10 lg:pt-0">
+                    <!-- Status Badge -->
+                    <div class="hero-badge-wrapper overflow-hidden mb-6">
+                        <div
+                            class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/60 border border-white/80 backdrop-blur-md shadow-sm transform translate-y-full opacity-0 status-badge">
+                            <span class="relative flex h-3 w-3">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+                            <span
+                                class="text-xs font-bold tracking-widest uppercase text-[var(--color-primary)]/80 font-display">Taking
+                                Orders for 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1
+                        class="font-display text-5xl md:text-7xl xl:text-8xl leading-[1] text-[var(--color-primary)] mb-8 tracking-tight">
+                        <div class="overflow-hidden hero-text-line"><span
+                                class="block transform translate-y-full">Artisan Cakes,</span></div>
+                        <div class="overflow-hidden hero-text-line"><span
+                                class="block transform translate-y-full">Handcrafted
+                                with</span></div>
+                        <div class="overflow-hidden hero-text-line">
+                            <span class="block transform translate-y-full flex items-baseline gap-4 flex-wrap">
+                                <span
+                                    class="font-hand text-[var(--color-secondary)] text-6xl md:text-8xl xl:text-9xl -rotate-2 relative inline-block">
+                                    Love
+                                    <!-- Underline decoration -->
+                                    <svg class="absolute -bottom-2 w-full left-0 h-4 text-[var(--color-secondary)]/30"
+                                        viewBox="0 0 100 15" preserveAspectRatio="none">
+                                        <path d="M0 10 Q 50 15 100 5" stroke="currentColor" stroke-width="3"
+                                            fill="none" />
+                                    </svg>
+                                </span>
+                            </span>
+                        </div>
+                    </h1>
+
+                    <!-- Description -->
+                    <div class="max-w-xl overflow-hidden mb-10">
+                        <p
+                            class="hero-desc text-lg md:text-xl text-[var(--color-text)]/80 leading-relaxed font-light transform translate-y-full opacity-0">
+                            Celebrate life's sweetest moments with handcrafted, 100% eggless cakes — fresh, delicious,
+                            and made with heart. </p>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-5 hero-btns opacity-0 transform translate-y-4">
+                        <a href="#gallery"
+                            class="group relative px-10 py-5 bg-[var(--color-primary)] text-[var(--color-surface)] rounded-full font-bold overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            <div
+                                class="absolute inset-0 w-full h-full bg-white/20 group-hover:translate-x-full transition-transform duration-500 ease-out -translate-x-full skew-x-12">
+                            </div>
+                            <span class="relative z-10 flex items-center gap-3 tracking-wide">
+                                Explore Our Cakes
+                                <svg class="w-5 h-5 transition-transform group-hover:rotate-45" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="https://wa.me/16095985807" target="_blank"
+                            class="magnetic-btn group relative px-10 py-5 bg-white border border-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full font-bold shadow-lg hover:bg-[var(--color-bg)] transition-all duration-300 transform hover:-translate-y-1">
+                            <span class="relative z-10 flex items-center gap-3">
+                                Craft My Cake
+                                <span
+                                    class="w-2 h-2 bg-green-500 rounded-full group-hover:scale-125 transition-transform"></span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Signals -->
+                    <div class="mt-12 flex items-center gap-8 opacity-0 hero-trust transform translate-y-4">
+                        <div class="flex -space-x-4">
+                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover"
+                                src="img/Comic_FreshVanilla.jpg" alt="User">
+                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover"
+                                src="img/HalfwayToOne_Strawberry.jpg" alt="User">
+                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover"
+                                src="img/HotPink_VanillaButterCream.jpg" alt="User">
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex text-yellow-400 text-sm">❤️❤️❤️❤️❤️</div>
+                            <span class="text-xs font-bold text-[var(--color-text)]/60 uppercase tracking-wider">Loved
+                                by 250+ Locals</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Column (Right) - Parallax Composition -->
+                <div
+                    class="lg:col-span-5 relative h-full min-h-[600px] flex items-center justify-center lg:justify-end perspective-1000">
+                    <!-- Decor Circles -->
+                    <div
+                        class="absolute top-1/4 right-0 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl -z-10 animate-pulse-slow">
+                    </div>
+
+                    <!-- Main Image Composition -->
+                    <div class="relative w-full max-w-lg hero-image-wrapper">
+                        <!-- Back Image (Parallax Layer 1) -->
+                        <div class="absolute -top-12 -right-12 w-48 h-48 rounded-2xl overflow-hidden shadow-lg border-4 border-white transform rotate-6 parallax-layer"
+                            data-speed="0.05">
+                            <img src="img/Hero1.JPG"
+                                class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                                alt="Detail Shot">
+                        </div>
+
+                        <!-- Main Hero Image -> Masked & Shaped -->
+                        <div
+                            class="relative z-10 w-full rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/50 backdrop-blur-sm mask-image-reveal transform transition-transform hover:scale-[1.02] duration-700">
+                            <div class="aspect-[4/5] relative overflow-hidden">
+                                <img src="img/Hero2.JPG" class="w-full h-full object-cover scale-110 hero-main-img"
+                                    alt="Signature Cake">
+                                <!-- Gradient Overlay -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent">
+                                </div>
+
+                                <!-- Floating Label -->
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <div
+                                        class="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50">
+                                        <p class="font-display text-[var(--color-primary)] text-xl font-bold">Designer
+                                            Cake</p>
+                                        <p class="text-xs text-[var(--color-text)] uppercase tracking-wide mt-1"> Fresh
+                                            • Eggless • Delicious </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Front Image (Parallax Layer 2) -->
+                        <div class="absolute -bottom-8 -left-8 w-40 h-40 rounded-full overflow-hidden shadow-xl border-4 border-white transform -rotate-3 parallax-layer z-20"
+                            data-speed="0.08">
+                            <img src="img/PrincessOnTheWay_Vanilla_BlueberryStrawberry.jpg"
+                                class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                                alt="Detail Shot">
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Hero Slider Navigation Dots -->
-            <div id="hero-dots-container" class="hero-dots-container">
-                <span class="hero-dot active" data-slide-index="0"></span>
-                <span class="hero-dot" data-slide-index="1"></span>
-                <span class="hero-dot" data-slide-index="2"></span>
+            <!-- Scroll Indicator -->
+            <div
+                class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 animate-fade-in-up delay-1000">
+                <span
+                    class="text-[10px] uppercase tracking-[0.2em] text-[var(--color-primary)]/60 font-bold">Scroll</span>
+                <div
+                    class="w-[1px] h-12 bg-gradient-to-b from-[var(--color-primary)]/0 via-[var(--color-primary)]/30 to-[var(--color-primary)]">
+                </div>
             </div>
         </section>
 
+
         <!-- About Section (Bento Grid) -->
-        <section id="about" class="pt-24 pb-8 relative">
+        <section id="about" class="pt-24 pb-8 relative bg-[#FFF0F5]">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-6 grid-rows-[auto]">
 
                     <!-- Text Content -->
                     <div
-                        class="md:col-span-8 md:row-span-2 bg-[#FFF0F5] p-8 md:p-12 rounded-[2rem] flex flex-col justify-center relative overflow-hidden group">
+                        class="md:col-span-8 md:row-span-2 bg-white p-8 md:p-12 rounded-[2rem] flex flex-col justify-center relative overflow-hidden group">
                         <div
                             class="absolute top-0 right-0 w-64 h-64 bg-white/40 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2">
                         </div>
@@ -1206,54 +1431,72 @@
                 });
             });
 
-            // Hero Section Slider Logic
-            const heroSlides = document.querySelectorAll('.hero-slider-item');
-            const heroDotsContainer = document.getElementById('hero-dots-container');
-            let currentHeroSlide = 0;
-            let heroSlideInterval;
-            const heroAutoSlideDelay = 5000; // 5 seconds
+            // GSAP Hero Animation Logic
+            gsap.registerPlugin(ScrollTrigger);
 
-            function showHeroSlide(index) {
-                heroSlides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    heroDotsContainer.children[i].classList.remove('active');
-                });
-                heroSlides[index].classList.add('active');
-                heroDotsContainer.children[index].classList.add('active');
-                currentHeroSlide = index;
-            }
+            const tl = gsap.timeline();
 
-            function nextHeroSlide() {
-                currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-                showHeroSlide(currentHeroSlide);
-            }
+            // 1. Reveal Badge
+            tl.to(".hero-badge", {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out"
+            })
+                // 2. Reveal Heading Lines (Staggered)
+                .to(".hero-line span", {
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: "power4.out"
+                }, "-=0.4")
+                // 3. Reveal Description
+                .to(".hero-desc", {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power3.out"
+                }, "-=0.6")
+                // 4. Reveal Buttons & Social Proof
+                .to([".hero-btns", ".hero-social-proof"], {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: "power3.out"
+                }, "-=0.6")
+                // 5. Image Entrance (Scale + Fade + Rotate adjustment)
+                .to(".hero-img-inner", {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "elastic.out(1, 0.75)"
+                }, "-=1")
+                // 6. Floating Elements
+                .to([".hero-float-badge", ".hero-sticker"], {
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.2,
+                    ease: "back.out(1.7)"
+                }, "-=0.8");
 
-            function startHeroAutoPlay() {
-                stopHeroAutoPlay(); // Clear any existing interval
-                heroSlideInterval = setInterval(nextHeroSlide, heroAutoSlideDelay);
-            }
-
-            function stopHeroAutoPlay() {
-                clearInterval(heroSlideInterval);
-            }
-
-            // Add event listeners for hero dots
-            heroDotsContainer.querySelectorAll('.hero-dot').forEach(dot => {
-                dot.addEventListener('click', (event) => {
-                    const index = parseInt(event.target.getAttribute('data-slide-index'));
-                    showHeroSlide(index);
-                    startHeroAutoPlay(); // Restart auto-play after manual navigation
-                });
-            });
-
-            // Pause/resume hero slider on hover
+            // Optional: Mouse movement parallax for the image
             const heroSection = document.getElementById('home');
-            heroSection.addEventListener('mouseenter', stopHeroAutoPlay);
-            heroSection.addEventListener('mouseleave', startHeroAutoPlay);
+            const heroImage = document.querySelector('.hero-image');
 
-            // Initial hero slider setup
-            showHeroSlide(0);
-            startHeroAutoPlay();
+            if (heroSection && heroImage) {
+                heroSection.addEventListener('mousemove', (e) => {
+                    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+                    gsap.to(heroImage, {
+                        x: x,
+                        y: y,
+                        duration: 1,
+                        ease: "power2.out"
+                    });
+                });
+            }
 
 
             // Gallery Logic - New Grid Implementation
@@ -1380,6 +1623,111 @@
                     reviewsTrack.appendChild(clone);
                 });
             }
+        });
+    </script>
+    <!-- Hero Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+            // 1. Reveal Background Elements (Subtle)
+            // heroTl.to(".hero-image-wrapper", { opacity: 1, duration: 1 }) 
+
+            // 2. Reveal Status Badge
+            heroTl.to(".status-badge", {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "back.out(1.7)"
+            }, 0.5);
+
+            // 3. Staggered Text Reveal
+            heroTl.to(".hero-text-line span", {
+                y: 0,
+                duration: 1.2,
+                stagger: 0.15,
+                ease: "power4.out"
+            }, 0.8);
+
+            // 4. Description Fade Up
+            heroTl.to(".hero-desc", {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+            }, 1.6);
+
+            // 5. Buttons & Trust Signals
+            heroTl.to([".hero-btns", ".hero-trust", ".hero-float-badge"], {
+                y: 0,
+                opacity: 1,
+                stagger: 0.2,
+                duration: 1
+            }, 1.8);
+
+            // 6. Image Mask Reveal
+            heroTl.add(() => {
+                const mask = document.querySelector('.mask-image-reveal');
+                if (mask) mask.classList.add('revealed');
+            }, 1);
+
+            // 7. Parallax Effect on Mouse Move
+            const heroSection = document.getElementById('home');
+            if (heroSection) {
+                heroSection.addEventListener('mousemove', (e) => {
+                    const layers = document.querySelectorAll('.parallax-layer');
+                    const x = (window.innerWidth - e.pageX * 2) / 100;
+                    const y = (window.innerHeight - e.pageY * 2) / 100;
+
+                    layers.forEach((layer) => {
+                        const speed = layer.getAttribute('data-speed') || 0.05;
+                        const xOffset = x * speed * 100;
+                        const yOffset = y * speed * 100;
+                        gsap.to(layer, {
+                            x: xOffset,
+                            y: yOffset,
+                            duration: 1,
+                            ease: "power2.out"
+                        });
+                    });
+                });
+            }
+
+            // 8. Magnetic Buttons
+            const magneticBtns = document.querySelectorAll('.magnetic-btn');
+            magneticBtns.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+
+                    gsap.to(btn, {
+                        x: x * 0.3,
+                        y: y * 0.3,
+                        scale: 1.05,
+                        duration: 0.3
+                    });
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    gsap.to(btn, {
+                        x: 0,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.3,
+                        ease: "elastic.out(1, 0.3)"
+                    });
+                });
+            });
+
+            // 9. Initial Image Scale Down (from 1.1 to 1) for cinematic feel
+            gsap.to(".hero-main-img", {
+                scale: 1,
+                duration: 2.5,
+                ease: "power2.out",
+                delay: 1
+            });
         });
     </script>
 </body>
