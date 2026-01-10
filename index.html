@@ -281,7 +281,8 @@
         .gallery-flavor {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
-            color: #666;
+            color: var(--color-highlight);
+            font-weight: bold;
             margin-bottom: 16px;
             font-style: italic;
             display: flex;
@@ -785,7 +786,7 @@
                             </span>
                             <span
                                 class="text-xs font-bold tracking-widest uppercase text-[var(--color-primary)]/80 font-display">Taking
-                                Orders for 2026</span>
+                                Orders for <span id="dynamic-year"></span>
                         </div>
                     </div>
 
@@ -861,7 +862,7 @@
                         <div class="flex flex-col">
                             <div class="flex text-yellow-400 text-sm">❤️❤️❤️❤️❤️</div>
                             <span class="text-xs font-bold text-[var(--color-text)]/60 uppercase tracking-wider">Loved
-                                by 250+ Locals</span>
+                                by 250+ Locals in Central Jersey</span>
                         </div>
                     </div>
                 </div>
@@ -947,7 +948,9 @@
                             Joy.</h2>
                         <p class="text-lg text-gray-700 mb-6 leading-relaxed relative z-10">
                             Hi, I'm <strong class="text-orange-600">Manisha</strong>. Baking isn't just a job for
-                            me—it's an art form. From my home kitchen in Dayton, NJ, I pour my heart into creating cakes
+                            me—it's an art form. From my home kitchen in <strong
+                                class="text-[var(--color-highlight)]">Dayton, NJ</strong>, I pour my heart into creating
+                            cakes
                             that are not only 100% eggless but also visually stunning and incredibly delicious.
                         </p>
                         <p
@@ -1565,7 +1568,7 @@
                             <div>
                                 <h3 class="gallery-title">${cake.theme}</h3>
                                 <div class="gallery-flavor">
-                                    <span>Flavor: ${cake.flavor}</span>
+                                    <span>${cake.flavor}</span>
                                 </div>
                                 <p class="gallery-desc">${cake.desc}</p>
                             </div>
@@ -1632,6 +1635,12 @@
     <!-- Hero Animation Script -->
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
+            // Dynamic Year Update
+            const yearSpan = document.getElementById('dynamic-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
             gsap.registerPlugin(ScrollTrigger);
 
             const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
